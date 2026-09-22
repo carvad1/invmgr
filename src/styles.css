@@ -471,6 +471,19 @@ main {
   padding: 23px 0;
   box-shadow: 0 2px 4px #20354f02;
 }
+.accrual-summary {
+  margin: 18px 0;
+  border-left: 3px solid #178979;
+  padding: 20px 24px;
+}
+.accrual-summary h3 {
+  margin: 0 0 8px;
+}
+.accrual-summary p {
+  margin: 6px 0 0;
+  color: #64748b;
+  line-height: 1.55;
+}
 .metric {
   padding: 0 22px;
   min-width: 0;

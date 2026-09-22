@@ -4,12 +4,20 @@ import { mkdirSync, writeFileSync } from "node:fs";
 import { pathToFileURL } from "node:url";
 import { ZodError } from "zod";
 import { Store } from "./store";
-import { safeSourceUrl, syncSources } from "./sources";
+import { safeSourceUrl, syncSources, syncDepositRates } from "./sources";
 import { today } from "../src/domain/types";
 
 let store: Store;
 let win: BrowserWindow;
 let syncing: Promise<unknown> | undefined;
+let rateSync: Promise<void> | undefined;
+async function refreshDepositRates() {
+  if (testMode) return;
+  rateSync ??= syncDepositRates(store).finally(() => {
+    rateSync = undefined;
+  });
+  await rateSync;
+}
 const testMode = process.env.INVEST_TEST_MODE === "1" && !app.isPackaged;
 if (process.env.INVEST_DATA_DIR && !app.isPackaged)
   app.setPath("userData", process.env.INVEST_DATA_DIR);
@@ -79,8 +87,15 @@ else {
           }
         });
       }
-      handle("portfolio:load", () => store.load());
-      handle("instrument:save", (value) => store.saveInstrument(value));
+      handle("portfolio:load", async () => {
+        await refreshDepositRates();
+        return store.load();
+      });
+      handle("instrument:save", async (value) => {
+        store.saveInstrument(value);
+        await refreshDepositRates();
+        return store.load();
+      });
       handle("instrument:remove", (id) => store.removeInstrument(id));
       handle("operation:save", (value) => store.saveOperation(value));
       handle("operation:remove", (id) => store.removeOperation(id));

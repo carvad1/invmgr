@@ -4,8 +4,26 @@ import {
   parseFinstore,
   parseNbrb,
   safeSourceUrl,
+  parseRefinancing,
 } from "../electron/sources";
 describe("Открытые источники", () => {
+  it("история ставки НБРБ проверяется и сортируется", () => {
+    expect(
+      parseRefinancing(
+        '[{"Date":"2025-01-02T00:00:00","Value":10},{"Date":"2024-01-01T00:00:00","Value":5}]',
+      ),
+    ).toEqual([
+      { date: "2024-01-01", rate: 5 },
+      { date: "2025-01-02", rate: 10 },
+    ]);
+    for (const raw of [
+      "[]",
+      "[null]",
+      '[{"Date":"bad","Value":10}]',
+      '[{"Date":"2025-01-01T00:00:00","Value":"10"}]',
+    ])
+      expect(() => parseRefinancing(raw)).toThrow();
+  });
   it("Finstore отличает ставку от цены и валюты", () => {
     const items = parseFinstore(
       '<div class="tokens-grid__el"><span class="tokens-el__title-text">Тест</span><div class="tokens-el__rate">7.70% годовых</div><div>Срок 60 месяцев Цена 20 USD</div><a href="/kupit-tokeny/123">Подробнее</a></div>',

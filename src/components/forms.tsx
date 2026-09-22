@@ -34,6 +34,7 @@ export function InstrumentForm({
   close: () => void;
 }) {
   const [kind, setKind] = useState(value.kind);
+  const [variableRate, setVariableRate] = useState(!!value.depositRate);
   const [error, setError] = useState("");
   const [busy, setBusy] = useState(false);
   async function submit(e: FormEvent<HTMLFormElement>) {
@@ -56,6 +57,18 @@ export function InstrumentForm({
       frequency: n(f, "frequency"),
       nextPayment: s(f, "nextPayment"),
       capitalization: f.get("capitalization") === "on",
+      autoAccrual: f.get("autoAccrual") === "on",
+      depositRate:
+        kind === "deposit" && variableRate
+          ? {
+              mode: "nbrb",
+              spread: n(f, "rateSpread"),
+              floor: n(f, "rateFloor"),
+              lagDays: n(f, "rateLag"),
+              history: value.depositRate?.history ?? [],
+              checkedOn: value.depositRate?.checkedOn ?? "",
+            }
+          : undefined,
       notes: s(f, "notes"),
       sourceUrl: s(f, "sourceUrl"),
       eps: optional(f, "eps"),
@@ -66,6 +79,16 @@ export function InstrumentForm({
       netIncome: optional(f, "netIncome"),
       reportDate: s(f, "reportDate"),
     };
+    if (
+      i.depositRate &&
+      (!value.depositRate ||
+        i.depositRate.spread !== value.depositRate.spread ||
+        i.depositRate.floor !== value.depositRate.floor ||
+        i.depositRate.lagDays !== value.depositRate.lagDays)
+    ) {
+      i.depositRate.history = [];
+      i.depositRate.checkedOn = "";
+    }
     setBusy(true);
     setError("");
     try {
@@ -192,14 +215,78 @@ export function InstrumentForm({
                 />
               </Field>
               {kind === "deposit" && (
-                <label className="check-field wide">
-                  <input
-                    type="checkbox"
-                    name="capitalization"
-                    defaultChecked={value.capitalization}
-                  />{" "}
-                  Ежемесячная капитализация в прогнозе
-                </label>
+                <>
+                  <label className="check-field wide">
+                    <input
+                      type="checkbox"
+                      name="autoAccrual"
+                      defaultChecked={value.autoAccrual !== false}
+                    />
+                    Автоматически считать начисленные проценты и доходность
+                  </label>
+                  <label className="check-field wide">
+                    <input
+                      type="checkbox"
+                      name="capitalization"
+                      defaultChecked={value.capitalization}
+                    />{" "}
+                    Проценты остаются на вкладе (капитализация по графику
+                    выплат)
+                  </label>
+                  <Field label="Тип ставки" wide>
+                    <select
+                      value={variableRate ? "nbrb" : "fixed"}
+                      onChange={(e) =>
+                        setVariableRate(e.target.value === "nbrb")
+                      }
+                    >
+                      <option value="fixed">
+                        Фиксированная ставка на весь срок
+                      </option>
+                      <option value="nbrb">
+                        Ставка НБРБ + надбавка (автообновление)
+                      </option>
+                    </select>
+                  </Field>
+                  {variableRate && (
+                    <>
+                      <Field label="Надбавка к НБРБ, п.п.">
+                        <input
+                          type="number"
+                          step="any"
+                          name="rateSpread"
+                          defaultValue={value.depositRate?.spread ?? 0}
+                        />
+                      </Field>
+                      <Field label="Минимальная ставка, %">
+                        <input
+                          type="number"
+                          step="any"
+                          min="0"
+                          name="rateFloor"
+                          defaultValue={value.depositRate?.floor ?? 0}
+                        />
+                      </Field>
+                      <Field
+                        label="Изменение ставки через дней"
+                        hint="По договору: 0 — в тот же день, 1 — на следующий день"
+                      >
+                        <input
+                          type="number"
+                          min="0"
+                          max="30"
+                          name="rateLag"
+                          defaultValue={value.depositRate?.lagDays ?? 1}
+                        />
+                      </Field>
+                    </>
+                  )}
+                  <p className="wide">
+                    Расчёт за прошедшие дни: фактический остаток × ставка / 365
+                    или 366. Перевод на карту не увеличивает тело вклада.
+                    Фактическая выплата заменяет расчётную сумму.
+                  </p>
+                </>
               )}
             </>
           )}

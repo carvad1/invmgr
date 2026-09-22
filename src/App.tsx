@@ -77,6 +77,7 @@ import {
   QuoteForm,
 } from "./components/forms";
 import Analysis from "./components/Analysis";
+import { depositRateAt } from "./domain/deposit";
 
 const pages = [
   {
@@ -150,6 +151,7 @@ export default function App() {
   const [filter, setFilter] = useState("all");
   const [selected, setSelected] = useState("");
   const [period, setPeriod] = useState(365);
+  const [asOf, setAsOf] = useState(today());
   useEffect(() => {
     if (!window.invest) {
       setFatal(
@@ -163,15 +165,34 @@ export default function App() {
       .catch((e) => setFatal(e.message));
   }, []);
   useEffect(() => {
+    const tick = setInterval(() => setAsOf(today()), 60000);
+    const refresh = setInterval(() => {
+      window.invest
+        ?.load()
+        .then(setState)
+        .catch(() => {});
+    }, 15 * 60000);
+    const onFocus = () => setAsOf(today());
+    window.addEventListener("focus", onFocus);
+    return () => {
+      clearInterval(tick);
+      clearInterval(refresh);
+      window.removeEventListener("focus", onFocus);
+    };
+  }, []);
+  useEffect(() => {
     if (!toast) return;
     const id = setTimeout(() => setToast(null), 6500);
     return () => clearTimeout(id);
   }, [toast]);
-  const p = useMemo(() => (state ? portfolio(state) : null), [state]);
+  const p = useMemo(
+    () => (state ? portfolio(state, asOf) : null),
+    [state, asOf],
+  );
   const history = useMemo(() => {
     if (!state?.operations.length) return [];
     const first = sortOperations(state.operations)[0].date;
-    const end = today();
+    const end = asOf;
     const begin = new Date(`${end}T00:00:00Z`);
     begin.setUTCDate(begin.getUTCDate() - period);
     const start =
@@ -197,7 +218,7 @@ export default function App() {
         invested: result.depositsByn - result.withdrawalsByn,
       };
     });
-  }, [state, period]);
+  }, [state, period, asOf]);
   if (fatal)
     return (
       <div className="fatal">
@@ -301,9 +322,9 @@ export default function App() {
   const allocations = kinds
     .map((kind, n) => ({
       name: kindLabels[kind],
-      value: active
+      value: p.positions
         .filter((p) => p.instrument.kind === kind)
-        .reduce((s, p) => s + (p.valueByn ?? 0), 0),
+        .reduce((s, p) => s + (p.valueByn ?? 0) + (p.accruedByn ?? 0), 0),
       color: palette[n],
     }))
     .concat([{ name: "Деньги", value: p.cashByn, color: palette[4] }])
@@ -463,7 +484,7 @@ export default function App() {
             <div className="avatar">Я</div>
             <div>
               <strong>Личный портфель</strong>
-              <span>Беларусь · v0.1</span>
+              <span>Беларусь · v0.1.1</span>
             </div>
             <span className="status-dot" />
           </div>
@@ -586,7 +607,11 @@ export default function App() {
                 <Metric
                   label="Стоимость портфеля"
                   value={display(p.totalByn)}
-                  hint={`Активы + деньги · ${base}`}
+                  hint={
+                    p.hasAutoAccrual
+                      ? `Включая расчётные проценты · ${base}`
+                      : `Активы + деньги · ${base}`
+                  }
                 />
                 <Metric
                   label="Общий результат"
@@ -607,10 +632,33 @@ export default function App() {
                       ? "—"
                       : `${num(p.annualReturn * 100)}%`
                   }
-                  hint="Годовая · с учётом дат · в BYN"
+                  hint={
+                    p.hasAutoAccrual
+                      ? "Годовая · с начисленными процентами · оценка в BYN"
+                      : "Годовая · с учётом дат · в BYN"
+                  }
                   positive={(p.annualReturn ?? 0) > 0}
                 />
               </div>
+              {p.hasAutoAccrual && (
+                <section
+                  className="panel accrual-summary"
+                  aria-label="Автоматический расчёт процентов"
+                >
+                  <div>
+                    <h3>Расчётные проценты: {display(p.accruedByn)}</h3>
+                    <p>
+                      Начислено по условиям вкладов на {dateLabel(asOf)}. Уже
+                      включено в стоимость, результат и XIRR. Пересчитывается
+                      каждый день.
+                    </p>
+                  </div>
+                  <p>
+                    Подтверждённые выплаты показаны отдельно. При записи выплаты
+                    соответствующая сумма вычитается из расчётных процентов.
+                  </p>
+                </section>
+              )}
               {p.warnings.length > 0 && (
                 <details className="data-warning">
                   <summary>
@@ -963,7 +1011,7 @@ export default function App() {
                           {money(pos.quantity * pos.price, i.currency)}
                           <small>
                             {i.kind === "deposit"
-                              ? `Ставка ${num(i.annualRate)}% годовых`
+                              ? `Тело вклада · ставка ${num(depositRateAt(i, asOf))}% годовых`
                               : `${num(pos.quantity, 8)} ед. · ${pos.estimated ? "по стоимости покупки" : pos.priceDate ? `цена от ${dateLabel(pos.priceDate)}` : "нет цены"}`}
                           </small>
                         </div>
@@ -977,6 +1025,18 @@ export default function App() {
                             <b>{i.maturity ? dateLabel(i.maturity) : "—"}</b>
                           </div>
                         </div>
+                        {i.kind === "deposit" && i.autoAccrual !== false && (
+                          <div className="inline-stats">
+                            <div>
+                              <span>Расчётные проценты</span>
+                              <b>{money(pos.accrued, i.currency)}</b>
+                            </div>
+                            <div>
+                              <span>За день по текущей ставке</span>
+                              <b>{money(pos.dailyInterest, i.currency)}</b>
+                            </div>
+                          </div>
+                        )}
                         {buys.length > 0 && (
                           <details className="thesis-details">
                             <summary>
@@ -1572,8 +1632,9 @@ export default function App() {
                     <p>
                       Последняя сохранённая цена × количество + денежные
                       остатки. Без цены используется стоимость покупки с
-                      пометкой. Прибыль = стоимость + выводы − пополнения.
-                      Проценты по вкладу признаются только после записи выплаты.
+                      пометкой. Прибыль = стоимость + выводы − пополнения. Для
+                      вкладов автоматически добавляются расчётные проценты за
+                      прошедшие дни. Подтверждённые выплаты не дублируются.
                     </p>
                   </div>
                   <div>
@@ -1589,7 +1650,9 @@ export default function App() {
                     <h4>Годовая доходность</h4>
                     <p>
                       XIRR использует даты внешних пополнений и выводов и
-                      текущую стоимость. При неоднозначных денежных потоках или
+                      текущую стоимость, включая расчётные проценты вкладов. Это
+                      годовая оценка, она может отличаться от номинальной ставки
+                      договора. При неоднозначных денежных потоках или
                       отсутствии периода вместо значения показан прочерк. Налоги
                       не рассчитываются.
                     </p>

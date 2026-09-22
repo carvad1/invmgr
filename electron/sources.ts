@@ -2,6 +2,8 @@ import { load } from "cheerio";
 import { createHash } from "node:crypto";
 import type { CatalogItem, Currency, FxRate } from "../src/domain/types";
 import { Store } from "./store";
+import { today } from "../src/domain/types";
+import { shiftDate } from "../src/domain/deposit";
 
 const clean = (s: string) => s.replace(/\s+/g, " ").trim();
 const number = (s: string) => {
@@ -178,6 +180,107 @@ export function parseNbrb(raw: string): FxRate[] {
   if (rates.length !== 3) throw new Error("НБРБ не вернул все валюты");
   return rates;
 }
+export function parseRefinancing(raw: string) {
+  const rows: unknown = JSON.parse(raw);
+  if (!Array.isArray(rows) || !rows.length)
+    throw new Error("НБРБ не вернул историю ставки");
+  const rates = rows
+    .map((row) => {
+      if (
+        !row ||
+        typeof row.Date !== "string" ||
+        !/^\d{4}-\d{2}-\d{2}T/.test(row.Date) ||
+        !Number.isFinite(Date.parse(row.Date)) ||
+      new Date(row.Date.slice(0, 10)).toISOString().slice(0, 10) !== row.Date.slice(0, 10) ||
+        typeof row.Value !== "number" ||
+        !Number.isFinite(row.Value) ||
+        row.Value < 0 ||
+        row.Value > 1000
+      )
+        throw new Error("Некорректная история ставки НБРБ");
+      return { date: row.Date.slice(0, 10), rate: row.Value as number };
+    })
+    .sort((a, b) => a.date.localeCompare(b.date));
+  if (new Set(rates.map((r) => r.date)).size !== rates.length)
+    throw new Error("Повторяющиеся даты ставок НБРБ");
+  return rates;
+}
+export async function syncDepositRates(
+  store: Store,
+  force = false,
+  fetcher = download,
+) {
+  const date = today();
+  const needed = store
+    .load()
+    .instruments.some(
+      (i) =>
+        i.kind === "deposit" &&
+        i.autoAccrual !== false &&
+        i.depositRate &&
+        (force || i.depositRate.checkedOn !== date),
+    );
+  if (!needed) return;
+  // Retry failed requests at most once an hour, while preserving the cached history.
+  const last = store
+    .load()
+    .syncRuns.find((s) => s.provider === "НБРБ · ставка вклада");
+  if (
+    !force &&
+    last?.status === "error" &&
+    Date.now() - Date.parse(last.date) < 3600000
+  )
+    return;
+  try {
+    const rates = parseRefinancing(
+      await fetcher("https://api.nbrb.by/refinancingrate"),
+    );
+    const state = store.load();
+    for (const i of state.instruments) {
+      if (i.kind !== "deposit" || i.autoAccrual === false || !i.depositRate)
+        continue;
+      const terms = i.depositRate;
+      const first =
+        state.operations
+          .filter((o) => o.instrumentId === i.id && o.kind === "buy")
+          .map((o) => o.date)
+          .sort()[0] ?? date;
+      const fullHistory = rates
+        .filter((r) => r.date <= date)
+        .map((r) => ({
+          date: shiftDate(r.date, terms.lagDays),
+          rate: Math.max(
+            terms.floor,
+            Number((r.rate + terms.spread).toFixed(8)),
+          ),
+        }));
+      const initial = fullHistory.filter((r) => r.date <= first).at(-1);
+      if (!initial)
+        throw new Error("В истории НБРБ нет ставки на дату открытия вклада");
+      const history = [initial, ...fullHistory.filter((r) => r.date > first)];
+      const current = history.filter((r) => r.date <= date).at(-1)!;
+      store.saveInstrument({
+        ...i,
+        annualRate: current.rate,
+        depositRate: { ...terms, history, checkedOn: date },
+      });
+    }
+    store.log({
+      provider: "НБРБ · ставка вклада",
+      date: new Date().toISOString(),
+      status: "ok",
+      message:
+        "История ставок обновлена; проценты пересчитываются по датам изменений",
+    });
+  } catch (e) {
+    store.log({
+      provider: "НБРБ · ставка вклада",
+      date: new Date().toISOString(),
+      status: "error",
+      message: e instanceof Error ? e.message : "Не удалось проверить ставку",
+    });
+  }
+}
 export async function syncSources(store: Store) {
   await Promise.allSettled(
     [
@@ -228,5 +331,6 @@ export async function syncSources(store: Store) {
       }
     }),
   );
+  await syncDepositRates(store, true);
   return store.load();
 }

@@ -38,6 +38,15 @@ export interface Instrument {
   frequency: number;
   nextPayment: string;
   capitalization: boolean;
+  autoAccrual?: boolean;
+  depositRate?: {
+    mode: "nbrb";
+    spread: number;
+    floor: number;
+    lagDays: number;
+    history: { date: string; rate: number }[];
+    checkedOn: string;
+  };
   notes: string;
   sourceUrl: string;
   eps: number | null;

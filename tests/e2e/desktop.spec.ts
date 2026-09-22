@@ -31,6 +31,11 @@ test("Windows desktop: вклад, выплата, анализ, журнал и
     await page.getByLabel("Название", { exact: true }).fill("Мой вклад BYN");
     await page.getByLabel("Банк / площадка / счёт").fill("Мой банк");
     await page.getByLabel("Ставка, % годовых").fill("12");
+    await expect(
+      page.getByLabel(
+        "Автоматически считать начисленные проценты и доходность",
+      ),
+    ).toBeChecked();
     await page.getByLabel("Дата погашения / окончания").fill("2027-09-22");
     await page.getByLabel("Ближайшая дата выплаты").fill("2026-10-22");
     await page
@@ -50,6 +55,11 @@ test("Windows desktop: вклад, выплата, анализ, журнал и
     let state = await page.evaluate(() => window.invest.load());
     expect(state.operations).toHaveLength(2);
     expect(state.instruments).toHaveLength(1);
+    await expect(
+      page.getByRole("region", { name: "Автоматический расчёт процентов" }),
+    ).toContainText("Расчётные проценты:");
+    const xirr = page.locator(".metric").filter({ hasText: "Доходность XIRR" });
+    await expect(xirr).not.toContainText("0%");
     await page.getByRole("button", { name: "Операция", exact: true }).click();
     await page.getByLabel("Операция", { exact: true }).selectOption("income");
     await page.getByLabel("Дата операции").fill("2026-09-01");

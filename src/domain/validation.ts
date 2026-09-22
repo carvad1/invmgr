@@ -35,6 +35,19 @@ export const instrumentSchema = z
     ]),
     nextPayment: optionalDate,
     capitalization: z.boolean(),
+    autoAccrual: z.boolean().optional(),
+    depositRate: z
+      .object({
+        mode: z.literal("nbrb"),
+        spread: z.number().finite().min(-100).max(100),
+        floor: nonnegative.max(1000),
+        lagDays: z.number().int().min(0).max(30),
+        history: z
+          .array(z.object({ date: dateSchema, rate: nonnegative.max(1000) }))
+          .max(2000),
+        checkedOn: optionalDate,
+      })
+      .optional(),
     notes: text,
     sourceUrl: z.union([z.literal(""), z.url().max(2000)]),
     eps: z.number().finite().nullable(),

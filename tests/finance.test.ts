@@ -15,7 +15,7 @@ describe("Финансовый учёт", () => {
     expect(p.profitByn).toBe(0);
     expect(p.annualReturn).toBeCloseTo(0, 8);
   });
-  it("вклад учитывает только полученные проценты, а не прогноз", () => {
+  it("подтверждённая выплата по вкладу заменяет расчётный доход", () => {
     const i = instrument({ kind: "deposit", provider: "Банк" });
     const p = portfolio(
       state({

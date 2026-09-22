@@ -1,6 +1,7 @@
 import Decimal from "decimal.js";
 import type { Currency, Instrument, Operation, State } from "./types";
 import { today } from "./types";
+import { depositAccrual } from "./deposit";
 const D = (v: number) => new Decimal(v);
 export const rounded = (v: number, places = 8) =>
   D(v).toDecimalPlaces(places).toNumber();
@@ -34,6 +35,9 @@ export interface Position {
   valueByn: number | null;
   unrealizedByn: number | null;
   fxImpactByn: number | null;
+  accruedByn: number | null;
+  accrued: number;
+  dailyInterest: number;
 }
 export interface Cash {
   provider: string;
@@ -66,6 +70,9 @@ export function portfolio(state: State, asOf = today(), validate = false) {
       valueByn: 0,
       unrealizedByn: 0,
       fxImpactByn: 0,
+      accruedByn: 0,
+      accrued: 0,
+      dailyInterest: 0,
     });
   const balances = new Map<string, Cash>();
   let depositsByn = 0,
@@ -137,6 +144,21 @@ export function portfolio(state: State, asOf = today(), validate = false) {
   }
   const warnings = new Set<string>();
   for (const p of positions.values()) {
+    const accrual = depositAccrual(p.instrument, state.operations, asOf);
+    p.accrued = accrual.unrecorded;
+    p.dailyInterest = accrual.perDay;
+    const accrualFx = fxAt(state, p.instrument.currency, asOf);
+    p.accruedByn = p.accrued
+      ? accrualFx
+        ? p.accrued * accrualFx.rate
+        : null
+      : 0;
+    for (const warning of accrual.warnings)
+      warnings.add(`${p.instrument.name}: ${warning}`);
+    if (p.accruedByn === null)
+      warnings.add(
+        `Нет курса ${p.instrument.currency} к BYN для начисленных процентов`,
+      );
     if (p.quantity <= 0) continue;
     const q = state.quotes
       .filter((q) => q.instrumentId === p.instrument.id && q.date <= asOf)
@@ -178,10 +200,12 @@ export function portfolio(state: State, asOf = today(), validate = false) {
   const cash = [...balances.values()];
   const complete =
     !pp.some((p) => p.valueByn === null) &&
+    !pp.some((p) => p.accruedByn === null) &&
     !cash.some((c) => c.valueByn === null);
   const assetsByn = pp.reduce((s, p) => s + (p.valueByn ?? 0), 0);
   const cashByn = cash.reduce((s, p) => s + (p.valueByn ?? 0), 0);
-  const totalByn = complete ? assetsByn + cashByn : null;
+  const accruedByn = pp.reduce((s, p) => s + (p.accruedByn ?? 0), 0);
+  const totalByn = complete ? assetsByn + cashByn + accruedByn : null;
   const profitByn =
     totalByn === null ? null : totalByn + withdrawalsByn - depositsByn;
   const annualReturn =
@@ -194,6 +218,11 @@ export function portfolio(state: State, asOf = today(), validate = false) {
     totalByn,
     assetsByn,
     cashByn,
+    accruedByn: complete ? accruedByn : null,
+    hasAutoAccrual: pp.some(
+      (p) =>
+        p.instrument.kind === "deposit" && p.instrument.autoAccrual !== false,
+    ),
     depositsByn,
     withdrawalsByn,
     profitByn,

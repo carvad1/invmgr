@@ -6,6 +6,8 @@ import { randomUUID } from "node:crypto";
 import { Store } from "../electron/store";
 import { portfolio } from "../src/domain/finance";
 import { instrument, operation } from "./helpers";
+import { syncDepositRates } from "../electron/sources";
+import { today } from "../src/domain/types";
 let dir: string;
 let store: Store;
 beforeEach(() => {
@@ -23,8 +25,61 @@ afterEach(() => {
   rmSync(target, { recursive: true, force: true });
 });
 describe("SQLite и проверка входных данных", () => {
+  it("автоставка сохраняет историю, задержку и кэш; сбой сети не стирает данные", async () => {
+    const i = instrument({
+      kind: "deposit",
+      annualRate: 10.05,
+      depositRate: {
+        mode: "nbrb",
+        spread: 5.05,
+        floor: 0.1,
+        lagDays: 1,
+        history: [],
+        checkedOn: "",
+      },
+    });
+    store.saveInstrument(i);
+    store.saveOperation({
+      operation: operation({
+        kind: "buy",
+        instrumentId: i.id,
+        quantity: 1000,
+        price: 1,
+      }),
+      fundFromOutside: true,
+    });
+    let requests = 0;
+    const fetcher = async () => {
+      requests++;
+      return '[{"Date":"2024-01-01T00:00:00","Value":5},{"Date":"2025-01-02T00:00:00","Value":10}]';
+    };
+    await syncDepositRates(store, false, fetcher);
+    const saved = store.load().instruments[0];
+    expect(saved.annualRate).toBe(15.05);
+    expect(saved.depositRate?.history).toEqual([
+      { date: "2024-01-02", rate: 10.05 },
+      { date: "2025-01-03", rate: 15.05 },
+    ]);
+    expect(saved.depositRate?.checkedOn).toBe(today());
+    await syncDepositRates(store, false, fetcher);
+    expect(requests).toBe(1);
+    await syncDepositRates(store, true, async () => {
+      throw new Error("offline");
+    });
+    expect(store.load().instruments[0]).toEqual(saved);
+    expect(store.load().syncRuns[0].status).toBe("error");
+    expect(store.load().operations).toHaveLength(2);
+    const path = join(dir, "rates.sqlite");
+    await store.backup(path);
+    await store.restore(path);
+    expect(store.load().instruments[0]).toEqual(saved);
+  });
   it("покупка со связанным пополнением сохраняется после перезапуска", () => {
-    const i = instrument({ kind: "deposit", provider: "Банк" });
+    const i = instrument({
+      kind: "deposit",
+      provider: "Банк",
+      autoAccrual: false,
+    });
     store.saveInstrument(i);
     store.saveOperation({
       operation: operation({
