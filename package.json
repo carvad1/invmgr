@@ -1,0 +1,70 @@
+{
+  "name": "invest-manager",
+  "productName": "Invest Manager",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Локальный учёт и анализ инвестиций в Беларуси",
+  "author": "Invest Manager",
+  "main": "dist-electron/main.cjs",
+  "scripts": {
+    "setup": "node node_modules/electron/install.js",
+    "dev": "node scripts/dev.mjs",
+    "build": "tsc --noEmit && vite build && node scripts/build.mjs",
+    "start": "electron .",
+    "test": "vitest run",
+    "test:e2e": "npm run build && playwright test",
+    "pack": "npm run build && electron-builder --win dir",
+    "dist": "npm run build && electron-builder --win nsis --publish never",
+    "check:sources": "tsx scripts/check-sources.ts"
+  },
+  "dependencies": {
+    "cheerio": "^1.2.0",
+    "decimal.js": "^10.6.0",
+    "lucide-react": "^0.468.0",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "recharts": "^3.6.0",
+    "zod": "^4.3.0"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.58.0",
+    "@types/node": "^24.0.0",
+    "@types/react": "^19.2.0",
+    "@types/react-dom": "^19.2.0",
+    "@vitejs/plugin-react": "^5.1.0",
+    "electron": "44.4.4",
+    "electron-builder": "^26.0.0",
+    "esbuild": "^0.28.2",
+    "prettier": "^3.9.8",
+    "tsx": "^4.21.0",
+    "typescript": "^5.9.0",
+    "vite": "^7.3.0",
+    "vitest": "^4.0.0"
+  },
+  "build": {
+    "appId": "by.investmanager.desktop",
+    "publish": [],
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "dist/**/*",
+      "dist-electron/**/*",
+      "package.json"
+    ],
+    "asar": true,
+    "npmRebuild": false,
+    "electronDist": "node_modules/electron/dist",
+    "win": {
+      "target": "nsis",
+      "icon": "assets/icon.ico",
+      "signExecutable": false
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "artifactName": "Invest-Manager-${version}-Setup.${ext}"
+    }
+  }
+}

@@ -1,0 +1,232 @@
+import { load } from "cheerio";
+import { createHash } from "node:crypto";
+import type { CatalogItem, Currency, FxRate } from "../src/domain/types";
+import { Store } from "./store";
+
+const clean = (s: string) => s.replace(/\s+/g, " ").trim();
+const number = (s: string) => {
+  const m = s
+    .replace(/\s/g, "")
+    .replace(",", ".")
+    .match(/\d+(?:\.\d+)?/);
+  return m ? Number(m[0]) : null;
+};
+const stableId = (s: string) =>
+  createHash("sha256").update(s).digest("hex").slice(0, 24);
+const isoDate = (s: string) => {
+  const m = s.match(/(\d{2})\.(\d{2})\.(\d{4})/);
+  return m ? `${m[3]}-${m[2]}-${m[1]}` : "";
+};
+export const safeSourceUrl = (url: string) => {
+  try {
+    const u = new URL(url);
+    return (
+      u.protocol === "https:" &&
+      !u.username &&
+      !u.password &&
+      !u.port &&
+      [
+        "finstore.by",
+        "app.finstore.by",
+        "aigenis.by",
+        "web.aigenis.by",
+        "www.nbrb.by",
+        "api.nbrb.by",
+      ].includes(u.hostname)
+    );
+  } catch {
+    return false;
+  }
+};
+export async function download(url: string) {
+  if (!safeSourceUrl(url)) throw new Error("Источник не разрешён");
+  const response = await fetch(url, {
+    signal: AbortSignal.timeout(20000),
+    redirect: "error",
+    headers: {
+      "User-Agent": "InvestManager/0.1 (personal portfolio research)",
+      Accept: "text/html,application/json",
+    },
+  });
+  if (!response.ok) throw new Error(`Источник вернул HTTP ${response.status}`);
+  const reader = response.body!.getReader();
+  const chunks: Uint8Array[] = [];
+  let size = 0;
+  try {
+    while (true) {
+      const { done, value } = await reader.read();
+      if (done) break;
+      size += value.length;
+      if (size > 3_000_000) throw new Error("Ответ источника слишком большой");
+      chunks.push(value);
+    }
+  } finally {
+    await reader.cancel();
+  }
+  return Buffer.concat(chunks).toString("utf8");
+}
+export function parseFinstore(
+  html: string,
+  fetchedAt = new Date().toISOString(),
+): CatalogItem[] {
+  const $ = load(html);
+  const items: CatalogItem[] = [];
+  $(".tokens-grid__el").each((_, el) => {
+    const card = $(el);
+    const text = clean(card.text());
+    const name = clean(card.find(".tokens-el__title-text").first().text());
+    const priceMatch = text.match(/Цена\s*([\d., ]+)\s*(BYN|USD|EUR|RUB)/);
+    const link = card
+      .find("a")
+      .filter((_, a) => $(a).text().includes("Подробнее"))
+      .attr("href");
+    if (!name || !priceMatch || !link) return;
+    const url = new URL(link, "https://finstore.by").href;
+    if (!safeSourceUrl(url)) return;
+    items.push({
+      id: stableId(`finstore:${url}:${priceMatch[2]}`),
+      provider: "Finstore",
+      name,
+      kind: "token",
+      currency: priceMatch[2] as Currency,
+      price: number(priceMatch[1]),
+      rate: number(card.find(".tokens-el__rate").text()),
+      termMonths: number(text.match(/Срок\s*(\d+)/)?.[1] ?? ""),
+      maturity: "",
+      sourceUrl: url,
+      fetchedAt,
+      details:
+        clean(card.find(".tokens-el__status").text()) ||
+        "Условия выпуска и отчётность проверьте в карточке эмитента. Срок выпуска не равен оставшемуся сроку.",
+      priceLabel: "Цена размещения",
+      priceDate: "",
+    });
+  });
+  return [...new Map(items.map((i) => [i.id, i])).values()];
+}
+export function parseAigenis(
+  html: string,
+  fetchedAt = new Date().toISOString(),
+): CatalogItem[] {
+  const $ = load(html);
+  const items: CatalogItem[] = [];
+  $(".paper-card").each((_, el) => {
+    const card = $(el);
+    const name = clean(card.find("h4").text());
+    const first = clean(card.find(".base-price-currency").first().text());
+    const currency = first.match(/BYN|USD|EUR|RUB/)?.[0] as
+      Currency | undefined;
+    if (!name || !currency) return;
+    const marketLabel = card
+      .find(".base-price-header")
+      .filter((_, x) => $(x).text().includes("Рыночная стоимость"))
+      .first();
+    const rateLabel = card
+      .find(".base-price-header")
+      .filter((_, x) => $(x).text().includes("Ставка дохода"))
+      .first();
+    const stock = card.hasClass("wp-block-aigenis-slide-stocks");
+    const maturity = isoDate(card.find(".bounds-date").first().text());
+    items.push({
+      id: stableId(`aigenis:${name}`),
+      provider: "Aigenis",
+      name,
+      kind: stock ? "stock" : "bond",
+      currency,
+      price: number(marketLabel.length ? marketLabel.next().text() : first),
+      rate: rateLabel.length ? number(rateLabel.next().text()) : null,
+      termMonths: null,
+      maturity,
+      sourceUrl: "https://aigenis.by/",
+      fetchedAt,
+      details: clean(
+        card
+          .find(".body p,.footer p")
+          .map((_, el) => clean($(el).text()))
+          .get()
+          .join(" "),
+      ),
+      priceLabel: marketLabel.length
+        ? "Рыночная цена с сайта"
+        : "Номинал, не рыночная цена",
+      priceDate: stock ? isoDate(card.find(".footer").text()) : "",
+    });
+  });
+  return [...new Map(items.map((i) => [i.id, i])).values()];
+}
+export function parseNbrb(raw: string): FxRate[] {
+  const data: unknown = JSON.parse(raw);
+  if (!Array.isArray(data)) throw new Error("Неожиданный формат НБРБ");
+  const rates = data
+    .filter((r) => ["USD", "EUR", "RUB"].includes(r.Cur_Abbreviation))
+    .map((r) => {
+      if (
+        typeof r.Cur_OfficialRate !== "number" ||
+        typeof r.Cur_Scale !== "number" ||
+        r.Cur_OfficialRate <= 0 ||
+        r.Cur_Scale <= 0 ||
+        typeof r.Date !== "string"
+      )
+        throw new Error("Некорректные значения НБРБ");
+      return {
+        currency: r.Cur_Abbreviation as Currency,
+        date: r.Date.slice(0, 10),
+        rate: r.Cur_OfficialRate / r.Cur_Scale,
+        source: "НБРБ · официальный курс",
+      };
+    });
+  if (rates.length !== 3) throw new Error("НБРБ не вернул все валюты");
+  return rates;
+}
+export async function syncSources(store: Store) {
+  await Promise.allSettled(
+    [
+      {
+        name: "Finstore",
+        run: async () => {
+          const items = parseFinstore(
+            await download("https://finstore.by/kupit-tokeny/"),
+          );
+          store.saveCatalog("Finstore", items);
+          return `${items.length} предложений из открытого каталога`;
+        },
+      },
+      {
+        name: "Aigenis",
+        run: async () => {
+          const items = parseAigenis(await download("https://aigenis.by/"));
+          store.saveCatalog("Aigenis", items);
+          return `${items.length} инструментов с открытой страницы`;
+        },
+      },
+      {
+        name: "НБРБ",
+        run: async () => {
+          const rates = parseNbrb(
+            await download("https://api.nbrb.by/exrates/rates?periodicity=0"),
+          );
+          rates.forEach((r) => store.saveFx(r));
+          return "Курсы USD, EUR, RUB обновлены";
+        },
+      },
+    ].map(async (source) => {
+      try {
+        const message = await source.run();
+        store.log({
+          provider: source.name,
+          date: new Date().toISOString(),
+          status: "ok",
+          message,
+        });
+      } catch (e) {
+        store.log({
+          provider: source.name,
+          date: new Date().toISOString(),
+          status: "error",
+          message: e instanceof Error ? e.message : "Источник недоступен",
+        });
+      }
+    }),
+  );
+  return store.load();
+}
