@@ -15,6 +15,7 @@ const api: DesktopAPI = {
   saveFx: (value) => call("fx:save", value),
   saveSettings: (value) => call("settings:save", value),
   sync: () => call("sources:sync"),
+  inspectSource: (url) => call("source:inspect", url),
   backup: () => call("data:backup"),
   restore: () => call("data:restore"),
   exportCsv: () => call("data:export"),

@@ -4,13 +4,22 @@ import { mkdirSync, writeFileSync } from "node:fs";
 import { pathToFileURL } from "node:url";
 import { ZodError } from "zod";
 import { Store } from "./store";
-import { safeSourceUrl, syncSources, syncDepositRates } from "./sources";
+import {
+  safeSourceUrl,
+  syncSources,
+  syncDepositRates,
+  inspectSource,
+} from "./sources";
 import { today } from "../src/domain/types";
 
 let store: Store;
 let win: BrowserWindow;
 let syncing: Promise<unknown> | undefined;
 let rateSync: Promise<void> | undefined;
+let quitting = false;
+app.on("before-quit", () => {
+  quitting = true;
+});
 async function refreshDepositRates() {
   if (testMode) return;
   rateSync ??= syncDepositRates(store).finally(() => {
@@ -115,6 +124,7 @@ else {
           );
         await shell.openExternal(url);
       });
+      handle("source:inspect", (url) => inspectSource(url));
       handle("data:backup", async () => {
         const { filePath } = await dialog.showSaveDialog(win, {
           title: "Сохранить резервную копию",
@@ -217,6 +227,7 @@ else {
       else await win.loadFile(rendererPath);
     })
     .catch((error) => {
+      if (quitting) return;
       dialog.showErrorBox("Invest Manager", String(error));
       app.quit();
     });

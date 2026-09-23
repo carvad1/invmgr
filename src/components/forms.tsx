@@ -16,6 +16,7 @@ import {
 } from "../domain/types";
 import { fxAt } from "../domain/finance";
 import { Field, money, Modal } from "./ui";
+import { blankResearch } from "../domain/research";
 
 const n = (form: FormData, key: string) =>
   Number(String(form.get(key) ?? "").replace(",", "."));
@@ -78,6 +79,29 @@ export function InstrumentForm({
       revenue: optional(f, "revenue"),
       netIncome: optional(f, "netIncome"),
       reportDate: s(f, "reportDate"),
+      research: ["bond", "token"].includes(kind)
+        ? {
+            ...(value.research ?? blankResearch(s(f, "ticker"), s(f, "name"))),
+            issuer: s(f, "issuer"),
+            rateKnown: f.get("rateKnown") === "on",
+            nominalKnown: f.get("nominalKnown") === "on",
+            rateModel: s(f, "rateModel") as "fixed" | "indexed" | "unknown",
+            security: s(f, "security"),
+            paymentStatus: s(f, "paymentStatus") as
+              "unknown" | "current" | "late",
+            statusDate: s(f, "statusDate"),
+            statusSource: s(f, "statusSource"),
+            rating: s(f, "ratingValue")
+              ? {
+                  value: s(f, "ratingValue"),
+                  kind: s(f, "ratingKind") as "credit" | "reputation",
+                  agency: s(f, "ratingAgency"),
+                  date: s(f, "ratingDate"),
+                  sourceUrl: s(f, "ratingSource"),
+                }
+              : undefined,
+          }
+        : value.research,
     };
     if (
       i.depositRate &&
@@ -306,6 +330,122 @@ export function InstrumentForm({
             />
           </Field>
         </div>
+        {["bond", "token"].includes(kind) && (
+          <details className="form-details">
+            <summary>Рейтинг, обеспечение и проверка выплат</summary>
+            <p>
+              Заполняйте по документам выпуска. Неизвестные сведения оставьте
+              пустыми. Источники выплат и рейтинга — ссылки на Finstore или
+              Aigenis.
+            </p>
+            <div className="form-grid">
+              <Field label="Эмитент">
+                <input
+                  name="issuer"
+                  defaultValue={value.research?.issuer || value.name}
+                />
+              </Field>
+              <Field label="Тип ставки">
+                <select
+                  name="rateModel"
+                  defaultValue={value.research?.rateModel ?? "unknown"}
+                >
+                  <option value="unknown">
+                    Не проверен · сценарий при текущей ставке
+                  </option>
+                  <option value="fixed">Фиксированная по документам</option>
+                  <option value="indexed">Переменная / индексируемая</option>
+                </select>
+              </Field>
+              <label className="check-field">
+                <input
+                  name="rateKnown"
+                  type="checkbox"
+                  defaultChecked={value.research?.rateKnown ?? true}
+                />
+                Ставка указана в условиях
+              </label>
+              <label className="check-field">
+                <input
+                  name="nominalKnown"
+                  type="checkbox"
+                  defaultChecked={value.research?.nominalKnown ?? true}
+                />
+                Номинал известен
+              </label>
+              <Field label="Опубликованный рейтинг">
+                <input
+                  name="ratingValue"
+                  placeholder="Например, by.A+"
+                  defaultValue={value.research?.rating?.value}
+                />
+              </Field>
+              <Field label="Вид рейтинга">
+                <select
+                  name="ratingKind"
+                  defaultValue={value.research?.rating?.kind ?? "credit"}
+                >
+                  <option value="credit">Кредитный рейтинг</option>
+                  <option value="reputation">Деловая репутация</option>
+                </select>
+              </Field>
+              <Field label="Рейтинговое агентство">
+                <input
+                  name="ratingAgency"
+                  defaultValue={value.research?.rating?.agency}
+                />
+              </Field>
+              <Field label="Дата рейтинга">
+                <input
+                  name="ratingDate"
+                  type="date"
+                  defaultValue={value.research?.rating?.date}
+                />
+              </Field>
+              <Field label="Источник рейтинга" wide>
+                <input
+                  name="ratingSource"
+                  type="url"
+                  defaultValue={value.research?.rating?.sourceUrl}
+                />
+              </Field>
+              <Field label="Обеспечение выпуска" wide>
+                <textarea
+                  name="security"
+                  placeholder="Банк, гарантия, залог, поручитель или отсутствие обеспечения"
+                  defaultValue={value.research?.security}
+                />
+              </Field>
+              <Field label="Исполнение выплат">
+                <select
+                  name="paymentStatus"
+                  defaultValue={value.research?.paymentStatus ?? "unknown"}
+                >
+                  <option value="unknown">Не проверено</option>
+                  <option value="current">
+                    На дату проверки просрочек нет
+                  </option>
+                  <option value="late">Есть сведения о просрочке</option>
+                </select>
+              </Field>
+              <Field label="Дата проверки выплат">
+                <input
+                  name="statusDate"
+                  type="date"
+                  max={today()}
+                  defaultValue={value.research?.statusDate}
+                />
+              </Field>
+              <Field label="Источник проверки выплат" wide>
+                <input
+                  name="statusSource"
+                  type="url"
+                  defaultValue={value.research?.statusSource}
+                />
+              </Field>
+            </div>
+          </details>
+        )}
         <details className="form-details">
           <summary>Отчётность эмитента для анализа</summary>
           <p>

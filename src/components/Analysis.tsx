@@ -29,6 +29,8 @@ import {
   xirr,
 } from "../domain/finance";
 import { Banner, Empty, Metric, money, num, dateLabel } from "./ui";
+import { debtScenario } from "../domain/research";
+import { ResearchSummary } from "./QuickResearch";
 
 export default function Analysis({
   state,
@@ -75,11 +77,21 @@ export default function Analysis({
       : customPrice?.id === i.id
         ? customPrice.value
         : lastPrice;
-  const quantity = price > 0 ? Math.max(0, budget - fee) / price : 0;
+  const debt = ["bond", "token"].includes(i.kind);
+  const scenario = debtScenario(i, budget, price, fee, days);
+  const quantity = debt
+    ? scenario.quantity
+    : price > 0
+      ? Math.max(0, budget - fee) / price
+      : 0;
   const fx = fxAt(state, i.currency, today());
   const position = p.positions.find((p) => p.instrument.id === i.id)!;
   const issuerExposure = p.positions
-    .filter((p) => p.instrument.name === i.name)
+    .filter(
+      (p) =>
+        (p.instrument.research?.issuer || p.instrument.name) ===
+        (i.research?.issuer || i.name),
+    )
     .reduce((sum, p) => sum + (p.valueByn ?? 0), 0);
   const postTotal =
     p.totalByn !== null && fx ? p.totalByn + budget * fx.rate : null;
@@ -89,8 +101,16 @@ export default function Analysis({
       : null;
   const schedule = paymentSchedule(i, quantity);
   const ytm =
-    i.nextPayment && i.maturity && schedule.length
-      ? xirr([{ date: today(), amount: -budget }, ...schedule])
+    debt &&
+    quantity > 0 &&
+    i.research?.rateModel !== "indexed" &&
+    i.research?.rateKnown !== false &&
+    i.research?.nominalKnown !== false &&
+    i.frequency &&
+    i.nextPayment &&
+    i.maturity &&
+    schedule.length
+      ? xirr([{ date: today(), amount: -scenario.invested }, ...schedule])
       : null;
   const projectionDays = i.maturity
     ? Math.max(0, Math.min(days, daysBetween(today(), i.maturity)))
@@ -104,9 +124,7 @@ export default function Analysis({
           i.capitalization,
         ) - fee
       : ["bond", "token"].includes(i.kind)
-        ? (((quantity * i.nominal * i.annualRate) / 100) * projectionDays) /
-            365 -
-          fee
+        ? scenario.interest
         : null;
   const benchmark = depositProjection(
     budget,
@@ -123,19 +141,19 @@ export default function Analysis({
   ].filter(Boolean);
   const risks = [
     {
-      warning: !i.notes,
+      warning: debt || !i.notes,
       title: "Ликвидность и выход",
       text:
         i.notes ||
         "Добавьте условия досрочного расторжения, продажи и возможные потери дохода.",
     },
     {
-      warning: concentration !== null && concentration > 30,
+      warning: concentration === null || concentration > 30,
       title: "Концентрация после покупки",
       text:
         concentration === null
           ? "Для расчёта нужен валютный курс."
-          : `${num(concentration, 1)}% на этом инструменте (группировка по названию). Сценарий предполагает внесение новых денег; порог внимания — 30%.`,
+          : `${num(concentration, 1)}% на эмитенте (если не указан — по названию инструмента). Сценарий предполагает внесение новых денег; порог внимания — 30%.`,
     },
     {
       warning: !i.reportDate && i.kind !== "deposit",
@@ -186,6 +204,9 @@ export default function Analysis({
           <ArrowUpRight size={16} />
         </button>
       </div>
+      {debt && (
+        <ResearchSummary instrument={i} openSource={openSource} edit={edit} />
+      )}
       <div className="analysis-columns">
         <div className="analysis-main">
           <section className="panel">
@@ -262,6 +283,17 @@ export default function Analysis({
                 hint={`${projectionDays} дн. · после комиссии`}
                 positive={projected !== null && projected > 0}
               />
+              {debt && (
+                <Metric
+                  label="Процентный доход за период"
+                  value={
+                    scenario.returnPercent === null
+                      ? "Нет расчёта"
+                      : `${num(scenario.returnPercent)}%`
+                  }
+                  hint={`${scenario.horizon} дн. · от вложенной суммы с комиссией`}
+                />
+              )}
               <Metric
                 label={`Ориентир: депозит ${num(state.settings.benchmarkRate)}%`}
                 value={money(benchmark, i.currency)}
@@ -271,8 +303,25 @@ export default function Analysis({
             <Banner>
               {i.kind === "stock"
                 ? "Будущая цена акции и дивиденды неизвестны. Оцените отчётность и историю цены ниже."
-                : "Это сценарий исполнения обязательств, а не полученный доход. Для облигаций и токенов здесь только проценты, без изменения цены и курсов. Срок ограничен погашением. Дробное количество используется только для сравнения."}
+                : debt
+                  ? i.research?.rateModel === "indexed"
+                    ? "Доход индексируется или меняется по формуле. Для денежного прогноза нужны условия из проспекта; фиксированный расчёт отключён."
+                    : "Сценарий при неизменной ставке и исполнении обязательств: только проценты, без прибыли/убытка от погашения или продажи, изменения курса и налогов. База 365 дней; первый купон и НКД могут изменить результат. Это не доходность к погашению."
+                  : "Сценарий по текущей ставке; фактический график банка может отличаться."}
             </Banner>
+            {debt && (
+              <p className="muted">
+                Целых единиц: {quantity}. Вложено с комиссией:{" "}
+                {money(scenario.invested, i.currency)}. Свободный остаток
+                бюджета: {money(scenario.unspent, i.currency)}.
+                {quantity === 0
+                  ? " Бюджета не хватает на одну единицу с комиссией."
+                  : ""}
+                {!i.maturity
+                  ? " Точная дата погашения не задана: горизонт пока не ограничен сроком выпуска."
+                  : ""}
+              </p>
+            )}
             {i.kind !== "deposit" && !quotes.length && (
               <p className="muted">
                 Начальная цена взята из номинала. Введите фактическую полную
@@ -291,7 +340,7 @@ export default function Analysis({
             {["bond", "token"].includes(i.kind) && (
               <div className="inline-stats">
                 <div>
-                  <span>YTM по регулярному графику</span>
+                  <span>Модельная YTM</span>
                   <b>
                     {ytm === null
                       ? "Нужен полный график"
@@ -300,7 +349,11 @@ export default function Analysis({
                 </div>
                 <div>
                   <span>Купонная ставка</span>
-                  <b>{num(i.annualRate)}%</b>
+                  <b>
+                    {i.research?.rateKnown === false
+                      ? "Не указана"
+                      : `${num(i.annualRate)}%`}
+                  </b>
                 </div>
                 <div>
                   <span>Погашение</span>
@@ -310,9 +363,10 @@ export default function Analysis({
             )}
             {["bond", "token"].includes(i.kind) && (
               <p className="muted">
-                YTM — XIRR будущих регулярных купонов и возврата номинала с
-                учётом бюджета и комиссии. Неполные купонные периоды, оферты и
-                амортизация не моделируются; сверяйте график с выпуском.
+                Модельная YTM — XIRR регулярных купонов и возврата номинала с
+                учётом целого количества, полной цены с НКД и комиссии. Неполные
+                купонные периоды, оферты и амортизация не моделируются; сверяйте
+                график с выпуском.
               </p>
             )}
           </section>
@@ -328,22 +382,28 @@ export default function Analysis({
               </div>
             </div>
             <div className="fundamentals">
-              <div>
-                <span>P/E</span>
-                <b>{num(i.eps !== null && i.eps > 0 ? price / i.eps : null)}</b>
-                <small>Цена / прибыль на акцию</small>
-              </div>
-              <div>
-                <span>P/B</span>
-                <b>
-                  {num(
-                    i.bookValue !== null && i.bookValue > 0
-                      ? price / i.bookValue
-                      : null,
-                  )}
-                </b>
-                <small>Цена / балансовая стоимость</small>
-              </div>
+              {i.kind === "stock" && (
+                <>
+                  <div>
+                    <span>P/E</span>
+                    <b>
+                      {num(i.eps !== null && i.eps > 0 ? price / i.eps : null)}
+                    </b>
+                    <small>Цена / прибыль на акцию</small>
+                  </div>
+                  <div>
+                    <span>P/B</span>
+                    <b>
+                      {num(
+                        i.bookValue !== null && i.bookValue > 0
+                          ? price / i.bookValue
+                          : null,
+                      )}
+                    </b>
+                    <small>Цена / балансовая стоимость</small>
+                  </div>
+                </>
+              )}
               <div>
                 <span>Долг / капитал</span>
                 <b>
@@ -365,81 +425,81 @@ export default function Analysis({
                 <small>Чистая прибыль / выручка</small>
               </div>
             </div>
-            {i.kind !== "stock" && (
-              <p className="muted">
-                P/E и P/B имеют смысл для акций; для долга ориентируйтесь на
-                платёжеспособность эмитента.
-              </p>
-            )}
           </section>
-          <section className="panel">
-            <div className="section-title">
-              <div>
-                <h2>История цены</h2>
-                <p>Только сохранённые котировки · {quotes.length} наблюдений</p>
+          {!debt && (
+            <section className="panel">
+              <div className="section-title">
+                <div>
+                  <h2>История цены</h2>
+                  <p>
+                    Только сохранённые котировки · {quotes.length} наблюдений
+                  </p>
+                </div>
+                {i.kind !== "deposit" && (
+                  <button
+                    className="button secondary small"
+                    onClick={() => quote(i)}
+                  >
+                    Добавить цену
+                  </button>
+                )}
               </div>
-              {i.kind !== "deposit" && (
-                <button
-                  className="button secondary small"
-                  onClick={() => quote(i)}
-                >
-                  Добавить цену
-                </button>
+              {quotes.length > 1 ? (
+                <div className="chart">
+                  <ResponsiveContainer width="100%" height="100%">
+                    <AreaChart data={quotes}>
+                      <CartesianGrid vertical={false} stroke="#eef1f5" />
+                      <XAxis
+                        dataKey="date"
+                        tickFormatter={(v) => v.slice(5)}
+                        axisLine={false}
+                        tickLine={false}
+                      />
+                      <YAxis
+                        domain={["auto", "auto"]}
+                        axisLine={false}
+                        tickLine={false}
+                      />
+                      <Tooltip
+                        formatter={(v) => money(Number(v), i.currency)}
+                      />
+                      <Area
+                        isAnimationActive={false}
+                        dataKey="price"
+                        name="Цена"
+                        stroke="#138b79"
+                        fill="#e4f4ef"
+                        strokeWidth={2}
+                      />
+                    </AreaChart>
+                  </ResponsiveContainer>
+                </div>
+              ) : (
+                <div className="chart-placeholder">
+                  График появится после добавления двух цен на разные даты.
+                </div>
               )}
-            </div>
-            {quotes.length > 1 ? (
-              <div className="chart">
-                <ResponsiveContainer width="100%" height="100%">
-                  <AreaChart data={quotes}>
-                    <CartesianGrid vertical={false} stroke="#eef1f5" />
-                    <XAxis
-                      dataKey="date"
-                      tickFormatter={(v) => v.slice(5)}
-                      axisLine={false}
-                      tickLine={false}
-                    />
-                    <YAxis
-                      domain={["auto", "auto"]}
-                      axisLine={false}
-                      tickLine={false}
-                    />
-                    <Tooltip formatter={(v) => money(Number(v), i.currency)} />
-                    <Area
-                      isAnimationActive={false}
-                      dataKey="price"
-                      name="Цена"
-                      stroke="#138b79"
-                      fill="#e4f4ef"
-                      strokeWidth={2}
-                    />
-                  </AreaChart>
-                </ResponsiveContainer>
+              <div className="inline-stats">
+                <div>
+                  <span>SMA 20</span>
+                  <b>{num(tech.sma20)}</b>
+                </div>
+                <div>
+                  <span>SMA 50</span>
+                  <b>{num(tech.sma50)}</b>
+                </div>
+                <div>
+                  <span>RSI 14 (простое среднее)</span>
+                  <b>{num(tech.rsi)}</b>
+                </div>
               </div>
-            ) : (
-              <div className="chart-placeholder">
-                График появится после добавления двух цен на разные даты.
-              </div>
-            )}
-            <div className="inline-stats">
-              <div>
-                <span>SMA 20</span>
-                <b>{num(tech.sma20)}</b>
-              </div>
-              <div>
-                <span>SMA 50</span>
-                <b>{num(tech.sma50)}</b>
-              </div>
-              <div>
-                <span>RSI 14 (простое среднее)</span>
-                <b>{num(tech.rsi)}</b>
-              </div>
-            </div>
-            <p className="muted">
-              Индикаторы рассчитаны по наблюдениям, не обязательно по торговым
-              дням. Для SMA нужны 20 / 50 цен, для RSI — 15. Они не являются
-              сигналом к покупке.
-            </p>
-          </section>
+              <p className="muted">
+                Индикаторы рассчитаны по наблюдениям, не обязательно по торговым
+                дням. Для SMA нужны 20 / 50 цен, для RSI — 15. Они не являются
+                сигналом к покупке.
+              </p>
+            </section>
+          )}
         </div>
         <aside className="analysis-side">
           <section className="panel">

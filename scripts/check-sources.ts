@@ -1,4 +1,5 @@
 import { readFileSync } from "node:fs";
+import { parseAigenisBonds } from "../electron/research-source";
 import {
   parseAigenis,
   parseFinstore,
@@ -8,6 +9,7 @@ import {
 for (const [name, parser, url] of [
   ["finstore", parseFinstore, "https://finstore.by/kupit-tokeny/"],
   ["aigenis", parseAigenis, "https://aigenis.by/"],
+  ["aigenis-bonds", parseAigenisBonds, "https://aigenis.by/bonds/"],
 ] as const) {
   const html = process.argv.includes("--live")
     ? await download(url)

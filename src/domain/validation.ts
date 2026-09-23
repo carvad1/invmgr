@@ -15,6 +15,40 @@ const optionalDate = z.union([z.literal(""), dateSchema]);
 const positive = z.number().finite().positive().max(1e12);
 const nonnegative = z.number().finite().min(0).max(1e12);
 const currency = z.enum(currencies);
+export const researchSchema = z
+  .object({
+    issueId: text.max(200),
+    issuer: text,
+    fetchedAt: z.string().datetime(),
+    rateKnown: z.boolean(),
+    nominalKnown: z.boolean(),
+    rateModel: z.enum(["fixed", "indexed", "unknown"]),
+    rating: z
+      .object({
+        value: text.max(100),
+        kind: z.enum(["credit", "reputation"]),
+        agency: text,
+        date: optionalDate,
+        sourceUrl: z.url().max(2000),
+      })
+      .optional(),
+    documents: z
+      .array(z.object({ title: text, url: z.url().max(2000) }))
+      .max(30),
+    paymentDates: z.array(dateSchema).max(1200),
+    maturityText: text,
+    security: text,
+    caveats: z.array(text).max(30),
+    paymentStatus: z.enum(["unknown", "current", "late"]),
+    statusDate: optionalDate,
+    statusSource: z.union([z.literal(""), z.url().max(2000)]),
+  })
+  .refine(
+    (r) =>
+      r.paymentStatus === "unknown" ||
+      (!!r.statusDate && r.statusDate <= today() && !!r.statusSource),
+    "Для проверки выплат укажите прошедшую дату и ссылку на источник",
+  );
 export const instrumentSchema = z
   .object({
     id,
@@ -57,6 +91,7 @@ export const instrumentSchema = z
     revenue: nonnegative.nullable(),
     netIncome: z.number().finite().nullable(),
     reportDate: optionalDate,
+    research: researchSchema.optional(),
   })
   .refine(
     (v) => !v.nextPayment || !v.maturity || v.nextPayment <= v.maturity,

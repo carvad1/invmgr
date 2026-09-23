@@ -78,6 +78,8 @@ import {
 } from "./components/forms";
 import Analysis from "./components/Analysis";
 import { depositRateAt } from "./domain/deposit";
+import { catalogInstrument } from "./domain/research";
+import { ResearchImport } from "./components/QuickResearch";
 
 const pages = [
   {
@@ -147,6 +149,7 @@ export default function App() {
     null,
   );
   const [syncing, setSyncing] = useState(false);
+  const [analyzing, setAnalyzing] = useState(false);
   const [search, setSearch] = useState("");
   const [filter, setFilter] = useState("all");
   const [selected, setSelected] = useState("");
@@ -294,23 +297,45 @@ export default function App() {
   const addCatalog = (c: CatalogItem) =>
     setDialog({
       type: "instrument",
-      value: {
-        ...emptyInstrument(),
-        name: c.name,
-        kind: c.kind,
-        provider: c.provider,
-        currency: c.currency,
-        nominal:
-          c.priceLabel.includes("Номинал") || c.provider === "Finstore"
-            ? (c.price ?? 1)
-            : 1,
-        annualRate: c.rate ?? 0,
-        maturity: c.maturity,
-        frequency: 0,
-        notes: c.details,
-        sourceUrl: c.sourceUrl,
-      },
+      value: catalogInstrument(c),
     });
+  const analyzeCatalog = async (c: CatalogItem) => {
+    const old = state.instruments.find(
+      (i) =>
+        i.provider === c.provider &&
+        (i.research?.issueId && c.research?.issueId
+          ? i.research.issueId === c.research.issueId
+          : i.sourceUrl === c.sourceUrl &&
+            i.name === c.name &&
+            i.currency === c.currency),
+    );
+    if (old) {
+      setSelected(old.id);
+      go("analysis");
+      setToast({
+        text: "Открыт сохранённый анализ. Условия можно изменить в карточке.",
+      });
+      return;
+    }
+    setAnalyzing(true);
+    try {
+      let item = c;
+      if (c.provider === "Finstore" && !c.maturity) {
+        const fresh = await window.invest.inspectSource(c.sourceUrl);
+        item =
+          fresh.find(
+            (f) => f.sourceUrl === c.sourceUrl && f.currency === c.currency,
+          ) ?? c;
+      }
+      const value = catalogInstrument(item);
+      setState(await window.invest.saveInstrument(value));
+      setSelected(value.id);
+      go("analysis");
+      setToast({ text: "Анализ сохранён. Покупка не записывалась." });
+    } finally {
+      setAnalyzing(false);
+    }
+  };
   const payments = active
     .flatMap((pos) =>
       paymentSchedule(pos.instrument, pos.quantity).map((x) => ({
@@ -484,7 +509,7 @@ export default function App() {
             <div className="avatar">Я</div>
             <div>
               <strong>Личный портфель</strong>
-              <span>Беларусь · v0.1.1</span>
+              <span>Беларусь · v0.2.0</span>
             </div>
             <span className="status-dot" />
           </div>
@@ -1151,15 +1176,23 @@ export default function App() {
             </>
           )}
           {page === "analysis" && (
-            <Analysis
-              state={state}
-              selected={selected}
-              select={setSelected}
-              edit={(i) => setDialog({ type: "instrument", value: i })}
-              quote={(i) => setDialog({ type: "quote", value: i })}
-              buy={(id) => setDialog({ type: "operation", instrumentId: id })}
-              openSource={source}
-            />
+            <>
+              <ResearchImport
+                catalog={state.catalog}
+                open={analyzeCatalog}
+                manual={() => add("bond")}
+              />
+              <Analysis
+                key={selected}
+                state={state}
+                selected={selected}
+                select={setSelected}
+                edit={(i) => setDialog({ type: "instrument", value: i })}
+                quote={(i) => setDialog({ type: "quote", value: i })}
+                buy={(id) => setDialog({ type: "operation", instrumentId: id })}
+                openSource={source}
+              />
+            </>
           )}
           {page === "journal" && (
             <>
@@ -1442,6 +1475,18 @@ export default function App() {
                           )}
                           <p>{c.details}</p>
                           <div className="catalog-footer">
+                            {["token", "bond"].includes(c.kind) && (
+                              <button
+                                className="button primary small"
+                                disabled={analyzing}
+                                onClick={() =>
+                                  analyzeCatalog(c).catch(notifyError)
+                                }
+                              >
+                                <Activity size={15} />
+                                Проанализировать
+                              </button>
+                            )}
                             <button
                               className="button secondary small"
                               onClick={() => addCatalog(c)}

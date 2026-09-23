@@ -56,6 +56,30 @@ export interface Instrument {
   revenue: number | null;
   netIncome: number | null;
   reportDate: string;
+  research?: Research;
+}
+export interface Research {
+  issueId: string;
+  issuer: string;
+  fetchedAt: string;
+  rateKnown: boolean;
+  nominalKnown: boolean;
+  rateModel: "fixed" | "indexed" | "unknown";
+  rating?: {
+    value: string;
+    kind: "credit" | "reputation";
+    agency: string;
+    date: string;
+    sourceUrl: string;
+  };
+  documents: { title: string; url: string }[];
+  paymentDates: string[];
+  maturityText: string;
+  security: string;
+  caveats: string[];
+  paymentStatus: "unknown" | "current" | "late";
+  statusDate: string;
+  statusSource: string;
 }
 export interface Operation {
   id: string;
@@ -102,6 +126,9 @@ export interface CatalogItem {
   details: string;
   priceLabel: string;
   priceDate: string;
+  nominal?: number | null;
+  frequency?: number;
+  research?: Research;
 }
 export interface SyncRun {
   provider: string;
@@ -137,6 +164,7 @@ export interface DesktopAPI {
   saveFx: (value: FxRate) => Promise<State>;
   saveSettings: (value: Settings) => Promise<State>;
   sync: () => Promise<State>;
+  inspectSource: (url: string) => Promise<CatalogItem[]>;
   backup: () => Promise<string | null>;
   restore: () => Promise<State | null>;
   exportCsv: () => Promise<string | null>;

@@ -4,6 +4,12 @@ import type { CatalogItem, Currency, FxRate } from "../src/domain/types";
 import { Store } from "./store";
 import { today } from "../src/domain/types";
 import { shiftDate } from "../src/domain/deposit";
+import { blankResearch } from "../src/domain/research";
+import {
+  parseAigenisBonds,
+  parseFinstoreIssue,
+  publishedRating,
+} from "./research-source";
 
 const clean = (s: string) => s.replace(/\s+/g, " ").trim();
 const number = (s: string) => {
@@ -85,6 +91,20 @@ export function parseFinstore(
     if (!name || !priceMatch || !link) return;
     const url = new URL(link, "https://finstore.by").href;
     if (!safeSourceUrl(url)) return;
+    const status = clean(card.find(".tokens-el__status").text());
+    const research = blankResearch(
+      new URL(url).pathname.split("/").filter(Boolean).at(-1) ?? "",
+      name,
+      fetchedAt,
+    );
+    research.rateKnown = number(card.find(".tokens-el__rate").text()) !== null;
+    research.nominalKnown = true;
+    research.rating = publishedRating(status, url);
+    if (/обеспеч|поручительств|банковск.+гаранти/i.test(status))
+      research.security = status;
+    research.caveats = [
+      "Стоимость размещения использована как номинал; сверьте White Paper.",
+    ];
     items.push({
       id: stableId(`finstore:${url}:${priceMatch[2]}`),
       provider: "Finstore",
@@ -102,6 +122,7 @@ export function parseFinstore(
         "Условия выпуска и отчётность проверьте в карточке эмитента. Срок выпуска не равен оставшемуся сроку.",
       priceLabel: "Цена размещения",
       priceDate: "",
+      research,
     });
   });
   return [...new Map(items.map((i) => [i.id, i])).values()];
@@ -180,6 +201,48 @@ export function parseNbrb(raw: string): FxRate[] {
   if (rates.length !== 3) throw new Error("НБРБ не вернул все валюты");
   return rates;
 }
+export async function inspectSource(
+  url: string,
+  fetcher = download,
+): Promise<CatalogItem[]> {
+  if (typeof url !== "string" || url.length > 2000 || !safeSourceUrl(url))
+    throw new Error(
+      "Вставьте https-ссылку на открытый выпуск Finstore или Aigenis.",
+    );
+  const u = new URL(url);
+  let parser: (html: string) => CatalogItem[];
+  if (
+    u.hostname === "finstore.by" &&
+    /^\/kupit-tokeny\/\d+\/?$/.test(u.pathname)
+  ) {
+    u.search = "";
+    u.hash = "";
+    u.pathname = u.pathname.replace(/\/$/, "");
+    parser = (html) => parseFinstoreIssue(html, u.href);
+  } else if (
+    u.hostname === "finstore.by" &&
+    /^\/kupit-tokeny\/?$/.test(u.pathname)
+  )
+    parser = parseFinstore;
+  else if (u.hostname === "aigenis.by" && /^\/bonds\/?$/.test(u.pathname))
+    parser = parseAigenisBonds;
+  else if (u.hostname === "aigenis.by" && u.pathname === "/")
+    parser = parseAigenis;
+  else
+    throw new Error(
+      "Поддерживаются открытые страницы finstore.by/kupit-tokeny/… и aigenis.by/bonds/. Выпуск из личного кабинета добавьте вручную.",
+    );
+  const selectedIssue = u.hash ? decodeURIComponent(u.hash.slice(1)) : "";
+  u.hash = "";
+  const items = parser(await fetcher(u.href));
+  if (!items.length)
+    throw new Error(
+      "Условия не распознаны. Возможно, страница изменилась или недоступна. Данные не были заменены.",
+    );
+  if (selectedIssue && items.some((i) => i.research?.issueId === selectedIssue))
+    return items.filter((i) => i.research?.issueId === selectedIssue);
+  return items;
+}
 export function parseRefinancing(raw: string) {
   const rows: unknown = JSON.parse(raw);
   if (!Array.isArray(rows) || !rows.length)
@@ -191,7 +254,8 @@ export function parseRefinancing(raw: string) {
         typeof row.Date !== "string" ||
         !/^\d{4}-\d{2}-\d{2}T/.test(row.Date) ||
         !Number.isFinite(Date.parse(row.Date)) ||
-      new Date(row.Date.slice(0, 10)).toISOString().slice(0, 10) !== row.Date.slice(0, 10) ||
+        new Date(row.Date.slice(0, 10)).toISOString().slice(0, 10) !==
+          row.Date.slice(0, 10) ||
         typeof row.Value !== "number" ||
         !Number.isFinite(row.Value) ||
         row.Value < 0 ||
@@ -297,7 +361,11 @@ export async function syncSources(store: Store) {
       {
         name: "Aigenis",
         run: async () => {
-          const items = parseAigenis(await download("https://aigenis.by/"));
+          const [home, bonds] = await Promise.all([
+            download("https://aigenis.by/"),
+            download("https://aigenis.by/bonds/"),
+          ]);
+          const items = [...parseAigenis(home), ...parseAigenisBonds(bonds)];
           store.saveCatalog("Aigenis", items);
           return `${items.length} инструментов с открытой страницы`;
         },
