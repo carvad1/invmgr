@@ -2,7 +2,7 @@ import { app, BrowserWindow, dialog, ipcMain, shell } from "electron";
 import { join } from "node:path";
 import { mkdirSync, writeFileSync } from "node:fs";
 import { pathToFileURL } from "node:url";
-import { ZodError } from "zod";
+import { ZodError, z } from "zod";
 import { Store } from "./store";
 import {
   safeSourceUrl,
@@ -11,12 +11,21 @@ import {
   inspectSource,
 } from "./sources";
 import { today } from "../src/domain/types";
+import { emptyStockAnalysis } from "../src/domain/stock-schema";
+import {
+  stockIssuerUnp,
+  stockWebDue,
+  stockWebIdentity,
+} from "../src/domain/stock-web";
+import { safeStockSourceUrl, StockWebCollector } from "./stock-web";
 
 let store: Store;
 let win: BrowserWindow;
 let syncing: Promise<unknown> | undefined;
 let rateSync: Promise<void> | undefined;
 let quitting = false;
+const stockCollector = new StockWebCollector();
+const stockTasks = new Map<string, Promise<void>>();
 app.on("before-quit", () => {
   quitting = true;
 });
@@ -96,13 +105,125 @@ else {
           }
         });
       }
-      handle("portfolio:load", async () => {
+      handle("portfolio:load", () => store.load());
+      handle("rates:refresh", async () => {
         await refreshDepositRates();
         return store.load();
       });
-      handle("instrument:save", async (value) => {
+      handle("stocks:refresh", async (input) => {
+        const options = z
+          .object({
+            id: z.string().uuid().optional(),
+            force: z.boolean().optional(),
+          })
+          .parse(input ?? {});
+        if (
+          testMode ||
+          (!options.force && store.load().settings.stockAutoRefresh === false)
+        )
+          return store.load();
+        const stocks = store
+          .load()
+          .instruments.filter(
+            (i) => i.kind === "stock" && (!options.id || options.id === i.id),
+          );
+        // Sequential issuers, at most two HTTP requests at a time inside the collector.
+        for (const i of stocks) {
+          if (!options.force && !stockWebDue(i)) continue;
+          let task = stockTasks.get(i.id);
+          if (!task) {
+            task = (async () => {
+              const web = await stockCollector.collect(i);
+              const latest = store
+                .load()
+                .instruments.find(
+                  (item) => item.id === i.id && item.kind === "stock",
+                );
+              if (!latest || stockWebIdentity(latest) !== stockWebIdentity(i))
+                return;
+              store.saveInstrument({
+                ...latest,
+                stockAnalysis: {
+                  ...(latest.stockAnalysis ?? emptyStockAnalysis()),
+                  web,
+                },
+              });
+              if (!win.isDestroyed())
+                win.webContents.send("stocks:updated", {
+                  id: i.id,
+                  identity: stockWebIdentity(latest),
+                  web,
+                });
+            })().finally(() => stockTasks.delete(i.id));
+            stockTasks.set(i.id, task);
+          }
+          await task;
+        }
+        return store.load();
+      });
+      handle("stocks:document", async (input) => {
+        const { id, documentId } = z
+          .object({
+            id: z.string().uuid(),
+            documentId: z.string().min(1).max(100),
+          })
+          .parse(input);
+        const i = store
+          .load()
+          .instruments.find((item) => item.id === id && item.kind === "stock");
+        const doc = i?.stockAnalysis?.web?.documents.find(
+          (d) => d.id === documentId,
+        );
+        if (!doc || !i)
+          throw new Error("Документ не найден в сохранённых источниках акции");
+        if (doc.state === "text" || doc.state === "scan") return store.load();
+        const read = await stockCollector.readDocument(doc);
+        const latest = store
+          .load()
+          .instruments.find((item) => item.id === id && item.kind === "stock");
+        if (
+          latest?.stockAnalysis?.web &&
+          stockIssuerUnp(latest) === stockIssuerUnp(i)
+        ) {
+          const web = latest.stockAnalysis.web;
+          store.saveInstrument({
+            ...latest,
+            stockAnalysis: {
+              ...latest.stockAnalysis,
+              web: {
+                ...web,
+                documents: web.documents.map((d) =>
+                  d.id === doc.id &&
+                  d.url === doc.url &&
+                  d.uploadedAt === doc.uploadedAt
+                    ? read
+                    : d,
+                ),
+              },
+            },
+          });
+        }
+        return store.load();
+      });
+      handle("instrument:save", (value) => {
+        const current = store
+          .load()
+          .instruments.find((i) => i.id === value?.id);
+        // A report editor opened before a background refresh must not erase newer web research.
+        const sameStock =
+          current &&
+          value?.kind === "stock" &&
+          stockWebIdentity(current) === stockWebIdentity(value);
+        if (current?.stockAnalysis?.web && value.stockAnalysis && sameStock)
+          value.stockAnalysis.web = current.stockAnalysis.web;
+        if (
+          current &&
+          value?.kind === "stock" &&
+          !sameStock &&
+          value.stockAnalysis
+        )
+          delete value.stockAnalysis.web;
         store.saveInstrument(value);
-        await refreshDepositRates();
         return store.load();
       });
       handle("instrument:remove", (id) => store.removeInstrument(id));
@@ -118,7 +239,16 @@ else {
         return syncing;
       });
       handle("source:open", async (url) => {
-        if (typeof url !== "string" || !safeSourceUrl(url))
+        const methodology = [
+          "https://pages.stern.nyu.edu/~adamodar/New_Home_Page/lectures/val.html",
+          "https://www.msci.com/indexes/group/quality-indexes",
+        ];
+        if (
+          typeof url !== "string" ||
+          (!safeSourceUrl(url) &&
+            !safeStockSourceUrl(url) &&
+            !methodology.includes(url))
+        )
           throw new Error(
             "Можно открыть только официальный сайт поддерживаемого источника",
           );

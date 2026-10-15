@@ -8,6 +8,7 @@ import { portfolio } from "../src/domain/finance";
 import { instrument, operation } from "./helpers";
 import { syncDepositRates } from "../electron/sources";
 import { today } from "../src/domain/types";
+import { emptyStockAnalysis } from "../src/domain/stock-schema";
 let dir: string;
 let store: Store;
 beforeEach(() => {
@@ -25,6 +26,24 @@ afterEach(() => {
   rmSync(target, { recursive: true, force: true });
 });
 describe("SQLite и проверка входных данных", () => {
+  it("анализ акции сохраняется и восстанавливается вместе с базой без покупки", async () => {
+    const stockAnalysis = emptyStockAnalysis();
+    stockAnalysis.valuation.cashFlow = 12;
+    stockAnalysis.history = [{ date: "2025-12-31", close: 99 }];
+    stockAnalysis.historySource = "Тест";
+    const i = instrument({ kind: "stock", stockAnalysis });
+    store.saveInstrument(i);
+    expect(store.load().instruments[0].stockAnalysis).toEqual(stockAnalysis);
+    expect(store.load().operations).toHaveLength(0);
+    const backup = join(dir, "stocks.sqlite");
+    await store.backup(backup);
+    store.saveInstrument({
+      ...i,
+      stockAnalysis: { ...stockAnalysis, description: "Изменено" },
+    });
+    await store.restore(backup);
+    expect(store.load().instruments[0].stockAnalysis).toEqual(stockAnalysis);
+  });
   it("автоставка сохраняет историю, задержку и кэш; сбой сети не стирает данные", async () => {
     const i = instrument({
       kind: "deposit",

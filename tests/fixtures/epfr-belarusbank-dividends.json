@@ -1,0 +1,50 @@
+{
+  "content": [
+    {
+      "id": 137593,
+      "name": "Информация о выплате дивидендов по акциям ОАО «АСБ Беларусбанк» за 2025 год",
+      "storageType": "FILE_SYSTEM",
+      "realUploadDate": "2026-04-02 00:00",
+      "uploadDate": "2026-04-02 13:26",
+      "subCategoryType": "ANY",
+      "organization": {
+        "unp": "100325912"
+      }
+    },
+    {
+      "id": 126760,
+      "name": "Информация о выплате дивидендов на акции ОАО \"АСБ Беларусбанк\" по итогом работы за 2024 год",
+      "storageType": "FILE_SYSTEM",
+      "realUploadDate": "2025-04-03 00:00",
+      "uploadDate": "2025-04-03 06:59",
+      "subCategoryType": "ANY",
+      "organization": {
+        "unp": "100325912"
+      }
+    },
+    {
+      "id": 117362,
+      "name": "Информация о выплате дивидендов на акции ОАО «АСБ Беларусбанк» ",
+      "storageType": "FILE_SYSTEM",
+      "realUploadDate": "2024-04-05 00:00",
+      "uploadDate": "2024-04-05 11:07",
+      "subCategoryType": "ANY",
+      "organization": {
+        "unp": "100325912"
+      }
+    },
+    {
+      "id": 106645,
+      "name": "Информация о выплате дивидендов по акция ОАО \"АСБ Беларусбанк\" за 2022 год",
+      "storageType": "FILE_SYSTEM",
+      "realUploadDate": "2023-04-03 00:00",
+      "uploadDate": "2023-04-03 14:15",
+      "subCategoryType": "QUARTER",
+      "organization": {
+        "unp": "100325912"
+      }
+    }
+  ],
+  "totalPages": 1,
+  "totalElements": 4
+}

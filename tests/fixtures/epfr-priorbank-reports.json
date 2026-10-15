@@ -1,0 +1,127 @@
+{
+  "content": [
+    {
+      "id": 142508,
+      "name": "Бухгалтерский баланс по состоянию на 30.06.2026",
+      "storageType": "FILE_SYSTEM",
+      "realUploadDate": "2026-06-30 00:00",
+      "uploadDate": "2026-07-16 13:58",
+      "subCategoryType": "QUARTER",
+      "organization": {
+        "unp": "100220190"
+      }
+    },
+    {
+      "id": 142509,
+      "name": "Отчёт о прибылях и убытках по состоянию на 30.06.2026",
+      "storageType": "FILE_SYSTEM",
+      "realUploadDate": "2026-06-30 00:00",
+      "uploadDate": "2026-07-16 13:59",
+      "subCategoryType": "QUARTER",
+      "organization": {
+        "unp": "100220190"
+      }
+    },
+    {
+      "id": 139916,
+      "name": "Бухгалтерский баланс по состоянию на 31.03.2026",
+      "storageType": "FILE_SYSTEM",
+      "realUploadDate": "2026-03-31 00:00",
+      "uploadDate": "2026-04-23 08:34",
+      "subCategoryType": "QUARTER",
+      "organization": {
+        "unp": "100220190"
+      }
+    },
+    {
+      "id": 139917,
+      "name": "Отчёт о прибылях и убытках по состоянию на 31.03.2026",
+      "storageType": "FILE_SYSTEM",
+      "realUploadDate": "2026-03-31 00:00",
+      "uploadDate": "2026-04-23 08:38",
+      "subCategoryType": "QUARTER",
+      "organization": {
+        "unp": "100220190"
+      }
+    },
+    {
+      "id": 141094,
+      "name": "ИНФОРМАЦИЯ  о деятельности профессионального участника рынка ценных бумаг  по состоянию на 01.01.2026",
+      "storageType": "FILE_SYSTEM",
+      "realUploadDate": "2026-01-01 00:00",
+      "uploadDate": "2026-04-30 08:42",
+      "subCategoryType": "ANY",
+      "organization": {
+        "unp": "100220190"
+      }
+    },
+    {
+      "id": 141102,
+      "name": "Информация об акционерном обществе и его деятельности на 01.01.2026",
+      "storageType": "FILE_SYSTEM",
+      "realUploadDate": "2026-01-01 00:00",
+      "uploadDate": "2026-04-30 09:02",
+      "subCategoryType": "QUARTER",
+      "organization": {
+        "unp": "100220190"
+      }
+    },
+    {
+      "id": 137477,
+      "name": "«Бухгалтерский баланс по состоянию на 31.12.2025»",
+      "storageType": "FILE_SYSTEM",
+      "realUploadDate": "2025-12-31 00:00",
+      "uploadDate": "2026-04-02 10:30",
+      "subCategoryType": "QUARTER",
+      "organization": {
+        "unp": "100220190"
+      }
+    },
+    {
+      "id": 137478,
+      "name": "Отчёт о прибылях и убытках по состоянию на 31.12.2025",
+      "storageType": "FILE_SYSTEM",
+      "realUploadDate": "2025-12-31 00:00",
+      "uploadDate": "2026-04-02 10:32",
+      "subCategoryType": "QUARTER",
+      "organization": {
+        "unp": "100220190"
+      }
+    },
+    {
+      "id": 137481,
+      "name": "Отчёт о движении денежных средств по состоянию на 31.12.2025",
+      "storageType": "FILE_SYSTEM",
+      "realUploadDate": "2025-12-31 00:00",
+      "uploadDate": "2026-04-02 10:33",
+      "subCategoryType": "QUARTER",
+      "organization": {
+        "unp": "100220190"
+      }
+    },
+    {
+      "id": 137482,
+      "name": "Отчёт об изменении собственного капитала по состоянию на 31.12.2025",
+      "storageType": "FILE_SYSTEM",
+      "realUploadDate": "2025-12-31 00:00",
+      "uploadDate": "2026-04-02 10:35",
+      "subCategoryType": "QUARTER",
+      "organization": {
+        "unp": "100220190"
+      }
+    },
+    {
+      "id": 137682,
+      "name": "Аудиторское заключение по бухгалтерской отчетности по состоянию на 31.12.2025",
+      "storageType": "FILE_SYSTEM",
+      "realUploadDate": "2025-12-31 00:00",
+      "uploadDate": "2026-04-03 06:15",
+      "subCategoryType": "QUARTER",
+      "organization": {
+        "unp": "100220190"
+      }
+    }
+  ],
+  "totalPages": 5,
+  "totalElements": 52
+}

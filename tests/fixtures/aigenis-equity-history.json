@@ -1,0 +1,5179 @@
+{
+    "pagination": {
+        "count": 517,
+        "next": null,
+        "previous": null
+    },
+    "results": [
+        {
+            "id": 89174,
+            "trade_date": "2026-09-25",
+            "avg_w_price": 2.0,
+            "min_price": 2.0,
+            "max_price": 2.0,
+            "trades_count": 1,
+            "volume": 4,
+            "security_definition": 2299
+        },
+        {
+            "id": 89051,
+            "trade_date": "2026-09-24",
+            "avg_w_price": 2.0,
+            "min_price": 2.0,
+            "max_price": 2.0,
+            "trades_count": 2,
+            "volume": 14,
+            "security_definition": 2299
+        },
+        {
+            "id": 88918,
+            "trade_date": "2026-09-23",
+            "avg_w_price": 2.0,
+            "min_price": 2.0,
+            "max_price": 2.0,
+            "trades_count": 1,
+            "volume": 3,
+            "security_definition": 2299
+        },
+        {
+            "id": 88775,
+            "trade_date": "2026-09-22",
+            "avg_w_price": 2.0,
+            "min_price": 2.0,
+            "max_price": 2.0,
+            "trades_count": 1,
+            "volume": 10,
+            "security_definition": 2299
+        },
+        {
+            "id": 88626,
+            "trade_date": "2026-09-21",
+            "avg_w_price": 2.0,
+            "min_price": 2.0,
+            "max_price": 2.0,
+            "trades_count": 3,
+            "volume": 41,
+            "security_definition": 2299
+        },
+        {
+            "id": 88332,
+            "trade_date": "2026-09-17",
+            "avg_w_price": 2.0,
+            "min_price": 2.0,
+            "max_price": 2.0,
+            "trades_count": 2,
+            "volume": 24,
+            "security_definition": 2299
+        },
+        {
+            "id": 88187,
+            "trade_date": "2026-09-16",
+            "avg_w_price": 1.8592592592592594,
+            "min_price": 1.55,
+            "max_price": 2.0,
+            "trades_count": 5,
+            "volume": 108,
+            "security_definition": 2299
+        },
+        {
+            "id": 88044,
+            "trade_date": "2026-09-15",
+            "avg_w_price": 1.9,
+            "min_price": 1.9,
+            "max_price": 1.9,
+            "trades_count": 1,
+            "volume": 57,
+            "security_definition": 2299
+        },
+        {
+            "id": 87911,
+            "trade_date": "2026-09-14",
+            "avg_w_price": 1.94,
+            "min_price": 1.94,
+            "max_price": 1.94,
+            "trades_count": 1,
+            "volume": 10,
+            "security_definition": 2299
+        },
+        {
+            "id": 87775,
+            "trade_date": "2026-09-11",
+            "avg_w_price": 1.94,
+            "min_price": 1.94,
+            "max_price": 1.94,
+            "trades_count": 1,
+            "volume": 10,
+            "security_definition": 2299
+        },
+        {
+            "id": 87622,
+            "trade_date": "2026-09-10",
+            "avg_w_price": 1.9726495726495725,
+            "min_price": 1.94,
+            "max_price": 2.0,
+            "trades_count": 3,
+            "volume": 117,
+            "security_definition": 2299
+        },
+        {
+            "id": 87479,
+            "trade_date": "2026-09-09",
+            "avg_w_price": 2.0,
+            "min_price": 2.0,
+            "max_price": 2.0,
+            "trades_count": 2,
+            "volume": 32,
+            "security_definition": 2299
+        },
+        {
+            "id": 87320,
+            "trade_date": "2026-09-08",
+            "avg_w_price": 2.0,
+            "min_price": 2.0,
+            "max_price": 2.0,
+            "trades_count": 1,
+            "volume": 100,
+            "security_definition": 2299
+        },
+        {
+            "id": 87172,
+            "trade_date": "2026-09-07",
+            "avg_w_price": 1.9,
+            "min_price": 1.9,
+            "max_price": 1.9,
+            "trades_count": 1,
+            "volume": 1,
+            "security_definition": 2299
+        },
+        {
+            "id": 87027,
+            "trade_date": "2026-09-04",
+            "avg_w_price": 1.92,
+            "min_price": 1.6,
+            "max_price": 2.0,
+            "trades_count": 3,
+            "volume": 25,
+            "security_definition": 2299
+        },
+        {
+            "id": 86893,
+            "trade_date": "2026-09-03",
+            "avg_w_price": 1.6000000000000003,
+            "min_price": 1.6,
+            "max_price": 1.6,
+            "trades_count": 1,
+            "volume": 3,
+            "security_definition": 2299
+        },
+        {
+            "id": 86753,
+            "trade_date": "2026-09-02",
+            "avg_w_price": 1.6095505617977528,
+            "min_price": 1.5,
+            "max_price": 2.0,
+            "trades_count": 2,
+            "volume": 178,
+            "security_definition": 2299
+        },
+        {
+            "id": 86614,
+            "trade_date": "2026-09-01",
+            "avg_w_price": 2.0,
+            "min_price": 2.0,
+            "max_price": 2.0,
+            "trades_count": 2,
+            "volume": 21,
+            "security_definition": 2299
+        },
+        {
+            "id": 86480,
+            "trade_date": "2026-08-31",
+            "avg_w_price": 2.0,
+            "min_price": 2.0,
+            "max_price": 2.0,
+            "trades_count": 1,
+            "volume": 30,
+            "security_definition": 2299
+        },
+        {
+            "id": 86210,
+            "trade_date": "2026-08-27",
+            "avg_w_price": 2.0,
+            "min_price": 2.0,
+            "max_price": 2.0,
+            "trades_count": 3,
+            "volume": 104,
+            "security_definition": 2299
+        },
+        {
+            "id": 86085,
+            "trade_date": "2026-08-26",
+            "avg_w_price": 1.9783783783783784,
+            "min_price": 1.9,
+            "max_price": 2.0,
+            "trades_count": 4,
+            "volume": 37,
+            "security_definition": 2299
+        },
+        {
+            "id": 85948,
+            "trade_date": "2026-08-25",
+            "avg_w_price": 2.0,
+            "min_price": 2.0,
+            "max_price": 2.0,
+            "trades_count": 4,
+            "volume": 92,
+            "security_definition": 2299
+        },
+        {
+            "id": 85792,
+            "trade_date": "2026-08-24",
+            "avg_w_price": 1.9967948717948718,
+            "min_price": 1.99,
+            "max_price": 2.0,
+            "trades_count": 4,
+            "volume": 78,
+            "security_definition": 2299
+        },
+        {
+            "id": 85515,
+            "trade_date": "2026-08-20",
+            "avg_w_price": 1.9897854077253219,
+            "min_price": 1.95,
+            "max_price": 2.0,
+            "trades_count": 3,
+            "volume": 233,
+            "security_definition": 2299
+        },
+        {
+            "id": 85384,
+            "trade_date": "2026-08-19",
+            "avg_w_price": 1.95,
+            "min_price": 1.95,
+            "max_price": 1.95,
+            "trades_count": 1,
+            "volume": 24,
+            "security_definition": 2299
+        },
+        {
+            "id": 85242,
+            "trade_date": "2026-08-18",
+            "avg_w_price": 1.9502923976608186,
+            "min_price": 1.95,
+            "max_price": 2.0,
+            "trades_count": 2,
+            "volume": 513,
+            "security_definition": 2299
+        },
+        {
+            "id": 84959,
+            "trade_date": "2026-08-14",
+            "avg_w_price": 2.072,
+            "min_price": 2.0,
+            "max_price": 2.08,
+            "trades_count": 3,
+            "volume": 50,
+            "security_definition": 2299
+        },
+        {
+            "id": 84823,
+            "trade_date": "2026-08-13",
+            "avg_w_price": 2.08,
+            "min_price": 2.08,
+            "max_price": 2.08,
+            "trades_count": 2,
+            "volume": 59,
+            "security_definition": 2299
+        },
+        {
+            "id": 84696,
+            "trade_date": "2026-08-12",
+            "avg_w_price": 2.0,
+            "min_price": 2.0,
+            "max_price": 2.0,
+            "trades_count": 1,
+            "volume": 13,
+            "security_definition": 2299
+        },
+        {
+            "id": 84540,
+            "trade_date": "2026-08-11",
+            "avg_w_price": 2.08,
+            "min_price": 2.08,
+            "max_price": 2.08,
+            "trades_count": 2,
+            "volume": 15,
+            "security_definition": 2299
+        },
+        {
+            "id": 84393,
+            "trade_date": "2026-08-10",
+            "avg_w_price": 2.01882,
+            "min_price": 2.01,
+            "max_price": 2.08,
+            "trades_count": 5,
+            "volume": 1000,
+            "security_definition": 2299
+        },
+        {
+            "id": 84270,
+            "trade_date": "2026-08-07",
+            "avg_w_price": 2.08,
+            "min_price": 2.08,
+            "max_price": 2.08,
+            "trades_count": 1,
+            "volume": 291,
+            "security_definition": 2299
+        },
+        {
+            "id": 84107,
+            "trade_date": "2026-08-06",
+            "avg_w_price": 2.08,
+            "min_price": 2.08,
+            "max_price": 2.08,
+            "trades_count": 1,
+            "volume": 4,
+            "security_definition": 2299
+        },
+        {
+            "id": 83760,
+            "trade_date": "2026-08-03",
+            "avg_w_price": 2.07,
+            "min_price": 2.07,
+            "max_price": 2.07,
+            "trades_count": 2,
+            "volume": 309,
+            "security_definition": 2299
+        },
+        {
+            "id": 83502,
+            "trade_date": "2026-07-30",
+            "avg_w_price": 2.1,
+            "min_price": 2.1,
+            "max_price": 2.1,
+            "trades_count": 1,
+            "volume": 10,
+            "security_definition": 2299
+        },
+        {
+            "id": 83382,
+            "trade_date": "2026-07-29",
+            "avg_w_price": 1.81,
+            "min_price": 1.81,
+            "max_price": 1.81,
+            "trades_count": 2,
+            "volume": 14,
+            "security_definition": 2299
+        },
+        {
+            "id": 83245,
+            "trade_date": "2026-07-28",
+            "avg_w_price": 1.2952380952380953,
+            "min_price": 1.2,
+            "max_price": 1.4,
+            "trades_count": 2,
+            "volume": 21,
+            "security_definition": 2299
+        },
+        {
+            "id": 83097,
+            "trade_date": "2026-07-24",
+            "avg_w_price": 1.8031578947368423,
+            "min_price": 1.8,
+            "max_price": 1.81,
+            "trades_count": 3,
+            "volume": 152,
+            "security_definition": 2299
+        },
+        {
+            "id": 82968,
+            "trade_date": "2026-07-23",
+            "avg_w_price": 1.8,
+            "min_price": 1.8,
+            "max_price": 1.8,
+            "trades_count": 1,
+            "volume": 5,
+            "security_definition": 2299
+        },
+        {
+            "id": 82844,
+            "trade_date": "2026-07-22",
+            "avg_w_price": 1.8079057591623038,
+            "min_price": 1.8,
+            "max_price": 1.81,
+            "trades_count": 5,
+            "volume": 191,
+            "security_definition": 2299
+        },
+        {
+            "id": 82727,
+            "trade_date": "2026-07-21",
+            "avg_w_price": 1.8100000000000003,
+            "min_price": 1.81,
+            "max_price": 1.81,
+            "trades_count": 1,
+            "volume": 108,
+            "security_definition": 2299
+        },
+        {
+            "id": 82587,
+            "trade_date": "2026-07-20",
+            "avg_w_price": 1.81,
+            "min_price": 1.81,
+            "max_price": 1.81,
+            "trades_count": 4,
+            "volume": 93,
+            "security_definition": 2299
+        },
+        {
+            "id": 82456,
+            "trade_date": "2026-07-17",
+            "avg_w_price": 1.783225806451613,
+            "min_price": 1.78,
+            "max_price": 1.79,
+            "trades_count": 3,
+            "volume": 31,
+            "security_definition": 2299
+        },
+        {
+            "id": 82315,
+            "trade_date": "2026-07-16",
+            "avg_w_price": 1.75,
+            "min_price": 1.75,
+            "max_price": 1.75,
+            "trades_count": 1,
+            "volume": 17,
+            "security_definition": 2299
+        },
+        {
+            "id": 78656,
+            "trade_date": "2026-06-04",
+            "avg_w_price": 1.4000000000000001,
+            "min_price": 1.4,
+            "max_price": 1.4,
+            "trades_count": 3,
+            "volume": 194,
+            "security_definition": 2299
+        },
+        {
+            "id": 77979,
+            "trade_date": "2026-05-27",
+            "avg_w_price": 1.3900000000000001,
+            "min_price": 1.39,
+            "max_price": 1.39,
+            "trades_count": 2,
+            "volume": 60,
+            "security_definition": 2299
+        },
+        {
+            "id": 77580,
+            "trade_date": "2026-05-22",
+            "avg_w_price": 1.38,
+            "min_price": 1.38,
+            "max_price": 1.38,
+            "trades_count": 1,
+            "volume": 55,
+            "security_definition": 2299
+        },
+        {
+            "id": 77466,
+            "trade_date": "2026-05-21",
+            "avg_w_price": 1.38,
+            "min_price": 1.38,
+            "max_price": 1.38,
+            "trades_count": 2,
+            "volume": 26,
+            "security_definition": 2299
+        },
+        {
+            "id": 77353,
+            "trade_date": "2026-05-20",
+            "avg_w_price": 1.37,
+            "min_price": 1.37,
+            "max_price": 1.37,
+            "trades_count": 1,
+            "volume": 15,
+            "security_definition": 2299
+        },
+        {
+            "id": 75592,
+            "trade_date": "2026-04-28",
+            "avg_w_price": 1.285,
+            "min_price": 1.27,
+            "max_price": 1.33,
+            "trades_count": 2,
+            "volume": 200,
+            "security_definition": 2299
+        },
+        {
+            "id": 74579,
+            "trade_date": "2026-04-14",
+            "avg_w_price": 0.8655555555555555,
+            "min_price": 0.85,
+            "max_price": 1.31,
+            "trades_count": 2,
+            "volume": 1035,
+            "security_definition": 2299
+        },
+        {
+            "id": 74478,
+            "trade_date": "2026-04-13",
+            "avg_w_price": 1.2,
+            "min_price": 1.2,
+            "max_price": 1.2,
+            "trades_count": 1,
+            "volume": 100,
+            "security_definition": 2299
+        },
+        {
+            "id": 73174,
+            "trade_date": "2026-03-26",
+            "avg_w_price": 1.5,
+            "min_price": 1.5,
+            "max_price": 1.5,
+            "trades_count": 5,
+            "volume": 56,
+            "security_definition": 2299
+        },
+        {
+            "id": 73071,
+            "trade_date": "2026-03-25",
+            "avg_w_price": 1.5345454545454547,
+            "min_price": 1.5,
+            "max_price": 1.56,
+            "trades_count": 3,
+            "volume": 33,
+            "security_definition": 2299
+        },
+        {
+            "id": 72954,
+            "trade_date": "2026-03-24",
+            "avg_w_price": 1.5,
+            "min_price": 1.5,
+            "max_price": 1.5,
+            "trades_count": 3,
+            "volume": 51,
+            "security_definition": 2299
+        },
+        {
+            "id": 72831,
+            "trade_date": "2026-03-23",
+            "avg_w_price": 1.45,
+            "min_price": 1.45,
+            "max_price": 1.45,
+            "trades_count": 1,
+            "volume": 20,
+            "security_definition": 2299
+        },
+        {
+            "id": 72720,
+            "trade_date": "2026-03-20",
+            "avg_w_price": 1.5,
+            "min_price": 1.5,
+            "max_price": 1.5,
+            "trades_count": 1,
+            "volume": 45,
+            "security_definition": 2299
+        },
+        {
+            "id": 72507,
+            "trade_date": "2026-03-18",
+            "avg_w_price": 1.5,
+            "min_price": 1.5,
+            "max_price": 1.5,
+            "trades_count": 1,
+            "volume": 2,
+            "security_definition": 2299
+        },
+        {
+            "id": 72406,
+            "trade_date": "2026-03-17",
+            "avg_w_price": 1.4500000000000002,
+            "min_price": 1.45,
+            "max_price": 1.45,
+            "trades_count": 2,
+            "volume": 34,
+            "security_definition": 2299
+        },
+        {
+            "id": 72078,
+            "trade_date": "2026-03-12",
+            "avg_w_price": 1.45,
+            "min_price": 1.45,
+            "max_price": 1.45,
+            "trades_count": 1,
+            "volume": 50,
+            "security_definition": 2299
+        },
+        {
+            "id": 71868,
+            "trade_date": "2026-03-10",
+            "avg_w_price": 1.45,
+            "min_price": 1.45,
+            "max_price": 1.45,
+            "trades_count": 1,
+            "volume": 17,
+            "security_definition": 2299
+        },
+        {
+            "id": 71524,
+            "trade_date": "2026-03-05",
+            "avg_w_price": 1.12,
+            "min_price": 1.12,
+            "max_price": 1.12,
+            "trades_count": 1,
+            "volume": 1,
+            "security_definition": 2299
+        },
+        {
+            "id": 69007,
+            "trade_date": "2026-02-02",
+            "avg_w_price": 0.85,
+            "min_price": 0.85,
+            "max_price": 0.85,
+            "trades_count": 1,
+            "volume": 400,
+            "security_definition": 2299
+        },
+        {
+            "id": 68724,
+            "trade_date": "2026-01-28",
+            "avg_w_price": 1.419,
+            "min_price": 1.0,
+            "max_price": 1.57,
+            "trades_count": 3,
+            "volume": 100,
+            "security_definition": 2299
+        },
+        {
+            "id": 68377,
+            "trade_date": "2026-01-23",
+            "avg_w_price": 1.6900000000000002,
+            "min_price": 1.69,
+            "max_price": 1.69,
+            "trades_count": 1,
+            "volume": 3,
+            "security_definition": 2299
+        },
+        {
+            "id": 68264,
+            "trade_date": "2026-01-22",
+            "avg_w_price": 1.0,
+            "min_price": 1.0,
+            "max_price": 1.0,
+            "trades_count": 1,
+            "volume": 500,
+            "security_definition": 2299
+        },
+        {
+            "id": 68171,
+            "trade_date": "2026-01-21",
+            "avg_w_price": 1.75,
+            "min_price": 1.75,
+            "max_price": 1.75,
+            "trades_count": 1,
+            "volume": 17,
+            "security_definition": 2299
+        },
+        {
+            "id": 68000,
+            "trade_date": "2026-01-19",
+            "avg_w_price": 1.6,
+            "min_price": 1.6,
+            "max_price": 1.6,
+            "trades_count": 1,
+            "volume": 280,
+            "security_definition": 2299
+        },
+        {
+            "id": 67913,
+            "trade_date": "2026-01-16",
+            "avg_w_price": 1.6,
+            "min_price": 1.6,
+            "max_price": 1.6,
+            "trades_count": 1,
+            "volume": 20,
+            "security_definition": 2299
+        },
+        {
+            "id": 67812,
+            "trade_date": "2026-01-15",
+            "avg_w_price": 0.9,
+            "min_price": 0.9,
+            "max_price": 0.9,
+            "trades_count": 1,
+            "volume": 20,
+            "security_definition": 2299
+        },
+        {
+            "id": 67514,
+            "trade_date": "2026-01-12",
+            "avg_w_price": 0.9,
+            "min_price": 0.9,
+            "max_price": 0.9,
+            "trades_count": 1,
+            "volume": 16,
+            "security_definition": 2299
+        },
+        {
+            "id": 66775,
+            "trade_date": "2025-12-29",
+            "avg_w_price": 1.65,
+            "min_price": 1.65,
+            "max_price": 1.65,
+            "trades_count": 1,
+            "volume": 100,
+            "security_definition": 2299
+        },
+        {
+            "id": 66672,
+            "trade_date": "2025-12-24",
+            "avg_w_price": 1.5,
+            "min_price": 1.5,
+            "max_price": 1.5,
+            "trades_count": 2,
+            "volume": 34,
+            "security_definition": 2299
+        },
+        {
+            "id": 66072,
+            "trade_date": "2025-12-17",
+            "avg_w_price": 1.68,
+            "min_price": 1.68,
+            "max_price": 1.68,
+            "trades_count": 1,
+            "volume": 12,
+            "security_definition": 2299
+        },
+        {
+            "id": 65422,
+            "trade_date": "2025-12-08",
+            "avg_w_price": 1.5,
+            "min_price": 1.5,
+            "max_price": 1.5,
+            "trades_count": 1,
+            "volume": 16,
+            "security_definition": 2299
+        },
+        {
+            "id": 65238,
+            "trade_date": "2025-12-04",
+            "avg_w_price": 1.34,
+            "min_price": 1.34,
+            "max_price": 1.34,
+            "trades_count": 1,
+            "volume": 10,
+            "security_definition": 2299
+        },
+        {
+            "id": 65151,
+            "trade_date": "2025-12-03",
+            "avg_w_price": 1.0006786427145709,
+            "min_price": 1.0,
+            "max_price": 1.34,
+            "trades_count": 2,
+            "volume": 1002,
+            "security_definition": 2299
+        },
+        {
+            "id": 65058,
+            "trade_date": "2025-12-02",
+            "avg_w_price": 1.75,
+            "min_price": 1.75,
+            "max_price": 1.75,
+            "trades_count": 1,
+            "volume": 2,
+            "security_definition": 2299
+        },
+        {
+            "id": 64763,
+            "trade_date": "2025-11-27",
+            "avg_w_price": 1.75,
+            "min_price": 1.75,
+            "max_price": 1.75,
+            "trades_count": 1,
+            "volume": 3,
+            "security_definition": 2299
+        },
+        {
+            "id": 64659,
+            "trade_date": "2025-11-26",
+            "avg_w_price": 1.75,
+            "min_price": 1.75,
+            "max_price": 1.75,
+            "trades_count": 1,
+            "volume": 10,
+            "security_definition": 2299
+        },
+        {
+            "id": 64549,
+            "trade_date": "2025-11-25",
+            "avg_w_price": 1.65,
+            "min_price": 1.65,
+            "max_price": 1.65,
+            "trades_count": 1,
+            "volume": 10,
+            "security_definition": 2299
+        },
+        {
+            "id": 64445,
+            "trade_date": "2025-11-24",
+            "avg_w_price": 1.33,
+            "min_price": 1.33,
+            "max_price": 1.33,
+            "trades_count": 1,
+            "volume": 231,
+            "security_definition": 2299
+        },
+        {
+            "id": 64274,
+            "trade_date": "2025-11-20",
+            "avg_w_price": 1.125,
+            "min_price": 1.02,
+            "max_price": 1.65,
+            "trades_count": 2,
+            "volume": 12,
+            "security_definition": 2299
+        },
+        {
+            "id": 63360,
+            "trade_date": "2025-11-06",
+            "avg_w_price": 1.71594594594595,
+            "min_price": 1.69,
+            "max_price": 1.73,
+            "trades_count": 3,
+            "volume": 148,
+            "security_definition": 2299
+        },
+        {
+            "id": 63152,
+            "trade_date": "2025-11-04",
+            "avg_w_price": 1.68310344827586,
+            "min_price": 1.65,
+            "max_price": 1.69,
+            "trades_count": 2,
+            "volume": 58,
+            "security_definition": 2299
+        },
+        {
+            "id": 62876,
+            "trade_date": "2025-10-30",
+            "avg_w_price": 1.73,
+            "min_price": 1.73,
+            "max_price": 1.73,
+            "trades_count": 1,
+            "volume": 6,
+            "security_definition": 2299
+        },
+        {
+            "id": 62588,
+            "trade_date": "2025-10-27",
+            "avg_w_price": 1.51896625602571,
+            "min_price": 1.33,
+            "max_price": 1.73,
+            "trades_count": 4,
+            "volume": 1867,
+            "security_definition": 2299
+        },
+        {
+            "id": 62484,
+            "trade_date": "2025-10-24",
+            "avg_w_price": 1.33,
+            "min_price": 1.33,
+            "max_price": 1.33,
+            "trades_count": 1,
+            "volume": 15,
+            "security_definition": 2299
+        },
+        {
+            "id": 62172,
+            "trade_date": "2025-10-21",
+            "avg_w_price": 1.73,
+            "min_price": 1.73,
+            "max_price": 1.73,
+            "trades_count": 1,
+            "volume": 3,
+            "security_definition": 2299
+        },
+        {
+            "id": 61997,
+            "trade_date": "2025-10-17",
+            "avg_w_price": 1.1,
+            "min_price": 1.1,
+            "max_price": 1.1,
+            "trades_count": 2,
+            "volume": 2000,
+            "security_definition": 60706
+        },
+        {
+            "id": 61951,
+            "trade_date": "2025-10-17",
+            "avg_w_price": 0.961661235390684,
+            "min_price": 0.96,
+            "max_price": 1.08,
+            "trades_count": 6,
+            "volume": 40813,
+            "security_definition": 2299
+        },
+        {
+            "id": 61885,
+            "trade_date": "2025-10-16",
+            "avg_w_price": 1.3,
+            "min_price": 1.3,
+            "max_price": 1.3,
+            "trades_count": 1,
+            "volume": 1000,
+            "security_definition": 60706
+        },
+        {
+            "id": 61850,
+            "trade_date": "2025-10-16",
+            "avg_w_price": 1.13411130235227,
+            "min_price": 1.1,
+            "max_price": 1.5,
+            "trades_count": 12,
+            "volume": 8715,
+            "security_definition": 2299
+        },
+        {
+            "id": 61742,
+            "trade_date": "2025-10-15",
+            "avg_w_price": 1.75,
+            "min_price": 1.75,
+            "max_price": 1.75,
+            "trades_count": 1,
+            "volume": 20,
+            "security_definition": 2299
+        },
+        {
+            "id": 61622,
+            "trade_date": "2025-10-14",
+            "avg_w_price": 1.75,
+            "min_price": 1.75,
+            "max_price": 1.75,
+            "trades_count": 1,
+            "volume": 6,
+            "security_definition": 2299
+        },
+        {
+            "id": 61396,
+            "trade_date": "2025-10-10",
+            "avg_w_price": 1.72702702702703,
+            "min_price": 1.7,
+            "max_price": 1.8,
+            "trades_count": 2,
+            "volume": 37,
+            "security_definition": 2299
+        },
+        {
+            "id": 60819,
+            "trade_date": "2025-10-02",
+            "avg_w_price": 1.76,
+            "min_price": 1.76,
+            "max_price": 1.76,
+            "trades_count": 2,
+            "volume": 77,
+            "security_definition": 2299
+        },
+        {
+            "id": 60595,
+            "trade_date": "2025-09-30",
+            "avg_w_price": 1.8,
+            "min_price": 1.8,
+            "max_price": 1.8,
+            "trades_count": 1,
+            "volume": 13,
+            "security_definition": 2299
+        },
+        {
+            "id": 60392,
+            "trade_date": "2025-09-26",
+            "avg_w_price": 1.87,
+            "min_price": 1.87,
+            "max_price": 1.87,
+            "trades_count": 2,
+            "volume": 11,
+            "security_definition": 2299
+        },
+        {
+            "id": 60178,
+            "trade_date": "2025-09-24",
+            "avg_w_price": 1.87,
+            "min_price": 1.87,
+            "max_price": 1.87,
+            "trades_count": 1,
+            "volume": 100,
+            "security_definition": 2299
+        },
+        {
+            "id": 59957,
+            "trade_date": "2025-09-22",
+            "avg_w_price": 1.58173913043478,
+            "min_price": 1.48,
+            "max_price": 1.87,
+            "trades_count": 6,
+            "volume": 23,
+            "security_definition": 2299
+        },
+        {
+            "id": 59848,
+            "trade_date": "2025-09-19",
+            "avg_w_price": 1.87,
+            "min_price": 1.87,
+            "max_price": 1.87,
+            "trades_count": 1,
+            "volume": 1,
+            "security_definition": 2299
+        },
+        {
+            "id": 59738,
+            "trade_date": "2025-09-18",
+            "avg_w_price": 1.75,
+            "min_price": 1.75,
+            "max_price": 1.75,
+            "trades_count": 1,
+            "volume": 9,
+            "security_definition": 2299
+        },
+        {
+            "id": 59621,
+            "trade_date": "2025-09-17",
+            "avg_w_price": 1.75,
+            "min_price": 1.75,
+            "max_price": 1.75,
+            "trades_count": 1,
+            "volume": 100,
+            "security_definition": 2299
+        },
+        {
+            "id": 59508,
+            "trade_date": "2025-09-16",
+            "avg_w_price": 1.75,
+            "min_price": 1.75,
+            "max_price": 1.75,
+            "trades_count": 4,
+            "volume": 23,
+            "security_definition": 2299
+        },
+        {
+            "id": 59397,
+            "trade_date": "2025-09-15",
+            "avg_w_price": 1.75,
+            "min_price": 1.75,
+            "max_price": 1.75,
+            "trades_count": 1,
+            "volume": 5,
+            "security_definition": 2299
+        },
+        {
+            "id": 59185,
+            "trade_date": "2025-09-11",
+            "avg_w_price": 1.5,
+            "min_price": 1.5,
+            "max_price": 1.5,
+            "trades_count": 1,
+            "volume": 19,
+            "security_definition": 2299
+        },
+        {
+            "id": 58962,
+            "trade_date": "2025-09-09",
+            "avg_w_price": 1.75,
+            "min_price": 1.75,
+            "max_price": 1.75,
+            "trades_count": 2,
+            "volume": 100,
+            "security_definition": 2299
+        },
+        {
+            "id": 58835,
+            "trade_date": "2025-09-08",
+            "avg_w_price": 1.75,
+            "min_price": 1.75,
+            "max_price": 1.75,
+            "trades_count": 2,
+            "volume": 3,
+            "security_definition": 2299
+        },
+        {
+            "id": 58413,
+            "trade_date": "2025-09-02",
+            "avg_w_price": 1.84,
+            "min_price": 1.84,
+            "max_price": 1.84,
+            "trades_count": 1,
+            "volume": 30,
+            "security_definition": 2299
+        },
+        {
+            "id": 58279,
+            "trade_date": "2025-09-01",
+            "avg_w_price": 1.84,
+            "min_price": 1.84,
+            "max_price": 1.84,
+            "trades_count": 1,
+            "volume": 50,
+            "security_definition": 2299
+        },
+        {
+            "id": 58176,
+            "trade_date": "2025-08-29",
+            "avg_w_price": 1.61,
+            "min_price": 1.61,
+            "max_price": 1.61,
+            "trades_count": 1,
+            "volume": 3,
+            "security_definition": 2299
+        },
+        {
+            "id": 58086,
+            "trade_date": "2025-08-28",
+            "avg_w_price": 1.85,
+            "min_price": 1.85,
+            "max_price": 1.85,
+            "trades_count": 2,
+            "volume": 7,
+            "security_definition": 2299
+        },
+        {
+            "id": 57987,
+            "trade_date": "2025-08-27",
+            "avg_w_price": 1.95,
+            "min_price": 1.95,
+            "max_price": 1.95,
+            "trades_count": 1,
+            "volume": 70,
+            "security_definition": 2299
+        },
+        {
+            "id": 57890,
+            "trade_date": "2025-08-26",
+            "avg_w_price": 1.95,
+            "min_price": 1.95,
+            "max_price": 1.95,
+            "trades_count": 2,
+            "volume": 22,
+            "security_definition": 2299
+        },
+        {
+            "id": 57585,
+            "trade_date": "2025-08-21",
+            "avg_w_price": 1.6125,
+            "min_price": 1.5,
+            "max_price": 1.95,
+            "trades_count": 2,
+            "volume": 4,
+            "security_definition": 2299
+        },
+        {
+            "id": 57489,
+            "trade_date": "2025-08-20",
+            "avg_w_price": 1.95,
+            "min_price": 1.95,
+            "max_price": 1.95,
+            "trades_count": 1,
+            "volume": 10,
+            "security_definition": 2299
+        },
+        {
+            "id": 57286,
+            "trade_date": "2025-08-18",
+            "avg_w_price": 1.2,
+            "min_price": 1.2,
+            "max_price": 1.2,
+            "trades_count": 1,
+            "volume": 1,
+            "security_definition": 2299
+        },
+        {
+            "id": 57099,
+            "trade_date": "2025-08-14",
+            "avg_w_price": 1.98,
+            "min_price": 1.98,
+            "max_price": 1.98,
+            "trades_count": 2,
+            "volume": 20,
+            "security_definition": 2299
+        },
+        {
+            "id": 56908,
+            "trade_date": "2025-08-12",
+            "avg_w_price": 2.0,
+            "min_price": 2.0,
+            "max_price": 2.0,
+            "trades_count": 2,
+            "volume": 55,
+            "security_definition": 2299
+        },
+        {
+            "id": 56710,
+            "trade_date": "2025-08-08",
+            "avg_w_price": 2.0,
+            "min_price": 2.0,
+            "max_price": 2.0,
+            "trades_count": 2,
+            "volume": 6,
+            "security_definition": 2299
+        },
+        {
+            "id": 56475,
+            "trade_date": "2025-08-05",
+            "avg_w_price": 1.88803536345776,
+            "min_price": 1.88,
+            "max_price": 1.89,
+            "trades_count": 5,
+            "volume": 509,
+            "security_definition": 2299
+        },
+        {
+            "id": 56392,
+            "trade_date": "2025-08-04",
+            "avg_w_price": 1.08,
+            "min_price": 1.08,
+            "max_price": 1.08,
+            "trades_count": 1,
+            "volume": 10,
+            "security_definition": 2299
+        },
+        {
+            "id": 55863,
+            "trade_date": "2025-07-25",
+            "avg_w_price": 1.09,
+            "min_price": 1.09,
+            "max_price": 1.09,
+            "trades_count": 2,
+            "volume": 203,
+            "security_definition": 2299
+        },
+        {
+            "id": 55768,
+            "trade_date": "2025-07-24",
+            "avg_w_price": 1.09,
+            "min_price": 1.09,
+            "max_price": 1.09,
+            "trades_count": 1,
+            "volume": 110,
+            "security_definition": 2299
+        },
+        {
+            "id": 55685,
+            "trade_date": "2025-07-23",
+            "avg_w_price": 1.09,
+            "min_price": 1.09,
+            "max_price": 1.09,
+            "trades_count": 3,
+            "volume": 590,
+            "security_definition": 2299
+        },
+        {
+            "id": 55587,
+            "trade_date": "2025-07-22",
+            "avg_w_price": 1.09,
+            "min_price": 1.09,
+            "max_price": 1.09,
+            "trades_count": 2,
+            "volume": 33,
+            "security_definition": 2299
+        },
+        {
+            "id": 55492,
+            "trade_date": "2025-07-21",
+            "avg_w_price": 1.09666666666667,
+            "min_price": 1.09,
+            "max_price": 1.1,
+            "trades_count": 2,
+            "volume": 15,
+            "security_definition": 2299
+        },
+        {
+            "id": 55396,
+            "trade_date": "2025-07-18",
+            "avg_w_price": 1.09,
+            "min_price": 1.09,
+            "max_price": 1.09,
+            "trades_count": 1,
+            "volume": 74,
+            "security_definition": 2299
+        },
+        {
+            "id": 55296,
+            "trade_date": "2025-07-17",
+            "avg_w_price": 1.09920903954802,
+            "min_price": 1.09,
+            "max_price": 1.1,
+            "trades_count": 6,
+            "volume": 531,
+            "security_definition": 2299
+        },
+        {
+            "id": 55210,
+            "trade_date": "2025-07-16",
+            "avg_w_price": 1.1,
+            "min_price": 1.1,
+            "max_price": 1.1,
+            "trades_count": 2,
+            "volume": 112,
+            "security_definition": 2299
+        },
+        {
+            "id": 55112,
+            "trade_date": "2025-07-15",
+            "avg_w_price": 1.1,
+            "min_price": 1.1,
+            "max_price": 1.1,
+            "trades_count": 2,
+            "volume": 102,
+            "security_definition": 2299
+        },
+        {
+            "id": 55030,
+            "trade_date": "2025-07-14",
+            "avg_w_price": 1.1,
+            "min_price": 1.1,
+            "max_price": 1.1,
+            "trades_count": 2,
+            "volume": 220,
+            "security_definition": 2299
+        },
+        {
+            "id": 54975,
+            "trade_date": "2025-07-12",
+            "avg_w_price": 1.1,
+            "min_price": 1.1,
+            "max_price": 1.1,
+            "trades_count": 2,
+            "volume": 141,
+            "security_definition": 2299
+        },
+        {
+            "id": 54927,
+            "trade_date": "2025-07-11",
+            "avg_w_price": 1.10140562248996,
+            "min_price": 1.1,
+            "max_price": 1.11,
+            "trades_count": 5,
+            "volume": 249,
+            "security_definition": 2299
+        },
+        {
+            "id": 54843,
+            "trade_date": "2025-07-10",
+            "avg_w_price": 1.11,
+            "min_price": 1.11,
+            "max_price": 1.11,
+            "trades_count": 1,
+            "volume": 10,
+            "security_definition": 2299
+        },
+        {
+            "id": 54764,
+            "trade_date": "2025-07-09",
+            "avg_w_price": 1.11,
+            "min_price": 1.11,
+            "max_price": 1.11,
+            "trades_count": 2,
+            "volume": 151,
+            "security_definition": 2299
+        },
+        {
+            "id": 54674,
+            "trade_date": "2025-07-08",
+            "avg_w_price": 1.11,
+            "min_price": 1.11,
+            "max_price": 1.11,
+            "trades_count": 4,
+            "volume": 185,
+            "security_definition": 2299
+        },
+        {
+            "id": 54584,
+            "trade_date": "2025-07-07",
+            "avg_w_price": 1.11,
+            "min_price": 1.11,
+            "max_price": 1.11,
+            "trades_count": 5,
+            "volume": 231,
+            "security_definition": 2299
+        },
+        {
+            "id": 54471,
+            "trade_date": "2025-07-02",
+            "avg_w_price": 1.11,
+            "min_price": 1.11,
+            "max_price": 1.11,
+            "trades_count": 4,
+            "volume": 107,
+            "security_definition": 2299
+        },
+        {
+            "id": 54351,
+            "trade_date": "2025-07-01",
+            "avg_w_price": 1.11,
+            "min_price": 1.11,
+            "max_price": 1.11,
+            "trades_count": 4,
+            "volume": 932,
+            "security_definition": 2299
+        },
+        {
+            "id": 54260,
+            "trade_date": "2025-06-30",
+            "avg_w_price": 1.15,
+            "min_price": 1.15,
+            "max_price": 1.15,
+            "trades_count": 2,
+            "volume": 383,
+            "security_definition": 2299
+        },
+        {
+            "id": 54183,
+            "trade_date": "2025-06-27",
+            "avg_w_price": 1.15,
+            "min_price": 1.15,
+            "max_price": 1.15,
+            "trades_count": 3,
+            "volume": 389,
+            "security_definition": 2299
+        },
+        {
+            "id": 54091,
+            "trade_date": "2025-06-26",
+            "avg_w_price": 1.42817475909814,
+            "min_price": 1.15,
+            "max_price": 1.45,
+            "trades_count": 13,
+            "volume": 10689,
+            "security_definition": 2299
+        },
+        {
+            "id": 53905,
+            "trade_date": "2025-06-24",
+            "avg_w_price": 2.49,
+            "min_price": 2.49,
+            "max_price": 2.49,
+            "trades_count": 1,
+            "volume": 1,
+            "security_definition": 2299
+        },
+        {
+            "id": 53801,
+            "trade_date": "2025-06-23",
+            "avg_w_price": 2.49,
+            "min_price": 2.49,
+            "max_price": 2.49,
+            "trades_count": 1,
+            "volume": 3,
+            "security_definition": 2299
+        },
+        {
+            "id": 53601,
+            "trade_date": "2025-06-19",
+            "avg_w_price": 2.5,
+            "min_price": 2.5,
+            "max_price": 2.5,
+            "trades_count": 1,
+            "volume": 5,
+            "security_definition": 2299
+        },
+        {
+            "id": 53445,
+            "trade_date": "2025-06-17",
+            "avg_w_price": 2.4,
+            "min_price": 2.4,
+            "max_price": 2.4,
+            "trades_count": 2,
+            "volume": 20,
+            "security_definition": 2299
+        },
+        {
+            "id": 53359,
+            "trade_date": "2025-06-16",
+            "avg_w_price": 2.5,
+            "min_price": 2.5,
+            "max_price": 2.5,
+            "trades_count": 1,
+            "volume": 20,
+            "security_definition": 2299
+        },
+        {
+            "id": 53281,
+            "trade_date": "2025-06-13",
+            "avg_w_price": 2.0,
+            "min_price": 2.0,
+            "max_price": 2.0,
+            "trades_count": 1,
+            "volume": 1000,
+            "security_definition": 2299
+        },
+        {
+            "id": 52717,
+            "trade_date": "2025-06-04",
+            "avg_w_price": 2.11573816155989,
+            "min_price": 2.05,
+            "max_price": 2.45,
+            "trades_count": 2,
+            "volume": 359,
+            "security_definition": 2299
+        },
+        {
+            "id": 52537,
+            "trade_date": "2025-06-02",
+            "avg_w_price": 1.5,
+            "min_price": 1.5,
+            "max_price": 1.5,
+            "trades_count": 1,
+            "volume": 21,
+            "security_definition": 2299
+        },
+        {
+            "id": 52457,
+            "trade_date": "2025-05-30",
+            "avg_w_price": 2.55,
+            "min_price": 2.55,
+            "max_price": 2.55,
+            "trades_count": 1,
+            "volume": 51,
+            "security_definition": 2299
+        },
+        {
+            "id": 52397,
+            "trade_date": "2025-05-29",
+            "avg_w_price": 2.5,
+            "min_price": 2.5,
+            "max_price": 2.5,
+            "trades_count": 1,
+            "volume": 2,
+            "security_definition": 2299
+        },
+        {
+            "id": 52316,
+            "trade_date": "2025-05-28",
+            "avg_w_price": 2.5,
+            "min_price": 2.5,
+            "max_price": 2.5,
+            "trades_count": 1,
+            "volume": 1,
+            "security_definition": 2299
+        },
+        {
+            "id": 52052,
+            "trade_date": "2025-05-23",
+            "avg_w_price": 2.02012288786482,
+            "min_price": 2.02,
+            "max_price": 2.1,
+            "trades_count": 3,
+            "volume": 1302,
+            "security_definition": 2299
+        },
+        {
+            "id": 51882,
+            "trade_date": "2025-05-21",
+            "avg_w_price": 2.02227979274611,
+            "min_price": 2.0,
+            "max_price": 2.55,
+            "trades_count": 4,
+            "volume": 193,
+            "security_definition": 2299
+        },
+        {
+            "id": 51804,
+            "trade_date": "2025-05-20",
+            "avg_w_price": 2.75,
+            "min_price": 2.75,
+            "max_price": 2.75,
+            "trades_count": 1,
+            "volume": 10,
+            "security_definition": 2299
+        },
+        {
+            "id": 51727,
+            "trade_date": "2025-05-19",
+            "avg_w_price": 2.24,
+            "min_price": 2.0,
+            "max_price": 2.4,
+            "trades_count": 2,
+            "volume": 70,
+            "security_definition": 2299
+        },
+        {
+            "id": 51457,
+            "trade_date": "2025-05-13",
+            "avg_w_price": 2.55,
+            "min_price": 2.55,
+            "max_price": 2.55,
+            "trades_count": 1,
+            "volume": 120,
+            "security_definition": 2299
+        },
+        {
+            "id": 51356,
+            "trade_date": "2025-05-12",
+            "avg_w_price": 2.8,
+            "min_price": 2.8,
+            "max_price": 2.8,
+            "trades_count": 1,
+            "volume": 15,
+            "security_definition": 2299
+        },
+        {
+            "id": 51109,
+            "trade_date": "2025-05-06",
+            "avg_w_price": 2.8,
+            "min_price": 2.8,
+            "max_price": 2.8,
+            "trades_count": 1,
+            "volume": 35,
+            "security_definition": 2299
+        },
+        {
+            "id": 51023,
+            "trade_date": "2025-05-05",
+            "avg_w_price": 2.4,
+            "min_price": 2.4,
+            "max_price": 2.4,
+            "trades_count": 1,
+            "volume": 50,
+            "security_definition": 2299
+        },
+        {
+            "id": 50926,
+            "trade_date": "2025-05-02",
+            "avg_w_price": 2.4,
+            "min_price": 2.4,
+            "max_price": 2.4,
+            "trades_count": 2,
+            "volume": 30,
+            "security_definition": 2299
+        },
+        {
+            "id": 50614,
+            "trade_date": "2025-04-24",
+            "avg_w_price": 2.4,
+            "min_price": 2.4,
+            "max_price": 2.4,
+            "trades_count": 1,
+            "volume": 30,
+            "security_definition": 2299
+        },
+        {
+            "id": 50550,
+            "trade_date": "2025-04-23",
+            "avg_w_price": 2.4,
+            "min_price": 2.4,
+            "max_price": 2.4,
+            "trades_count": 1,
+            "volume": 2,
+            "security_definition": 2299
+        },
+        {
+            "id": 50453,
+            "trade_date": "2025-04-22",
+            "avg_w_price": 2.4,
+            "min_price": 2.4,
+            "max_price": 2.4,
+            "trades_count": 3,
+            "volume": 41,
+            "security_definition": 2299
+        },
+        {
+            "id": 50274,
+            "trade_date": "2025-04-18",
+            "avg_w_price": 2.4,
+            "min_price": 2.4,
+            "max_price": 2.4,
+            "trades_count": 1,
+            "volume": 24,
+            "security_definition": 2299
+        },
+        {
+            "id": 50127,
+            "trade_date": "2025-04-16",
+            "avg_w_price": 2.5,
+            "min_price": 2.5,
+            "max_price": 2.5,
+            "trades_count": 1,
+            "volume": 2,
+            "security_definition": 2299
+        },
+        {
+            "id": 50049,
+            "trade_date": "2025-04-15",
+            "avg_w_price": 2.05526315789474,
+            "min_price": 2.0,
+            "max_price": 2.3,
+            "trades_count": 2,
+            "volume": 38,
+            "security_definition": 2299
+        },
+        {
+            "id": 49874,
+            "trade_date": "2025-04-11",
+            "avg_w_price": 2.0,
+            "min_price": 2.0,
+            "max_price": 2.0,
+            "trades_count": 1,
+            "volume": 1000,
+            "security_definition": 2299
+        },
+        {
+            "id": 49773,
+            "trade_date": "2025-04-10",
+            "avg_w_price": 2.5,
+            "min_price": 2.5,
+            "max_price": 2.5,
+            "trades_count": 1,
+            "volume": 7,
+            "security_definition": 2299
+        },
+        {
+            "id": 48185,
+            "trade_date": "2025-03-17",
+            "avg_w_price": 2.5,
+            "min_price": 2.5,
+            "max_price": 2.5,
+            "trades_count": 1,
+            "volume": 40,
+            "security_definition": 2299
+        },
+        {
+            "id": 48091,
+            "trade_date": "2025-03-14",
+            "avg_w_price": 2.65925,
+            "min_price": 2.5,
+            "max_price": 2.99,
+            "trades_count": 4,
+            "volume": 40,
+            "security_definition": 2299
+        },
+        {
+            "id": 47362,
+            "trade_date": "2025-03-03",
+            "avg_w_price": 2.8,
+            "min_price": 2.8,
+            "max_price": 2.8,
+            "trades_count": 1,
+            "volume": 25,
+            "security_definition": 2299
+        },
+        {
+            "id": 47133,
+            "trade_date": "2025-02-26",
+            "avg_w_price": 2.55,
+            "min_price": 2.55,
+            "max_price": 2.55,
+            "trades_count": 1,
+            "volume": 11,
+            "security_definition": 2299
+        },
+        {
+            "id": 47052,
+            "trade_date": "2025-02-25",
+            "avg_w_price": 2.6,
+            "min_price": 2.6,
+            "max_price": 2.6,
+            "trades_count": 1,
+            "volume": 17,
+            "security_definition": 2299
+        },
+        {
+            "id": 46870,
+            "trade_date": "2025-02-21",
+            "avg_w_price": 2.99,
+            "min_price": 2.99,
+            "max_price": 2.99,
+            "trades_count": 1,
+            "volume": 1,
+            "security_definition": 2299
+        },
+        {
+            "id": 46794,
+            "trade_date": "2025-02-20",
+            "avg_w_price": 2.64683544303798,
+            "min_price": 2.5,
+            "max_price": 2.9,
+            "trades_count": 2,
+            "volume": 79,
+            "security_definition": 2299
+        },
+        {
+            "id": 46701,
+            "trade_date": "2025-02-19",
+            "avg_w_price": 2.58,
+            "min_price": 2.58,
+            "max_price": 2.58,
+            "trades_count": 2,
+            "volume": 30,
+            "security_definition": 2299
+        },
+        {
+            "id": 46595,
+            "trade_date": "2025-02-18",
+            "avg_w_price": 2.41724137931035,
+            "min_price": 2.4,
+            "max_price": 2.45,
+            "trades_count": 2,
+            "volume": 29,
+            "security_definition": 2299
+        },
+        {
+            "id": 46485,
+            "trade_date": "2025-02-17",
+            "avg_w_price": 2.49230769230769,
+            "min_price": 2.4,
+            "max_price": 2.5,
+            "trades_count": 2,
+            "volume": 26,
+            "security_definition": 2299
+        },
+        {
+            "id": 46396,
+            "trade_date": "2025-02-14",
+            "avg_w_price": 3.0,
+            "min_price": 3.0,
+            "max_price": 3.0,
+            "trades_count": 1,
+            "volume": 2,
+            "security_definition": 2299
+        },
+        {
+            "id": 46312,
+            "trade_date": "2025-02-13",
+            "avg_w_price": 2.5,
+            "min_price": 2.5,
+            "max_price": 2.5,
+            "trades_count": 1,
+            "volume": 10,
+            "security_definition": 2299
+        },
+        {
+            "id": 45985,
+            "trade_date": "2025-02-07",
+            "avg_w_price": 2.5,
+            "min_price": 2.5,
+            "max_price": 2.5,
+            "trades_count": 1,
+            "volume": 29,
+            "security_definition": 2299
+        },
+        {
+            "id": 45822,
+            "trade_date": "2025-02-05",
+            "avg_w_price": 2.9,
+            "min_price": 2.9,
+            "max_price": 2.9,
+            "trades_count": 1,
+            "volume": 2,
+            "security_definition": 2299
+        },
+        {
+            "id": 45748,
+            "trade_date": "2025-02-04",
+            "avg_w_price": 2.37407407407407,
+            "min_price": 2.1,
+            "max_price": 3.0,
+            "trades_count": 4,
+            "volume": 81,
+            "security_definition": 2299
+        },
+        {
+            "id": 45664,
+            "trade_date": "2025-02-03",
+            "avg_w_price": 2.0,
+            "min_price": 2.0,
+            "max_price": 2.0,
+            "trades_count": 1,
+            "volume": 6,
+            "security_definition": 2299
+        },
+        {
+            "id": 45581,
+            "trade_date": "2025-01-31",
+            "avg_w_price": 2.5,
+            "min_price": 2.5,
+            "max_price": 2.5,
+            "trades_count": 2,
+            "volume": 24,
+            "security_definition": 2299
+        },
+        {
+            "id": 45509,
+            "trade_date": "2025-01-30",
+            "avg_w_price": 2.5,
+            "min_price": 2.5,
+            "max_price": 2.5,
+            "trades_count": 1,
+            "volume": 18,
+            "security_definition": 2299
+        },
+        {
+            "id": 45436,
+            "trade_date": "2025-01-29",
+            "avg_w_price": 2.5,
+            "min_price": 2.5,
+            "max_price": 2.5,
+            "trades_count": 2,
+            "volume": 155,
+            "security_definition": 2299
+        },
+        {
+            "id": 45352,
+            "trade_date": "2025-01-28",
+            "avg_w_price": 2.9,
+            "min_price": 2.9,
+            "max_price": 2.9,
+            "trades_count": 1,
+            "volume": 15,
+            "security_definition": 2299
+        },
+        {
+            "id": 45258,
+            "trade_date": "2025-01-27",
+            "avg_w_price": 2.94372881355932,
+            "min_price": 2.6,
+            "max_price": 2.99,
+            "trades_count": 2,
+            "volume": 59,
+            "security_definition": 2299
+        },
+        {
+            "id": 45105,
+            "trade_date": "2025-01-23",
+            "avg_w_price": 2.85,
+            "min_price": 2.85,
+            "max_price": 2.85,
+            "trades_count": 1,
+            "volume": 1,
+            "security_definition": 2299
+        },
+        {
+            "id": 44919,
+            "trade_date": "2025-01-21",
+            "avg_w_price": 3.0,
+            "min_price": 3.0,
+            "max_price": 3.0,
+            "trades_count": 1,
+            "volume": 1,
+            "security_definition": 2299
+        },
+        {
+            "id": 44739,
+            "trade_date": "2025-01-17",
+            "avg_w_price": 2.75,
+            "min_price": 2.75,
+            "max_price": 2.75,
+            "trades_count": 1,
+            "volume": 15,
+            "security_definition": 2299
+        },
+        {
+            "id": 44484,
+            "trade_date": "2025-01-14",
+            "avg_w_price": 2.85,
+            "min_price": 2.85,
+            "max_price": 2.85,
+            "trades_count": 2,
+            "volume": 105,
+            "security_definition": 2299
+        },
+        {
+            "id": 44387,
+            "trade_date": "2025-01-13",
+            "avg_w_price": 2.75,
+            "min_price": 2.75,
+            "max_price": 2.75,
+            "trades_count": 3,
+            "volume": 90,
+            "security_definition": 2299
+        },
+        {
+            "id": 44300,
+            "trade_date": "2025-01-11",
+            "avg_w_price": 2.75,
+            "min_price": 2.75,
+            "max_price": 2.75,
+            "trades_count": 1,
+            "volume": 15,
+            "security_definition": 2299
+        },
+        {
+            "id": 44122,
+            "trade_date": "2025-01-09",
+            "avg_w_price": 2.8,
+            "min_price": 2.8,
+            "max_price": 2.8,
+            "trades_count": 1,
+            "volume": 35,
+            "security_definition": 2299
+        },
+        {
+            "id": 43928,
+            "trade_date": "2025-01-03",
+            "avg_w_price": 2.55,
+            "min_price": 2.55,
+            "max_price": 2.55,
+            "trades_count": 1,
+            "volume": 5,
+            "security_definition": 2299
+        },
+        {
+            "id": 43841,
+            "trade_date": "2024-12-31",
+            "avg_w_price": 2.59,
+            "min_price": 2.59,
+            "max_price": 2.59,
+            "trades_count": 1,
+            "volume": 7,
+            "security_definition": 2299
+        },
+        {
+            "id": 43683,
+            "trade_date": "2024-12-27",
+            "avg_w_price": 2.5,
+            "min_price": 2.5,
+            "max_price": 2.5,
+            "trades_count": 1,
+            "volume": 185,
+            "security_definition": 2299
+        },
+        {
+            "id": 43497,
+            "trade_date": "2024-12-24",
+            "avg_w_price": 2.7,
+            "min_price": 2.7,
+            "max_price": 2.7,
+            "trades_count": 1,
+            "volume": 173,
+            "security_definition": 2299
+        },
+        {
+            "id": 43405,
+            "trade_date": "2024-12-23",
+            "avg_w_price": 2.50996254681648,
+            "min_price": 2.5,
+            "max_price": 2.88,
+            "trades_count": 2,
+            "volume": 801,
+            "security_definition": 2299
+        },
+        {
+            "id": 43325,
+            "trade_date": "2024-12-20",
+            "avg_w_price": 2.52987341772152,
+            "min_price": 2.5,
+            "max_price": 3.09,
+            "trades_count": 4,
+            "volume": 316,
+            "security_definition": 2299
+        },
+        {
+            "id": 43236,
+            "trade_date": "2024-12-19",
+            "avg_w_price": 2.99,
+            "min_price": 2.99,
+            "max_price": 2.99,
+            "trades_count": 1,
+            "volume": 25,
+            "security_definition": 2299
+        },
+        {
+            "id": 43082,
+            "trade_date": "2024-12-17",
+            "avg_w_price": 2.5,
+            "min_price": 2.5,
+            "max_price": 2.5,
+            "trades_count": 1,
+            "volume": 60,
+            "security_definition": 2299
+        },
+        {
+            "id": 43026,
+            "trade_date": "2024-12-16",
+            "avg_w_price": 3.09,
+            "min_price": 3.09,
+            "max_price": 3.09,
+            "trades_count": 1,
+            "volume": 6,
+            "security_definition": 2299
+        },
+        {
+            "id": 42972,
+            "trade_date": "2024-12-13",
+            "avg_w_price": 3.09,
+            "min_price": 3.09,
+            "max_price": 3.09,
+            "trades_count": 1,
+            "volume": 19,
+            "security_definition": 2299
+        },
+        {
+            "id": 42713,
+            "trade_date": "2024-12-10",
+            "avg_w_price": 2.86666666666667,
+            "min_price": 2.7,
+            "max_price": 3.15,
+            "trades_count": 3,
+            "volume": 27,
+            "security_definition": 2299
+        },
+        {
+            "id": 42547,
+            "trade_date": "2024-12-06",
+            "avg_w_price": 2.74222222222222,
+            "min_price": 1.84,
+            "max_price": 3.2,
+            "trades_count": 3,
+            "volume": 18,
+            "security_definition": 2299
+        },
+        {
+            "id": 42472,
+            "trade_date": "2024-12-05",
+            "avg_w_price": 3.1,
+            "min_price": 3.1,
+            "max_price": 3.1,
+            "trades_count": 1,
+            "volume": 1,
+            "security_definition": 2299
+        },
+        {
+            "id": 42400,
+            "trade_date": "2024-12-04",
+            "avg_w_price": 2.50510416666667,
+            "min_price": 2.5,
+            "max_price": 2.99,
+            "trades_count": 4,
+            "volume": 96,
+            "security_definition": 2299
+        },
+        {
+            "id": 42323,
+            "trade_date": "2024-12-03",
+            "avg_w_price": 2.5,
+            "min_price": 2.5,
+            "max_price": 2.5,
+            "trades_count": 1,
+            "volume": 10,
+            "security_definition": 2299
+        },
+        {
+            "id": 42164,
+            "trade_date": "2024-11-29",
+            "avg_w_price": 2.5,
+            "min_price": 2.5,
+            "max_price": 2.5,
+            "trades_count": 2,
+            "volume": 26,
+            "security_definition": 2299
+        },
+        {
+            "id": 42097,
+            "trade_date": "2024-11-28",
+            "avg_w_price": 2.99,
+            "min_price": 2.99,
+            "max_price": 2.99,
+            "trades_count": 2,
+            "volume": 61,
+            "security_definition": 2299
+        },
+        {
+            "id": 41956,
+            "trade_date": "2024-11-26",
+            "avg_w_price": 2.5,
+            "min_price": 2.5,
+            "max_price": 2.5,
+            "trades_count": 1,
+            "volume": 132,
+            "security_definition": 2299
+        },
+        {
+            "id": 41860,
+            "trade_date": "2024-11-25",
+            "avg_w_price": 2.9,
+            "min_price": 2.9,
+            "max_price": 2.9,
+            "trades_count": 1,
+            "volume": 30,
+            "security_definition": 2299
+        },
+        {
+            "id": 41771,
+            "trade_date": "2024-11-22",
+            "avg_w_price": 2.55,
+            "min_price": 2.55,
+            "max_price": 2.55,
+            "trades_count": 1,
+            "volume": 90,
+            "security_definition": 2299
+        },
+        {
+            "id": 41608,
+            "trade_date": "2024-11-20",
+            "avg_w_price": 2.55,
+            "min_price": 2.55,
+            "max_price": 2.55,
+            "trades_count": 2,
+            "volume": 120,
+            "security_definition": 2299
+        },
+        {
+            "id": 41536,
+            "trade_date": "2024-11-19",
+            "avg_w_price": 3.19,
+            "min_price": 3.19,
+            "max_price": 3.19,
+            "trades_count": 1,
+            "volume": 8,
+            "security_definition": 2299
+        },
+        {
+            "id": 41451,
+            "trade_date": "2024-11-18",
+            "avg_w_price": 3.2,
+            "min_price": 3.2,
+            "max_price": 3.2,
+            "trades_count": 2,
+            "volume": 25,
+            "security_definition": 2299
+        },
+        {
+            "id": 41392,
+            "trade_date": "2024-11-16",
+            "avg_w_price": 3.19,
+            "min_price": 3.19,
+            "max_price": 3.19,
+            "trades_count": 1,
+            "volume": 10,
+            "security_definition": 2299
+        },
+        {
+            "id": 41238,
+            "trade_date": "2024-11-14",
+            "avg_w_price": 3.0,
+            "min_price": 3.0,
+            "max_price": 3.0,
+            "trades_count": 2,
+            "volume": 80,
+            "security_definition": 2299
+        },
+        {
+            "id": 41165,
+            "trade_date": "2024-11-13",
+            "avg_w_price": 2.55,
+            "min_price": 2.55,
+            "max_price": 2.55,
+            "trades_count": 2,
+            "volume": 100,
+            "security_definition": 2299
+        },
+        {
+            "id": 41087,
+            "trade_date": "2024-11-12",
+            "avg_w_price": 2.55,
+            "min_price": 2.55,
+            "max_price": 2.55,
+            "trades_count": 3,
+            "volume": 233,
+            "security_definition": 2299
+        },
+        {
+            "id": 41002,
+            "trade_date": "2024-11-11",
+            "avg_w_price": 2.55,
+            "min_price": 2.55,
+            "max_price": 2.55,
+            "trades_count": 1,
+            "volume": 50,
+            "security_definition": 2299
+        },
+        {
+            "id": 40607,
+            "trade_date": "2024-10-31",
+            "avg_w_price": 2.5,
+            "min_price": 2.5,
+            "max_price": 2.5,
+            "trades_count": 4,
+            "volume": 472,
+            "security_definition": 2299
+        },
+        {
+            "id": 40541,
+            "trade_date": "2024-10-30",
+            "avg_w_price": 2.5,
+            "min_price": 2.5,
+            "max_price": 2.5,
+            "trades_count": 2,
+            "volume": 195,
+            "security_definition": 2299
+        },
+        {
+            "id": 40392,
+            "trade_date": "2024-10-28",
+            "avg_w_price": 3.3,
+            "min_price": 3.3,
+            "max_price": 3.3,
+            "trades_count": 1,
+            "volume": 3,
+            "security_definition": 2299
+        },
+        {
+            "id": 40310,
+            "trade_date": "2024-10-25",
+            "avg_w_price": 2.7433734939759,
+            "min_price": 2.7,
+            "max_price": 3.3,
+            "trades_count": 2,
+            "volume": 83,
+            "security_definition": 2299
+        },
+        {
+            "id": 40149,
+            "trade_date": "2024-10-23",
+            "avg_w_price": 3.3,
+            "min_price": 3.3,
+            "max_price": 3.3,
+            "trades_count": 1,
+            "volume": 7,
+            "security_definition": 2299
+        },
+        {
+            "id": 39816,
+            "trade_date": "2024-10-17",
+            "avg_w_price": 3.3,
+            "min_price": 3.3,
+            "max_price": 3.3,
+            "trades_count": 1,
+            "volume": 2,
+            "security_definition": 2299
+        },
+        {
+            "id": 39655,
+            "trade_date": "2024-10-15",
+            "avg_w_price": 2.94444444444444,
+            "min_price": 2.5,
+            "max_price": 3.3,
+            "trades_count": 2,
+            "volume": 27,
+            "security_definition": 2299
+        },
+        {
+            "id": 39459,
+            "trade_date": "2024-10-11",
+            "avg_w_price": 3.29,
+            "min_price": 3.29,
+            "max_price": 3.29,
+            "trades_count": 1,
+            "volume": 26,
+            "security_definition": 2299
+        },
+        {
+            "id": 39289,
+            "trade_date": "2024-10-09",
+            "avg_w_price": 3.2,
+            "min_price": 3.2,
+            "max_price": 3.2,
+            "trades_count": 1,
+            "volume": 3,
+            "security_definition": 2299
+        },
+        {
+            "id": 39201,
+            "trade_date": "2024-10-08",
+            "avg_w_price": 3.3,
+            "min_price": 3.3,
+            "max_price": 3.3,
+            "trades_count": 1,
+            "volume": 2,
+            "security_definition": 2299
+        },
+        {
+            "id": 39110,
+            "trade_date": "2024-10-07",
+            "avg_w_price": 2.82380952380952,
+            "min_price": 2.05,
+            "max_price": 3.3,
+            "trades_count": 2,
+            "volume": 42,
+            "security_definition": 2299
+        },
+        {
+            "id": 38681,
+            "trade_date": "2024-09-30",
+            "avg_w_price": 3.49,
+            "min_price": 3.49,
+            "max_price": 3.49,
+            "trades_count": 2,
+            "volume": 8,
+            "security_definition": 2299
+        },
+        {
+            "id": 38605,
+            "trade_date": "2024-09-27",
+            "avg_w_price": 2.6,
+            "min_price": 2.6,
+            "max_price": 2.6,
+            "trades_count": 1,
+            "volume": 130,
+            "security_definition": 2299
+        },
+        {
+            "id": 38525,
+            "trade_date": "2024-09-26",
+            "avg_w_price": 2.5961038961039,
+            "min_price": 2.5,
+            "max_price": 2.7,
+            "trades_count": 3,
+            "volume": 154,
+            "security_definition": 2299
+        },
+        {
+            "id": 38433,
+            "trade_date": "2024-09-25",
+            "avg_w_price": 2.5,
+            "min_price": 2.5,
+            "max_price": 2.5,
+            "trades_count": 1,
+            "volume": 11,
+            "security_definition": 2299
+        },
+        {
+            "id": 38351,
+            "trade_date": "2024-09-24",
+            "avg_w_price": 2.5,
+            "min_price": 2.5,
+            "max_price": 2.5,
+            "trades_count": 1,
+            "volume": 30,
+            "security_definition": 2299
+        },
+        {
+            "id": 38272,
+            "trade_date": "2024-09-23",
+            "avg_w_price": 3.48,
+            "min_price": 3.48,
+            "max_price": 3.48,
+            "trades_count": 1,
+            "volume": 7,
+            "security_definition": 2299
+        },
+        {
+            "id": 38104,
+            "trade_date": "2024-09-19",
+            "avg_w_price": 3.08823529411765,
+            "min_price": 2.5,
+            "max_price": 3.5,
+            "trades_count": 2,
+            "volume": 17,
+            "security_definition": 2299
+        },
+        {
+            "id": 37949,
+            "trade_date": "2024-09-17",
+            "avg_w_price": 3.5,
+            "min_price": 3.5,
+            "max_price": 3.5,
+            "trades_count": 1,
+            "volume": 10,
+            "security_definition": 2299
+        },
+        {
+            "id": 37869,
+            "trade_date": "2024-09-16",
+            "avg_w_price": 3.5,
+            "min_price": 3.5,
+            "max_price": 3.5,
+            "trades_count": 1,
+            "volume": 1,
+            "security_definition": 2299
+        },
+        {
+            "id": 37740,
+            "trade_date": "2024-09-12",
+            "avg_w_price": 3.5,
+            "min_price": 3.5,
+            "max_price": 3.5,
+            "trades_count": 1,
+            "volume": 5,
+            "security_definition": 2299
+        },
+        {
+            "id": 37663,
+            "trade_date": "2024-09-11",
+            "avg_w_price": 2.5,
+            "min_price": 2.5,
+            "max_price": 2.5,
+            "trades_count": 1,
+            "volume": 26,
+            "security_definition": 2299
+        },
+        {
+            "id": 37243,
+            "trade_date": "2024-09-03",
+            "avg_w_price": 2.5,
+            "min_price": 2.5,
+            "max_price": 2.5,
+            "trades_count": 2,
+            "volume": 8,
+            "security_definition": 2299
+        },
+        {
+            "id": 37023,
+            "trade_date": "2024-08-29",
+            "avg_w_price": 2.5,
+            "min_price": 2.5,
+            "max_price": 2.5,
+            "trades_count": 1,
+            "volume": 200,
+            "security_definition": 2299
+        },
+        {
+            "id": 36922,
+            "trade_date": "2024-08-27",
+            "avg_w_price": 3.45,
+            "min_price": 3.45,
+            "max_price": 3.45,
+            "trades_count": 1,
+            "volume": 1,
+            "security_definition": 2299
+        },
+        {
+            "id": 36848,
+            "trade_date": "2024-08-26",
+            "avg_w_price": 2.72641509433962,
+            "min_price": 2.5,
+            "max_price": 3.5,
+            "trades_count": 2,
+            "volume": 53,
+            "security_definition": 2299
+        },
+        {
+            "id": 36715,
+            "trade_date": "2024-08-22",
+            "avg_w_price": 3.5,
+            "min_price": 3.5,
+            "max_price": 3.5,
+            "trades_count": 1,
+            "volume": 10,
+            "security_definition": 2299
+        },
+        {
+            "id": 36116,
+            "trade_date": "2024-08-12",
+            "avg_w_price": 2.36,
+            "min_price": 2.36,
+            "max_price": 2.36,
+            "trades_count": 1,
+            "volume": 41,
+            "security_definition": 2299
+        },
+        {
+            "id": 35666,
+            "trade_date": "2024-08-01",
+            "avg_w_price": 3.5,
+            "min_price": 3.5,
+            "max_price": 3.5,
+            "trades_count": 1,
+            "volume": 5,
+            "security_definition": 2299
+        },
+        {
+            "id": 35521,
+            "trade_date": "2024-07-30",
+            "avg_w_price": 2.48375,
+            "min_price": 2.41,
+            "max_price": 3.0,
+            "trades_count": 2,
+            "volume": 32,
+            "security_definition": 2299
+        },
+        {
+            "id": 35456,
+            "trade_date": "2024-07-29",
+            "avg_w_price": 3.5,
+            "min_price": 3.5,
+            "max_price": 3.5,
+            "trades_count": 1,
+            "volume": 10,
+            "security_definition": 2299
+        },
+        {
+            "id": 35067,
+            "trade_date": "2024-07-22",
+            "avg_w_price": 3.46,
+            "min_price": 3.4,
+            "max_price": 3.5,
+            "trades_count": 2,
+            "volume": 10,
+            "security_definition": 2299
+        },
+        {
+            "id": 34929,
+            "trade_date": "2024-07-18",
+            "avg_w_price": 3.49333333333333,
+            "min_price": 3.26,
+            "max_price": 3.5,
+            "trades_count": 2,
+            "volume": 36,
+            "security_definition": 2299
+        },
+        {
+            "id": 34520,
+            "trade_date": "2024-07-10",
+            "avg_w_price": 3.44285714285714,
+            "min_price": 3.4,
+            "max_price": 3.5,
+            "trades_count": 2,
+            "volume": 14,
+            "security_definition": 2299
+        },
+        {
+            "id": 34313,
+            "trade_date": "2024-07-05",
+            "avg_w_price": 3.1,
+            "min_price": 3.1,
+            "max_price": 3.1,
+            "trades_count": 1,
+            "volume": 5,
+            "security_definition": 2299
+        },
+        {
+            "id": 34259,
+            "trade_date": "2024-07-04",
+            "avg_w_price": 3.1,
+            "min_price": 3.1,
+            "max_price": 3.1,
+            "trades_count": 1,
+            "volume": 7,
+            "security_definition": 2299
+        },
+        {
+            "id": 34202,
+            "trade_date": "2024-07-02",
+            "avg_w_price": 4.18888888888889,
+            "min_price": 3.7,
+            "max_price": 4.5,
+            "trades_count": 3,
+            "volume": 18,
+            "security_definition": 2299
+        },
+        {
+            "id": 34116,
+            "trade_date": "2024-07-01",
+            "avg_w_price": 3.0,
+            "min_price": 3.0,
+            "max_price": 3.0,
+            "trades_count": 1,
+            "volume": 22,
+            "security_definition": 2299
+        },
+        {
+            "id": 34046,
+            "trade_date": "2024-06-28",
+            "avg_w_price": 3.0,
+            "min_price": 3.0,
+            "max_price": 3.0,
+            "trades_count": 1,
+            "volume": 17,
+            "security_definition": 2299
+        },
+        {
+            "id": 33977,
+            "trade_date": "2024-06-27",
+            "avg_w_price": 3.19837398373984,
+            "min_price": 3.0,
+            "max_price": 3.4,
+            "trades_count": 3,
+            "volume": 123,
+            "security_definition": 2299
+        },
+        {
+            "id": 33908,
+            "trade_date": "2024-06-26",
+            "avg_w_price": 3.35833333333333,
+            "min_price": 3.35,
+            "max_price": 3.4,
+            "trades_count": 2,
+            "volume": 12,
+            "security_definition": 2299
+        },
+        {
+            "id": 33838,
+            "trade_date": "2024-06-25",
+            "avg_w_price": 3.57142857142857,
+            "min_price": 3.5,
+            "max_price": 5.0,
+            "trades_count": 2,
+            "volume": 21,
+            "security_definition": 2299
+        },
+        {
+            "id": 33452,
+            "trade_date": "2024-06-18",
+            "avg_w_price": 3.69,
+            "min_price": 3.69,
+            "max_price": 3.69,
+            "trades_count": 1,
+            "volume": 2,
+            "security_definition": 2299
+        },
+        {
+            "id": 33368,
+            "trade_date": "2024-06-17",
+            "avg_w_price": 3.69,
+            "min_price": 3.69,
+            "max_price": 3.69,
+            "trades_count": 1,
+            "volume": 2,
+            "security_definition": 2299
+        },
+        {
+            "id": 33105,
+            "trade_date": "2024-06-11",
+            "avg_w_price": 3.53909090909091,
+            "min_price": 3.35,
+            "max_price": 3.69,
+            "trades_count": 3,
+            "volume": 11,
+            "security_definition": 2299
+        },
+        {
+            "id": 32370,
+            "trade_date": "2024-05-27",
+            "avg_w_price": 3.8,
+            "min_price": 3.8,
+            "max_price": 3.8,
+            "trades_count": 1,
+            "volume": 27,
+            "security_definition": 2299
+        },
+        {
+            "id": 32300,
+            "trade_date": "2024-05-24",
+            "avg_w_price": 3.89,
+            "min_price": 3.89,
+            "max_price": 3.89,
+            "trades_count": 1,
+            "volume": 5,
+            "security_definition": 2299
+        },
+        {
+            "id": 32219,
+            "trade_date": "2024-05-23",
+            "avg_w_price": 3.89657142857143,
+            "min_price": 3.89,
+            "max_price": 3.9,
+            "trades_count": 2,
+            "volume": 35,
+            "security_definition": 2299
+        },
+        {
+            "id": 32080,
+            "trade_date": "2024-05-21",
+            "avg_w_price": 4.1,
+            "min_price": 4.1,
+            "max_price": 4.1,
+            "trades_count": 1,
+            "volume": 7,
+            "security_definition": 2299
+        },
+        {
+            "id": 31936,
+            "trade_date": "2024-05-18",
+            "avg_w_price": 4.1,
+            "min_price": 4.1,
+            "max_price": 4.1,
+            "trades_count": 1,
+            "volume": 1,
+            "security_definition": 2299
+        },
+        {
+            "id": 31874,
+            "trade_date": "2024-05-17",
+            "avg_w_price": 3.9,
+            "min_price": 3.9,
+            "max_price": 3.9,
+            "trades_count": 1,
+            "volume": 1,
+            "security_definition": 2299
+        },
+        {
+            "id": 31452,
+            "trade_date": "2024-05-06",
+            "avg_w_price": 3.3,
+            "min_price": 3.3,
+            "max_price": 3.3,
+            "trades_count": 1,
+            "volume": 20,
+            "security_definition": 2299
+        },
+        {
+            "id": 31027,
+            "trade_date": "2024-04-25",
+            "avg_w_price": 4.1,
+            "min_price": 4.1,
+            "max_price": 4.1,
+            "trades_count": 1,
+            "volume": 1,
+            "security_definition": 2299
+        },
+        {
+            "id": 30802,
+            "trade_date": "2024-04-22",
+            "avg_w_price": 4.5,
+            "min_price": 4.5,
+            "max_price": 4.5,
+            "trades_count": 1,
+            "volume": 10,
+            "security_definition": 2299
+        },
+        {
+            "id": 30710,
+            "trade_date": "2024-04-19",
+            "avg_w_price": 4.5,
+            "min_price": 4.5,
+            "max_price": 4.5,
+            "trades_count": 1,
+            "volume": 10,
+            "security_definition": 2299
+        },
+        {
+            "id": 30636,
+            "trade_date": "2024-04-18",
+            "avg_w_price": 4.48333333333333,
+            "min_price": 4.3,
+            "max_price": 4.5,
+            "trades_count": 2,
+            "volume": 12,
+            "security_definition": 2299
+        },
+        {
+            "id": 29998,
+            "trade_date": "2024-04-04",
+            "avg_w_price": 4.7,
+            "min_price": 4.7,
+            "max_price": 4.7,
+            "trades_count": 1,
+            "volume": 10,
+            "security_definition": 2299
+        },
+        {
+            "id": 29825,
+            "trade_date": "2024-04-01",
+            "avg_w_price": 4.84,
+            "min_price": 4.84,
+            "max_price": 4.84,
+            "trades_count": 1,
+            "volume": 5,
+            "security_definition": 2299
+        },
+        {
+            "id": 29772,
+            "trade_date": "2024-03-29",
+            "avg_w_price": 4.81,
+            "min_price": 4.81,
+            "max_price": 4.81,
+            "trades_count": 1,
+            "volume": 15,
+            "security_definition": 2299
+        },
+        {
+            "id": 29530,
+            "trade_date": "2024-03-25",
+            "avg_w_price": 4.87,
+            "min_price": 4.87,
+            "max_price": 4.87,
+            "trades_count": 1,
+            "volume": 11,
+            "security_definition": 2299
+        },
+        {
+            "id": 29455,
+            "trade_date": "2024-03-22",
+            "avg_w_price": 4.87,
+            "min_price": 4.87,
+            "max_price": 4.87,
+            "trades_count": 1,
+            "volume": 4,
+            "security_definition": 2299
+        },
+        {
+            "id": 29087,
+            "trade_date": "2024-03-13",
+            "avg_w_price": 4.85,
+            "min_price": 4.85,
+            "max_price": 4.85,
+            "trades_count": 1,
+            "volume": 4,
+            "security_definition": 2299
+        },
+        {
+            "id": 28968,
+            "trade_date": "2024-03-11",
+            "avg_w_price": 4.0,
+            "min_price": 4.0,
+            "max_price": 4.0,
+            "trades_count": 1,
+            "volume": 20,
+            "security_definition": 2299
+        },
+        {
+            "id": 28686,
+            "trade_date": "2024-03-04",
+            "avg_w_price": 4.8,
+            "min_price": 4.8,
+            "max_price": 4.8,
+            "trades_count": 1,
+            "volume": 5,
+            "security_definition": 2299
+        },
+        {
+            "id": 28324,
+            "trade_date": "2024-02-23",
+            "avg_w_price": 4.91428571428572,
+            "min_price": 4.9,
+            "max_price": 5.0,
+            "trades_count": 3,
+            "volume": 7,
+            "security_definition": 2299
+        },
+        {
+            "id": 28253,
+            "trade_date": "2024-02-22",
+            "avg_w_price": 4.9,
+            "min_price": 4.9,
+            "max_price": 4.9,
+            "trades_count": 1,
+            "volume": 2,
+            "security_definition": 2299
+        },
+        {
+            "id": 28044,
+            "trade_date": "2024-02-19",
+            "avg_w_price": 4.9,
+            "min_price": 4.9,
+            "max_price": 4.9,
+            "trades_count": 1,
+            "volume": 2,
+            "security_definition": 2299
+        },
+        {
+            "id": 27977,
+            "trade_date": "2024-02-16",
+            "avg_w_price": 4.9,
+            "min_price": 4.9,
+            "max_price": 4.9,
+            "trades_count": 1,
+            "volume": 5,
+            "security_definition": 2299
+        },
+        {
+            "id": 27903,
+            "trade_date": "2024-02-15",
+            "avg_w_price": 4.9,
+            "min_price": 4.9,
+            "max_price": 4.9,
+            "trades_count": 1,
+            "volume": 7,
+            "security_definition": 2299
+        },
+        {
+            "id": 27844,
+            "trade_date": "2024-02-14",
+            "avg_w_price": 4.9,
+            "min_price": 4.9,
+            "max_price": 4.9,
+            "trades_count": 1,
+            "volume": 9,
+            "security_definition": 2299
+        },
+        {
+            "id": 27785,
+            "trade_date": "2024-02-13",
+            "avg_w_price": 4.9,
+            "min_price": 4.9,
+            "max_price": 4.9,
+            "trades_count": 1,
+            "volume": 19,
+            "security_definition": 2299
+        },
+        {
+            "id": 27632,
+            "trade_date": "2024-02-09",
+            "avg_w_price": 5.13,
+            "min_price": 5.13,
+            "max_price": 5.13,
+            "trades_count": 1,
+            "volume": 10,
+            "security_definition": 2299
+        },
+        {
+            "id": 27425,
+            "trade_date": "2024-02-06",
+            "avg_w_price": 4.7,
+            "min_price": 4.7,
+            "max_price": 4.7,
+            "trades_count": 1,
+            "volume": 4,
+            "security_definition": 2299
+        },
+        {
+            "id": 27358,
+            "trade_date": "2024-02-05",
+            "avg_w_price": 4.9,
+            "min_price": 4.9,
+            "max_price": 4.9,
+            "trades_count": 1,
+            "volume": 15,
+            "security_definition": 2299
+        },
+        {
+            "id": 27150,
+            "trade_date": "2024-01-31",
+            "avg_w_price": 4.0,
+            "min_price": 4.0,
+            "max_price": 4.0,
+            "trades_count": 3,
+            "volume": 18,
+            "security_definition": 2299
+        },
+        {
+            "id": 27073,
+            "trade_date": "2024-01-30",
+            "avg_w_price": 4.20769230769231,
+            "min_price": 4.0,
+            "max_price": 4.9,
+            "trades_count": 2,
+            "volume": 13,
+            "security_definition": 2299
+        },
+        {
+            "id": 26925,
+            "trade_date": "2024-01-26",
+            "avg_w_price": 4.9,
+            "min_price": 4.9,
+            "max_price": 4.9,
+            "trades_count": 1,
+            "volume": 10,
+            "security_definition": 2299
+        },
+        {
+            "id": 26730,
+            "trade_date": "2024-01-23",
+            "avg_w_price": 4.9,
+            "min_price": 4.9,
+            "max_price": 4.9,
+            "trades_count": 1,
+            "volume": 32,
+            "security_definition": 2299
+        },
+        {
+            "id": 26663,
+            "trade_date": "2024-01-22",
+            "avg_w_price": 4.945,
+            "min_price": 4.92,
+            "max_price": 4.98,
+            "trades_count": 2,
+            "volume": 12,
+            "security_definition": 2299
+        },
+        {
+            "id": 26586,
+            "trade_date": "2024-01-19",
+            "avg_w_price": 4.92,
+            "min_price": 4.92,
+            "max_price": 4.92,
+            "trades_count": 1,
+            "volume": 3,
+            "security_definition": 2299
+        },
+        {
+            "id": 26382,
+            "trade_date": "2024-01-16",
+            "avg_w_price": 4.88,
+            "min_price": 4.88,
+            "max_price": 4.88,
+            "trades_count": 1,
+            "volume": 6,
+            "security_definition": 2299
+        },
+        {
+            "id": 25832,
+            "trade_date": "2024-01-04",
+            "avg_w_price": 4.556,
+            "min_price": 3.8,
+            "max_price": 4.85,
+            "trades_count": 2,
+            "volume": 25,
+            "security_definition": 2299
+        },
+        {
+            "id": 25706,
+            "trade_date": "2023-12-29",
+            "avg_w_price": 3.5,
+            "min_price": 3.5,
+            "max_price": 3.5,
+            "trades_count": 1,
+            "volume": 12,
+            "security_definition": 2299
+        },
+        {
+            "id": 25535,
+            "trade_date": "2023-12-27",
+            "avg_w_price": 4.18,
+            "min_price": 4.18,
+            "max_price": 4.18,
+            "trades_count": 1,
+            "volume": 100,
+            "security_definition": 2299
+        },
+        {
+            "id": 25374,
+            "trade_date": "2023-12-22",
+            "avg_w_price": 3.5,
+            "min_price": 3.5,
+            "max_price": 3.5,
+            "trades_count": 2,
+            "volume": 35,
+            "security_definition": 2299
+        },
+        {
+            "id": 25289,
+            "trade_date": "2023-12-21",
+            "avg_w_price": 4.0,
+            "min_price": 4.0,
+            "max_price": 4.0,
+            "trades_count": 1,
+            "volume": 11,
+            "security_definition": 2299
+        },
+        {
+            "id": 24377,
+            "trade_date": "2023-12-04",
+            "avg_w_price": 4.2,
+            "min_price": 4.2,
+            "max_price": 4.2,
+            "trades_count": 1,
+            "volume": 1,
+            "security_definition": 2299
+        },
+        {
+            "id": 24291,
+            "trade_date": "2023-12-01",
+            "avg_w_price": 3.83,
+            "min_price": 3.83,
+            "max_price": 3.83,
+            "trades_count": 1,
+            "volume": 20,
+            "security_definition": 2299
+        },
+        {
+            "id": 24063,
+            "trade_date": "2023-11-27",
+            "avg_w_price": 3.8,
+            "min_price": 3.8,
+            "max_price": 3.8,
+            "trades_count": 1,
+            "volume": 8,
+            "security_definition": 2299
+        },
+        {
+            "id": 23928,
+            "trade_date": "2023-11-23",
+            "avg_w_price": 3.84,
+            "min_price": 3.84,
+            "max_price": 3.84,
+            "trades_count": 1,
+            "volume": 2,
+            "security_definition": 2299
+        },
+        {
+            "id": 23785,
+            "trade_date": "2023-11-21",
+            "avg_w_price": 3.72211538461538,
+            "min_price": 3.5,
+            "max_price": 3.83,
+            "trades_count": 4,
+            "volume": 52,
+            "security_definition": 2299
+        },
+        {
+            "id": 23598,
+            "trade_date": "2023-11-16",
+            "avg_w_price": 3.53714285714286,
+            "min_price": 2.5,
+            "max_price": 3.71,
+            "trades_count": 2,
+            "volume": 21,
+            "security_definition": 2299
+        },
+        {
+            "id": 23551,
+            "trade_date": "2023-11-15",
+            "avg_w_price": 2.87777777777778,
+            "min_price": 2.5,
+            "max_price": 3.1,
+            "trades_count": 4,
+            "volume": 27,
+            "security_definition": 2299
+        },
+        {
+            "id": 23492,
+            "trade_date": "2023-11-14",
+            "avg_w_price": 3.71,
+            "min_price": 3.71,
+            "max_price": 3.71,
+            "trades_count": 1,
+            "volume": 10,
+            "security_definition": 2299
+        },
+        {
+            "id": 23135,
+            "trade_date": "2023-11-08",
+            "avg_w_price": 3.5,
+            "min_price": 3.5,
+            "max_price": 3.5,
+            "trades_count": 1,
+            "volume": 20,
+            "security_definition": 2299
+        },
+        {
+            "id": 23078,
+            "trade_date": "2023-11-03",
+            "avg_w_price": 3.5,
+            "min_price": 3.5,
+            "max_price": 3.5,
+            "trades_count": 1,
+            "volume": 10,
+            "security_definition": 2299
+        },
+        {
+            "id": 22577,
+            "trade_date": "2023-10-24",
+            "avg_w_price": 3.51,
+            "min_price": 3.51,
+            "max_price": 3.51,
+            "trades_count": 1,
+            "volume": 38,
+            "security_definition": 2299
+        },
+        {
+            "id": 22416,
+            "trade_date": "2023-10-19",
+            "avg_w_price": 3.3,
+            "min_price": 3.3,
+            "max_price": 3.3,
+            "trades_count": 1,
+            "volume": 15,
+            "security_definition": 2299
+        },
+        {
+            "id": 22217,
+            "trade_date": "2023-10-16",
+            "avg_w_price": 3.28,
+            "min_price": 3.28,
+            "max_price": 3.28,
+            "trades_count": 1,
+            "volume": 15,
+            "security_definition": 2299
+        },
+        {
+            "id": 22082,
+            "trade_date": "2023-10-12",
+            "avg_w_price": 6.5,
+            "min_price": 6.5,
+            "max_price": 6.5,
+            "trades_count": 1,
+            "volume": 4,
+            "security_definition": 2299
+        },
+        {
+            "id": 22023,
+            "trade_date": "2023-10-11",
+            "avg_w_price": 6.5,
+            "min_price": 6.5,
+            "max_price": 6.5,
+            "trades_count": 1,
+            "volume": 2,
+            "security_definition": 2299
+        },
+        {
+            "id": 21593,
+            "trade_date": "2023-10-02",
+            "avg_w_price": 1.6,
+            "min_price": 1.6,
+            "max_price": 1.6,
+            "trades_count": 1,
+            "volume": 52,
+            "security_definition": 2299
+        },
+        {
+            "id": 20553,
+            "trade_date": "2023-09-07",
+            "avg_w_price": 2.68,
+            "min_price": 2.68,
+            "max_price": 2.68,
+            "trades_count": 1,
+            "volume": 30,
+            "security_definition": 2299
+        },
+        {
+            "id": 20504,
+            "trade_date": "2023-09-06",
+            "avg_w_price": 2.82,
+            "min_price": 2.82,
+            "max_price": 2.82,
+            "trades_count": 1,
+            "volume": 20,
+            "security_definition": 2299
+        },
+        {
+            "id": 20450,
+            "trade_date": "2023-09-05",
+            "avg_w_price": 2.82,
+            "min_price": 2.82,
+            "max_price": 2.82,
+            "trades_count": 1,
+            "volume": 6,
+            "security_definition": 2299
+        },
+        {
+            "id": 20140,
+            "trade_date": "2023-08-29",
+            "avg_w_price": 2.82,
+            "min_price": 2.82,
+            "max_price": 2.82,
+            "trades_count": 1,
+            "volume": 15,
+            "security_definition": 2299
+        },
+        {
+            "id": 20086,
+            "trade_date": "2023-08-28",
+            "avg_w_price": 2.81,
+            "min_price": 2.81,
+            "max_price": 2.81,
+            "trades_count": 2,
+            "volume": 113,
+            "security_definition": 2299
+        },
+        {
+            "id": 18955,
+            "trade_date": "2023-08-01",
+            "avg_w_price": 2.0,
+            "min_price": 2.0,
+            "max_price": 2.0,
+            "trades_count": 1,
+            "volume": 50,
+            "security_definition": 2299
+        },
+        {
+            "id": 18513,
+            "trade_date": "2023-07-20",
+            "avg_w_price": 2.0,
+            "min_price": 2.0,
+            "max_price": 2.0,
+            "trades_count": 1,
+            "volume": 10,
+            "security_definition": 2299
+        },
+        {
+            "id": 18406,
+            "trade_date": "2023-07-18",
+            "avg_w_price": 1.53,
+            "min_price": 1.53,
+            "max_price": 1.53,
+            "trades_count": 1,
+            "volume": 131,
+            "security_definition": 2299
+        },
+        {
+            "id": 18236,
+            "trade_date": "2023-07-13",
+            "avg_w_price": 1.58521739130435,
+            "min_price": 1.58,
+            "max_price": 1.7,
+            "trades_count": 2,
+            "volume": 690,
+            "security_definition": 2299
+        },
+        {
+            "id": 18162,
+            "trade_date": "2023-07-12",
+            "avg_w_price": 1.66024096385542,
+            "min_price": 1.62,
+            "max_price": 1.73,
+            "trades_count": 3,
+            "volume": 249,
+            "security_definition": 2299
+        },
+        {
+            "id": 18098,
+            "trade_date": "2023-07-11",
+            "avg_w_price": 1.75,
+            "min_price": 1.75,
+            "max_price": 1.75,
+            "trades_count": 1,
+            "volume": 174,
+            "security_definition": 2299
+        },
+        {
+            "id": 18024,
+            "trade_date": "2023-07-10",
+            "avg_w_price": 1.88219696969697,
+            "min_price": 1.7,
+            "max_price": 2.35,
+            "trades_count": 2,
+            "volume": 264,
+            "security_definition": 2299
+        },
+        {
+            "id": 17743,
+            "trade_date": "2023-06-30",
+            "avg_w_price": 1.69935185185185,
+            "min_price": 1.66,
+            "max_price": 2.0,
+            "trades_count": 2,
+            "volume": 216,
+            "security_definition": 2299
+        },
+        {
+            "id": 17679,
+            "trade_date": "2023-06-29",
+            "avg_w_price": 2.37,
+            "min_price": 2.37,
+            "max_price": 2.37,
+            "trades_count": 1,
+            "volume": 16,
+            "security_definition": 2299
+        },
+        {
+            "id": 17641,
+            "trade_date": "2023-06-28",
+            "avg_w_price": 1.77865612648221,
+            "min_price": 1.7,
+            "max_price": 2.4,
+            "trades_count": 5,
+            "volume": 253,
+            "security_definition": 2299
+        },
+        {
+            "id": 17388,
+            "trade_date": "2023-06-21",
+            "avg_w_price": 2.0,
+            "min_price": 2.0,
+            "max_price": 2.0,
+            "trades_count": 1,
+            "volume": 20,
+            "security_definition": 2299
+        },
+        {
+            "id": 17306,
+            "trade_date": "2023-06-19",
+            "avg_w_price": 2.09975328947368,
+            "min_price": 2.05,
+            "max_price": 2.1,
+            "trades_count": 3,
+            "volume": 1216,
+            "security_definition": 2299
+        },
+        {
+            "id": 17270,
+            "trade_date": "2023-06-16",
+            "avg_w_price": 2.52277140335393,
+            "min_price": 2.5,
+            "max_price": 2.55,
+            "trades_count": 5,
+            "volume": 1133,
+            "security_definition": 2299
+        },
+        {
+            "id": 17216,
+            "trade_date": "2023-06-15",
+            "avg_w_price": 2.11207547169811,
+            "min_price": 2.1,
+            "max_price": 2.98,
+            "trades_count": 4,
+            "volume": 901,
+            "security_definition": 2299
+        },
+        {
+            "id": 17150,
+            "trade_date": "2023-06-14",
+            "avg_w_price": 2.85480577136515,
+            "min_price": 2.2,
+            "max_price": 3.0,
+            "trades_count": 5,
+            "volume": 901,
+            "security_definition": 2299
+        },
+        {
+            "id": 16884,
+            "trade_date": "2023-06-06",
+            "avg_w_price": 3.0,
+            "min_price": 3.0,
+            "max_price": 3.0,
+            "trades_count": 1,
+            "volume": 26,
+            "security_definition": 2299
+        },
+        {
+            "id": 16797,
+            "trade_date": "2023-06-02",
+            "avg_w_price": 3.5,
+            "min_price": 3.5,
+            "max_price": 3.5,
+            "trades_count": 1,
+            "volume": 2,
+            "security_definition": 2299
+        },
+        {
+            "id": 16674,
+            "trade_date": "2023-05-31",
+            "avg_w_price": 3.5,
+            "min_price": 3.5,
+            "max_price": 3.5,
+            "trades_count": 1,
+            "volume": 3,
+            "security_definition": 2299
+        },
+        {
+            "id": 16377,
+            "trade_date": "2023-05-22",
+            "avg_w_price": 3.8,
+            "min_price": 3.8,
+            "max_price": 3.8,
+            "trades_count": 1,
+            "volume": 6,
+            "security_definition": 2299
+        },
+        {
+            "id": 16180,
+            "trade_date": "2023-05-15",
+            "avg_w_price": 3.8,
+            "min_price": 3.8,
+            "max_price": 3.8,
+            "trades_count": 1,
+            "volume": 9,
+            "security_definition": 2299
+        },
+        {
+            "id": 15609,
+            "trade_date": "2023-04-26",
+            "avg_w_price": 4.0,
+            "min_price": 4.0,
+            "max_price": 4.0,
+            "trades_count": 1,
+            "volume": 3,
+            "security_definition": 2299
+        },
+        {
+            "id": 15569,
+            "trade_date": "2023-04-21",
+            "avg_w_price": 3.54545454545455,
+            "min_price": 3.5,
+            "max_price": 4.0,
+            "trades_count": 2,
+            "volume": 11,
+            "security_definition": 2299
+        },
+        {
+            "id": 15408,
+            "trade_date": "2023-04-17",
+            "avg_w_price": 4.42,
+            "min_price": 4.42,
+            "max_price": 4.42,
+            "trades_count": 1,
+            "volume": 4,
+            "security_definition": 2299
+        },
+        {
+            "id": 15085,
+            "trade_date": "2023-04-05",
+            "avg_w_price": 4.0,
+            "min_price": 4.0,
+            "max_price": 4.0,
+            "trades_count": 1,
+            "volume": 20,
+            "security_definition": 2299
+        },
+        {
+            "id": 14955,
+            "trade_date": "2023-03-31",
+            "avg_w_price": 3.62857142857143,
+            "min_price": 3.5,
+            "max_price": 4.4,
+            "trades_count": 2,
+            "volume": 35,
+            "security_definition": 2299
+        },
+        {
+            "id": 14761,
+            "trade_date": "2023-03-27",
+            "avg_w_price": 3.5,
+            "min_price": 3.5,
+            "max_price": 3.5,
+            "trades_count": 1,
+            "volume": 30,
+            "security_definition": 2299
+        },
+        {
+            "id": 14618,
+            "trade_date": "2023-03-22",
+            "avg_w_price": 4.7,
+            "min_price": 4.7,
+            "max_price": 4.7,
+            "trades_count": 1,
+            "volume": 5,
+            "security_definition": 2299
+        },
+        {
+            "id": 14581,
+            "trade_date": "2023-03-21",
+            "avg_w_price": 3.6,
+            "min_price": 3.6,
+            "max_price": 3.6,
+            "trades_count": 2,
+            "volume": 40,
+            "security_definition": 2299
+        },
+        {
+            "id": 14539,
+            "trade_date": "2023-03-20",
+            "avg_w_price": 3.5,
+            "min_price": 3.5,
+            "max_price": 3.5,
+            "trades_count": 1,
+            "volume": 10,
+            "security_definition": 2299
+        },
+        {
+            "id": 14453,
+            "trade_date": "2023-03-16",
+            "avg_w_price": 3.5,
+            "min_price": 3.5,
+            "max_price": 3.5,
+            "trades_count": 2,
+            "volume": 30,
+            "security_definition": 2299
+        },
+        {
+            "id": 14253,
+            "trade_date": "2023-03-10",
+            "avg_w_price": 4.8,
+            "min_price": 4.8,
+            "max_price": 4.8,
+            "trades_count": 1,
+            "volume": 10,
+            "security_definition": 2299
+        },
+        {
+            "id": 14210,
+            "trade_date": "2023-03-09",
+            "avg_w_price": 5.8,
+            "min_price": 5.8,
+            "max_price": 5.8,
+            "trades_count": 1,
+            "volume": 3,
+            "security_definition": 2299
+        },
+        {
+            "id": 14080,
+            "trade_date": "2023-03-03",
+            "avg_w_price": 4.0,
+            "min_price": 4.0,
+            "max_price": 4.0,
+            "trades_count": 1,
+            "volume": 15,
+            "security_definition": 2299
+        },
+        {
+            "id": 14051,
+            "trade_date": "2023-03-02",
+            "avg_w_price": 3.51587301587302,
+            "min_price": 3.5,
+            "max_price": 4.0,
+            "trades_count": 2,
+            "volume": 189,
+            "security_definition": 2299
+        },
+        {
+            "id": 13506,
+            "trade_date": "2023-02-10",
+            "avg_w_price": 4.99,
+            "min_price": 4.99,
+            "max_price": 4.99,
+            "trades_count": 3,
+            "volume": 440,
+            "security_definition": 2299
+        },
+        {
+            "id": 13461,
+            "trade_date": "2023-02-09",
+            "avg_w_price": 4.99,
+            "min_price": 4.99,
+            "max_price": 4.99,
+            "trades_count": 1,
+            "volume": 10,
+            "security_definition": 2299
+        },
+        {
+            "id": 13425,
+            "trade_date": "2023-02-08",
+            "avg_w_price": 4.99,
+            "min_price": 4.99,
+            "max_price": 4.99,
+            "trades_count": 1,
+            "volume": 30,
+            "security_definition": 2299
+        },
+        {
+            "id": 13401,
+            "trade_date": "2023-02-07",
+            "avg_w_price": 4.99,
+            "min_price": 4.99,
+            "max_price": 4.99,
+            "trades_count": 1,
+            "volume": 50,
+            "security_definition": 2299
+        },
+        {
+            "id": 13335,
+            "trade_date": "2023-02-03",
+            "avg_w_price": 4.99,
+            "min_price": 4.99,
+            "max_price": 4.99,
+            "trades_count": 1,
+            "volume": 6,
+            "security_definition": 2299
+        },
+        {
+            "id": 13077,
+            "trade_date": "2023-01-24",
+            "avg_w_price": 4.99,
+            "min_price": 4.99,
+            "max_price": 4.99,
+            "trades_count": 1,
+            "volume": 4,
+            "security_definition": 2299
+        },
+        {
+            "id": 12896,
+            "trade_date": "2023-01-17",
+            "avg_w_price": 4.99,
+            "min_price": 4.99,
+            "max_price": 4.99,
+            "trades_count": 1,
+            "volume": 10,
+            "security_definition": 2299
+        },
+        {
+            "id": 12770,
+            "trade_date": "2023-01-12",
+            "avg_w_price": 4.56,
+            "min_price": 4.56,
+            "max_price": 4.56,
+            "trades_count": 1,
+            "volume": 15,
+            "security_definition": 2299
+        },
+        {
+            "id": 12615,
+            "trade_date": "2023-01-06",
+            "avg_w_price": 4.6,
+            "min_price": 4.6,
+            "max_price": 4.6,
+            "trades_count": 1,
+            "volume": 22,
+            "security_definition": 2299
+        },
+        {
+            "id": 12564,
+            "trade_date": "2023-01-05",
+            "avg_w_price": 4.6,
+            "min_price": 4.6,
+            "max_price": 4.6,
+            "trades_count": 2,
+            "volume": 200,
+            "security_definition": 2299
+        },
+        {
+            "id": 12528,
+            "trade_date": "2023-01-04",
+            "avg_w_price": 4.62,
+            "min_price": 4.62,
+            "max_price": 4.62,
+            "trades_count": 1,
+            "volume": 5,
+            "security_definition": 2299
+        },
+        {
+            "id": 12317,
+            "trade_date": "2022-12-26",
+            "avg_w_price": 4.63,
+            "min_price": 4.63,
+            "max_price": 4.63,
+            "trades_count": 1,
+            "volume": 3,
+            "security_definition": 2299
+        },
+        {
+            "id": 12170,
+            "trade_date": "2022-12-20",
+            "avg_w_price": 4.65,
+            "min_price": 4.65,
+            "max_price": 4.65,
+            "trades_count": 1,
+            "volume": 100,
+            "security_definition": 2299
+        },
+        {
+            "id": 12123,
+            "trade_date": "2022-12-19",
+            "avg_w_price": 4.65,
+            "min_price": 4.65,
+            "max_price": 4.65,
+            "trades_count": 1,
+            "volume": 80,
+            "security_definition": 2299
+        },
+        {
+            "id": 11785,
+            "trade_date": "2022-12-07",
+            "avg_w_price": 3.76190476190476,
+            "min_price": 3.5,
+            "max_price": 4.0,
+            "trades_count": 3,
+            "volume": 105,
+            "security_definition": 2299
+        },
+        {
+            "id": 11251,
+            "trade_date": "2022-11-17",
+            "avg_w_price": 5.0,
+            "min_price": 5.0,
+            "max_price": 5.0,
+            "trades_count": 2,
+            "volume": 30,
+            "security_definition": 2299
+        },
+        {
+            "id": 11039,
+            "trade_date": "2022-11-09",
+            "avg_w_price": 4.8,
+            "min_price": 4.8,
+            "max_price": 4.8,
+            "trades_count": 1,
+            "volume": 12,
+            "security_definition": 2299
+        },
+        {
+            "id": 10737,
+            "trade_date": "2022-10-26",
+            "avg_w_price": 6.5,
+            "min_price": 6.5,
+            "max_price": 6.5,
+            "trades_count": 1,
+            "volume": 3,
+            "security_definition": 2299
+        },
+        {
+            "id": 10667,
+            "trade_date": "2022-10-21",
+            "avg_w_price": 4.0,
+            "min_price": 4.0,
+            "max_price": 4.0,
+            "trades_count": 1,
+            "volume": 1,
+            "security_definition": 2299
+        },
+        {
+            "id": 10542,
+            "trade_date": "2022-10-17",
+            "avg_w_price": 6.5,
+            "min_price": 6.5,
+            "max_price": 6.5,
+            "trades_count": 1,
+            "volume": 4,
+            "security_definition": 2299
+        },
+        {
+            "id": 10451,
+            "trade_date": "2022-10-13",
+            "avg_w_price": 6.14285714285714,
+            "min_price": 6.0,
+            "max_price": 6.5,
+            "trades_count": 2,
+            "volume": 7,
+            "security_definition": 2299
+        },
+        {
+            "id": 10405,
+            "trade_date": "2022-10-12",
+            "avg_w_price": 5.5,
+            "min_price": 5.5,
+            "max_price": 5.5,
+            "trades_count": 1,
+            "volume": 5,
+            "security_definition": 2299
+        },
+        {
+            "id": 10342,
+            "trade_date": "2022-10-10",
+            "avg_w_price": 5.0,
+            "min_price": 5.0,
+            "max_price": 5.0,
+            "trades_count": 1,
+            "volume": 25,
+            "security_definition": 2299
+        },
+        {
+            "id": 10268,
+            "trade_date": "2022-10-06",
+            "avg_w_price": 6.5,
+            "min_price": 6.5,
+            "max_price": 6.5,
+            "trades_count": 1,
+            "volume": 1,
+            "security_definition": 2299
+        },
+        {
+            "id": 10109,
+            "trade_date": "2022-09-30",
+            "avg_w_price": 6.5,
+            "min_price": 6.5,
+            "max_price": 6.5,
+            "trades_count": 1,
+            "volume": 2,
+            "security_definition": 2299
+        },
+        {
+            "id": 10050,
+            "trade_date": "2022-09-28",
+            "avg_w_price": 6.5,
+            "min_price": 6.5,
+            "max_price": 6.5,
+            "trades_count": 1,
+            "volume": 3,
+            "security_definition": 2299
+        },
+        {
+            "id": 9726,
+            "trade_date": "2022-09-14",
+            "avg_w_price": 4.5,
+            "min_price": 4.5,
+            "max_price": 4.5,
+            "trades_count": 1,
+            "volume": 11,
+            "security_definition": 2299
+        },
+        {
+            "id": 9273,
+            "trade_date": "2022-08-22",
+            "avg_w_price": 5.2,
+            "min_price": 5.2,
+            "max_price": 5.2,
+            "trades_count": 1,
+            "volume": 4,
+            "security_definition": 2299
+        },
+        {
+            "id": 9154,
+            "trade_date": "2022-08-16",
+            "avg_w_price": 4.0,
+            "min_price": 4.0,
+            "max_price": 4.0,
+            "trades_count": 1,
+            "volume": 30,
+            "security_definition": 2299
+        },
+        {
+            "id": 8962,
+            "trade_date": "2022-08-08",
+            "avg_w_price": 5.2,
+            "min_price": 5.2,
+            "max_price": 5.2,
+            "trades_count": 1,
+            "volume": 450,
+            "security_definition": 2299
+        },
+        {
+            "id": 8940,
+            "trade_date": "2022-08-05",
+            "avg_w_price": 4.0,
+            "min_price": 4.0,
+            "max_price": 4.0,
+            "trades_count": 1,
+            "volume": 35,
+            "security_definition": 2299
+        },
+        {
+            "id": 8646,
+            "trade_date": "2022-07-22",
+            "avg_w_price": 5.5,
+            "min_price": 5.5,
+            "max_price": 5.5,
+            "trades_count": 1,
+            "volume": 4,
+            "security_definition": 2299
+        },
+        {
+            "id": 8483,
+            "trade_date": "2022-07-14",
+            "avg_w_price": 3.5,
+            "min_price": 3.5,
+            "max_price": 3.5,
+            "trades_count": 1,
+            "volume": 1000,
+            "security_definition": 2299
+        },
+        {
+            "id": 8387,
+            "trade_date": "2022-07-08",
+            "avg_w_price": 4.0,
+            "min_price": 4.0,
+            "max_price": 4.0,
+            "trades_count": 1,
+            "volume": 200,
+            "security_definition": 2299
+        },
+        {
+            "id": 8376,
+            "trade_date": "2022-07-07",
+            "avg_w_price": 5.5,
+            "min_price": 5.5,
+            "max_price": 5.5,
+            "trades_count": 1,
+            "volume": 50,
+            "security_definition": 2299
+        },
+        {
+            "id": 8289,
+            "trade_date": "2022-07-04",
+            "avg_w_price": 5.5,
+            "min_price": 5.5,
+            "max_price": 5.5,
+            "trades_count": 1,
+            "volume": 10,
+            "security_definition": 2299
+        },
+        {
+            "id": 8048,
+            "trade_date": "2022-06-21",
+            "avg_w_price": 5.5,
+            "min_price": 5.5,
+            "max_price": 5.5,
+            "trades_count": 1,
+            "volume": 10,
+            "security_definition": 2299
+        },
+        {
+            "id": 7694,
+            "trade_date": "2022-05-26",
+            "avg_w_price": 5.5,
+            "min_price": 5.5,
+            "max_price": 5.5,
+            "trades_count": 1,
+            "volume": 100,
+            "security_definition": 2299
+        },
+        {
+            "id": 7616,
+            "trade_date": "2022-05-17",
+            "avg_w_price": 5.5,
+            "min_price": 5.5,
+            "max_price": 5.5,
+            "trades_count": 1,
+            "volume": 220,
+            "security_definition": 2299
+        },
+        {
+            "id": 7588,
+            "trade_date": "2022-05-13",
+            "avg_w_price": 5.5,
+            "min_price": 5.5,
+            "max_price": 5.5,
+            "trades_count": 2,
+            "volume": 22,
+            "security_definition": 2299
+        },
+        {
+            "id": 7340,
+            "trade_date": "2022-04-13",
+            "avg_w_price": 5.5,
+            "min_price": 5.5,
+            "max_price": 5.5,
+            "trades_count": 1,
+            "volume": 200,
+            "security_definition": 2299
+        },
+        {
+            "id": 7221,
+            "trade_date": "2022-03-31",
+            "avg_w_price": 5.5,
+            "min_price": 5.5,
+            "max_price": 5.5,
+            "trades_count": 1,
+            "volume": 4,
+            "security_definition": 2299
+        },
+        {
+            "id": 7206,
+            "trade_date": "2022-03-30",
+            "avg_w_price": 5.5,
+            "min_price": 5.5,
+            "max_price": 5.5,
+            "trades_count": 1,
+            "volume": 200,
+            "security_definition": 2299
+        },
+        {
+            "id": 7188,
+            "trade_date": "2022-03-29",
+            "avg_w_price": 5.5,
+            "min_price": 5.5,
+            "max_price": 5.5,
+            "trades_count": 1,
+            "volume": 150,
+            "security_definition": 2299
+        },
+        {
+            "id": 7106,
+            "trade_date": "2022-03-18",
+            "avg_w_price": 5.5,
+            "min_price": 5.5,
+            "max_price": 5.5,
+            "trades_count": 1,
+            "volume": 4,
+            "security_definition": 2299
+        },
+        {
+            "id": 6281,
+            "trade_date": "2021-12-14",
+            "avg_w_price": 5.5,
+            "min_price": 5.5,
+            "max_price": 5.5,
+            "trades_count": 1,
+            "volume": 8,
+            "security_definition": 2299
+        },
+        {
+            "id": 6195,
+            "trade_date": "2021-12-06",
+            "avg_w_price": 5.5,
+            "min_price": 5.5,
+            "max_price": 5.5,
+            "trades_count": 1,
+            "volume": 20,
+            "security_definition": 2299
+        },
+        {
+            "id": 6150,
+            "trade_date": "2021-11-30",
+            "avg_w_price": 5.09,
+            "min_price": 5.09,
+            "max_price": 5.09,
+            "trades_count": 1,
+            "volume": 42,
+            "security_definition": 2299
+        },
+        {
+            "id": 6067,
+            "trade_date": "2021-11-19",
+            "avg_w_price": 5.09,
+            "min_price": 5.09,
+            "max_price": 5.09,
+            "trades_count": 1,
+            "volume": 2,
+            "security_definition": 2299
+        },
+        {
+            "id": 6050,
+            "trade_date": "2021-11-17",
+            "avg_w_price": 5.1,
+            "min_price": 5.1,
+            "max_price": 5.1,
+            "trades_count": 1,
+            "volume": 10,
+            "security_definition": 2299
+        },
+        {
+            "id": 5983,
+            "trade_date": "2021-11-09",
+            "avg_w_price": 5.1,
+            "min_price": 5.1,
+            "max_price": 5.1,
+            "trades_count": 1,
+            "volume": 4,
+            "security_definition": 2299
+        },
+        {
+            "id": 5971,
+            "trade_date": "2021-11-08",
+            "avg_w_price": 5.1,
+            "min_price": 5.1,
+            "max_price": 5.1,
+            "trades_count": 3,
+            "volume": 130,
+            "security_definition": 2299
+        },
+        {
+            "id": 5894,
+            "trade_date": "2021-11-01",
+            "avg_w_price": 5.1,
+            "min_price": 5.1,
+            "max_price": 5.1,
+            "trades_count": 1,
+            "volume": 10,
+            "security_definition": 2299
+        },
+        {
+            "id": 5841,
+            "trade_date": "2021-10-26",
+            "avg_w_price": 5.1,
+            "min_price": 5.1,
+            "max_price": 5.1,
+            "trades_count": 1,
+            "volume": 1,
+            "security_definition": 2299
+        },
+        {
+            "id": 5826,
+            "trade_date": "2021-10-25",
+            "avg_w_price": 5.1,
+            "min_price": 5.1,
+            "max_price": 5.1,
+            "trades_count": 1,
+            "volume": 4,
+            "security_definition": 2299
+        },
+        {
+            "id": 5711,
+            "trade_date": "2021-10-11",
+            "avg_w_price": 5.0,
+            "min_price": 5.0,
+            "max_price": 5.0,
+            "trades_count": 1,
+            "volume": 10,
+            "security_definition": 2299
+        },
+        {
+            "id": 5691,
+            "trade_date": "2021-10-07",
+            "avg_w_price": 5.0,
+            "min_price": 5.0,
+            "max_price": 5.0,
+            "trades_count": 1,
+            "volume": 100,
+            "security_definition": 2299
+        },
+        {
+            "id": 5631,
+            "trade_date": "2021-09-30",
+            "avg_w_price": 5.0,
+            "min_price": 5.0,
+            "max_price": 5.0,
+            "trades_count": 1,
+            "volume": 98,
+            "security_definition": 2299
+        },
+        {
+            "id": 5613,
+            "trade_date": "2021-09-29",
+            "avg_w_price": 5.0,
+            "min_price": 5.0,
+            "max_price": 5.0,
+            "trades_count": 1,
+            "volume": 6,
+            "security_definition": 2299
+        },
+        {
+            "id": 5591,
+            "trade_date": "2021-09-28",
+            "avg_w_price": 5.0,
+            "min_price": 5.0,
+            "max_price": 5.0,
+            "trades_count": 1,
+            "volume": 110,
+            "security_definition": 2299
+        },
+        {
+            "id": 5556,
+            "trade_date": "2021-09-23",
+            "avg_w_price": 4.9,
+            "min_price": 4.9,
+            "max_price": 4.9,
+            "trades_count": 1,
+            "volume": 5,
+            "security_definition": 2299
+        },
+        {
+            "id": 5458,
+            "trade_date": "2021-09-15",
+            "avg_w_price": 4.9,
+            "min_price": 4.9,
+            "max_price": 4.9,
+            "trades_count": 1,
+            "volume": 10,
+            "security_definition": 2299
+        },
+        {
+            "id": 5405,
+            "trade_date": "2021-09-10",
+            "avg_w_price": 4.9,
+            "min_price": 4.9,
+            "max_price": 4.9,
+            "trades_count": 2,
+            "volume": 2,
+            "security_definition": 2299
+        },
+        {
+            "id": 5385,
+            "trade_date": "2021-09-09",
+            "avg_w_price": 4.9,
+            "min_price": 4.9,
+            "max_price": 4.9,
+            "trades_count": 1,
+            "volume": 1,
+            "security_definition": 2299
+        },
+        {
+            "id": 5337,
+            "trade_date": "2021-09-07",
+            "avg_w_price": 4.9,
+            "min_price": 4.9,
+            "max_price": 4.9,
+            "trades_count": 2,
+            "volume": 30,
+            "security_definition": 2299
+        },
+        {
+            "id": 5302,
+            "trade_date": "2021-09-06",
+            "avg_w_price": 4.9,
+            "min_price": 4.9,
+            "max_price": 4.9,
+            "trades_count": 4,
+            "volume": 51,
+            "security_definition": 2299
+        },
+        {
+            "id": 5246,
+            "trade_date": "2021-09-01",
+            "avg_w_price": 4.72769230769231,
+            "min_price": 4.5,
+            "max_price": 4.9,
+            "trades_count": 4,
+            "volume": 130,
+            "security_definition": 2299
+        },
+        {
+            "id": 5187,
+            "trade_date": "2021-08-25",
+            "avg_w_price": 4.5,
+            "min_price": 4.5,
+            "max_price": 4.5,
+            "trades_count": 2,
+            "volume": 11,
+            "security_definition": 2299
+        },
+        {
+            "id": 5172,
+            "trade_date": "2021-08-24",
+            "avg_w_price": 4.5,
+            "min_price": 4.5,
+            "max_price": 4.5,
+            "trades_count": 1,
+            "volume": 10,
+            "security_definition": 2299
+        },
+        {
+            "id": 5156,
+            "trade_date": "2021-08-23",
+            "avg_w_price": 4.5,
+            "min_price": 4.5,
+            "max_price": 4.5,
+            "trades_count": 3,
+            "volume": 30,
+            "security_definition": 2299
+        },
+        {
+            "id": 5143,
+            "trade_date": "2021-08-20",
+            "avg_w_price": 4.5,
+            "min_price": 4.5,
+            "max_price": 4.5,
+            "trades_count": 3,
+            "volume": 25,
+            "security_definition": 2299
+        },
+        {
+            "id": 5108,
+            "trade_date": "2021-08-18",
+            "avg_w_price": 4.5,
+            "min_price": 4.5,
+            "max_price": 4.5,
+            "trades_count": 6,
+            "volume": 24,
+            "security_definition": 2299
+        },
+        {
+            "id": 5090,
+            "trade_date": "2021-08-17",
+            "avg_w_price": 4.5,
+            "min_price": 4.5,
+            "max_price": 4.5,
+            "trades_count": 1,
+            "volume": 10,
+            "security_definition": 2299
+        },
+        {
+            "id": 5077,
+            "trade_date": "2021-08-16",
+            "avg_w_price": 4.5,
+            "min_price": 4.5,
+            "max_price": 4.5,
+            "trades_count": 3,
+            "volume": 631,
+            "security_definition": 2299
+        },
+        {
+            "id": 5050,
+            "trade_date": "2021-08-12",
+            "avg_w_price": 4.5,
+            "min_price": 4.5,
+            "max_price": 4.5,
+            "trades_count": 2,
+            "volume": 10,
+            "security_definition": 2299
+        },
+        {
+            "id": 5013,
+            "trade_date": "2021-08-09",
+            "avg_w_price": 4.5,
+            "min_price": 4.5,
+            "max_price": 4.5,
+            "trades_count": 1,
+            "volume": 30,
+            "security_definition": 2299
+        },
+        {
+            "id": 5001,
+            "trade_date": "2021-08-06",
+            "avg_w_price": 4.5,
+            "min_price": 4.5,
+            "max_price": 4.5,
+            "trades_count": 1,
+            "volume": 25,
+            "security_definition": 2299
+        },
+        {
+            "id": 4906,
+            "trade_date": "2021-07-28",
+            "avg_w_price": 4.0,
+            "min_price": 4.0,
+            "max_price": 4.0,
+            "trades_count": 1,
+            "volume": 5,
+            "security_definition": 2299
+        },
+        {
+            "id": 4860,
+            "trade_date": "2021-07-23",
+            "avg_w_price": 4.0,
+            "min_price": 4.0,
+            "max_price": 4.0,
+            "trades_count": 1,
+            "volume": 18,
+            "security_definition": 2299
+        },
+        {
+            "id": 4799,
+            "trade_date": "2021-07-19",
+            "avg_w_price": 4.0,
+            "min_price": 4.0,
+            "max_price": 4.0,
+            "trades_count": 1,
+            "volume": 1,
+            "security_definition": 2299
+        },
+        {
+            "id": 4771,
+            "trade_date": "2021-07-15",
+            "avg_w_price": 4.0,
+            "min_price": 4.0,
+            "max_price": 4.0,
+            "trades_count": 2,
+            "volume": 11,
+            "security_definition": 2299
+        },
+        {
+            "id": 4743,
+            "trade_date": "2021-07-09",
+            "avg_w_price": 4.0,
+            "min_price": 4.0,
+            "max_price": 4.0,
+            "trades_count": 1,
+            "volume": 3,
+            "security_definition": 2299
+        },
+        {
+            "id": 4706,
+            "trade_date": "2021-07-06",
+            "avg_w_price": 4.0,
+            "min_price": 4.0,
+            "max_price": 4.0,
+            "trades_count": 2,
+            "volume": 5,
+            "security_definition": 2299
+        },
+        {
+            "id": 4691,
+            "trade_date": "2021-07-05",
+            "avg_w_price": 4.0,
+            "min_price": 4.0,
+            "max_price": 4.0,
+            "trades_count": 1,
+            "volume": 10,
+            "security_definition": 2299
+        },
+        {
+            "id": 4681,
+            "trade_date": "2021-07-02",
+            "avg_w_price": 4.0,
+            "min_price": 4.0,
+            "max_price": 4.0,
+            "trades_count": 1,
+            "volume": 49,
+            "security_definition": 2299
+        },
+        {
+            "id": 4657,
+            "trade_date": "2021-06-30",
+            "avg_w_price": 4.0,
+            "min_price": 4.0,
+            "max_price": 4.0,
+            "trades_count": 2,
+            "volume": 126,
+            "security_definition": 2299
+        },
+        {
+            "id": 4633,
+            "trade_date": "2021-06-29",
+            "avg_w_price": 4.0,
+            "min_price": 4.0,
+            "max_price": 4.0,
+            "trades_count": 2,
+            "volume": 200,
+            "security_definition": 2299
+        },
+        {
+            "id": 4609,
+            "trade_date": "2021-06-25",
+            "avg_w_price": 5.0,
+            "min_price": 5.0,
+            "max_price": 5.0,
+            "trades_count": 1,
+            "volume": 3,
+            "security_definition": 2299
+        },
+        {
+            "id": 4571,
+            "trade_date": "2021-06-22",
+            "avg_w_price": 5.0,
+            "min_price": 5.0,
+            "max_price": 5.0,
+            "trades_count": 2,
+            "volume": 59,
+            "security_definition": 2299
+        },
+        {
+            "id": 4535,
+            "trade_date": "2021-06-18",
+            "avg_w_price": 5.0,
+            "min_price": 5.0,
+            "max_price": 5.0,
+            "trades_count": 1,
+            "volume": 10,
+            "security_definition": 2299
+        },
+        {
+            "id": 4514,
+            "trade_date": "2021-06-16",
+            "avg_w_price": 5.0,
+            "min_price": 5.0,
+            "max_price": 5.0,
+            "trades_count": 1,
+            "volume": 450,
+            "security_definition": 2299
+        },
+        {
+            "id": 4439,
+            "trade_date": "2021-06-10",
+            "avg_w_price": 5.0,
+            "min_price": 5.0,
+            "max_price": 5.0,
+            "trades_count": 1,
+            "volume": 2,
+            "security_definition": 2299
+        },
+        {
+            "id": 4408,
+            "trade_date": "2021-06-08",
+            "avg_w_price": 5.0,
+            "min_price": 5.0,
+            "max_price": 5.0,
+            "trades_count": 2,
+            "volume": 45,
+            "security_definition": 2299
+        },
+        {
+            "id": 4352,
+            "trade_date": "2021-06-03",
+            "avg_w_price": 5.0,
+            "min_price": 5.0,
+            "max_price": 5.0,
+            "trades_count": 1,
+            "volume": 15,
+            "security_definition": 2299
+        },
+        {
+            "id": 4323,
+            "trade_date": "2021-06-02",
+            "avg_w_price": 4.9,
+            "min_price": 4.9,
+            "max_price": 4.9,
+            "trades_count": 1,
+            "volume": 30,
+            "security_definition": 2299
+        },
+        {
+            "id": 4258,
+            "trade_date": "2021-05-27",
+            "avg_w_price": 4.904,
+            "min_price": 4.9,
+            "max_price": 5.0,
+            "trades_count": 3,
+            "volume": 2500,
+            "security_definition": 2299
+        },
+        {
+            "id": 4237,
+            "trade_date": "2021-05-26",
+            "avg_w_price": 4.9,
+            "min_price": 4.9,
+            "max_price": 4.9,
+            "trades_count": 1,
+            "volume": 100,
+            "security_definition": 2299
+        },
+        {
+            "id": 4193,
+            "trade_date": "2021-05-24",
+            "avg_w_price": 4.9,
+            "min_price": 4.9,
+            "max_price": 4.9,
+            "trades_count": 1,
+            "volume": 55,
+            "security_definition": 2299
+        },
+        {
+            "id": 4177,
+            "trade_date": "2021-05-21",
+            "avg_w_price": 5.0,
+            "min_price": 5.0,
+            "max_price": 5.0,
+            "trades_count": 1,
+            "volume": 5,
+            "security_definition": 2299
+        },
+        {
+            "id": 4163,
+            "trade_date": "2021-05-20",
+            "avg_w_price": 5.0,
+            "min_price": 5.0,
+            "max_price": 5.0,
+            "trades_count": 1,
+            "volume": 100,
+            "security_definition": 2299
+        },
+        {
+            "id": 4153,
+            "trade_date": "2021-05-19",
+            "avg_w_price": 5.0,
+            "min_price": 5.0,
+            "max_price": 5.0,
+            "trades_count": 1,
+            "volume": 2,
+            "security_definition": 2299
+        },
+        {
+            "id": 4136,
+            "trade_date": "2021-05-18",
+            "avg_w_price": 5.0,
+            "min_price": 5.0,
+            "max_price": 5.0,
+            "trades_count": 9,
+            "volume": 41,
+            "security_definition": 2299
+        },
+        {
+            "id": 4126,
+            "trade_date": "2021-05-17",
+            "avg_w_price": 5.0,
+            "min_price": 5.0,
+            "max_price": 5.0,
+            "trades_count": 4,
+            "volume": 58,
+            "security_definition": 2299
+        },
+        {
+            "id": 4104,
+            "trade_date": "2021-05-14",
+            "avg_w_price": 5.0,
+            "min_price": 5.0,
+            "max_price": 5.0,
+            "trades_count": 1,
+            "volume": 5,
+            "security_definition": 2299
+        },
+        {
+            "id": 4035,
+            "trade_date": "2021-05-06",
+            "avg_w_price": 5.0,
+            "min_price": 5.0,
+            "max_price": 5.0,
+            "trades_count": 2,
+            "volume": 635,
+            "security_definition": 2299
+        },
+        {
+            "id": 4022,
+            "trade_date": "2021-05-05",
+            "avg_w_price": 5.0,
+            "min_price": 5.0,
+            "max_price": 5.0,
+            "trades_count": 2,
+            "volume": 22,
+            "security_definition": 2299
+        },
+        {
+            "id": 4008,
+            "trade_date": "2021-05-04",
+            "avg_w_price": 5.0,
+            "min_price": 5.0,
+            "max_price": 5.0,
+            "trades_count": 2,
+            "volume": 512,
+            "security_definition": 2299
+        },
+        {
+            "id": 3994,
+            "trade_date": "2021-05-03",
+            "avg_w_price": 5.0,
+            "min_price": 5.0,
+            "max_price": 5.0,
+            "trades_count": 3,
+            "volume": 6,
+            "security_definition": 2299
+        },
+        {
+            "id": 3980,
+            "trade_date": "2021-04-30",
+            "avg_w_price": 5.0,
+            "min_price": 5.0,
+            "max_price": 5.0,
+            "trades_count": 1,
+            "volume": 20,
+            "security_definition": 2299
+        },
+        {
+            "id": 3970,
+            "trade_date": "2021-04-29",
+            "avg_w_price": 5.0,
+            "min_price": 5.0,
+            "max_price": 5.0,
+            "trades_count": 1,
+            "volume": 10,
+            "security_definition": 2299
+        },
+        {
+            "id": 3932,
+            "trade_date": "2021-04-27",
+            "avg_w_price": 5.0,
+            "min_price": 5.0,
+            "max_price": 5.0,
+            "trades_count": 1,
+            "volume": 15,
+            "security_definition": 2299
+        },
+        {
+            "id": 3923,
+            "trade_date": "2021-04-26",
+            "avg_w_price": 5.0,
+            "min_price": 5.0,
+            "max_price": 5.0,
+            "trades_count": 1,
+            "volume": 215,
+            "security_definition": 2299
+        },
+        {
+            "id": 1475,
+            "trade_date": "2020-08-31",
+            "avg_w_price": 3.5,
+            "min_price": 3.5,
+            "max_price": 3.5,
+            "trades_count": 1,
+            "volume": 5,
+            "security_definition": 2299
+        },
+        {
+            "id": 168,
+            "trade_date": "2020-08-12",
+            "avg_w_price": 4.7,
+            "min_price": 4.7,
+            "max_price": 4.7,
+            "trades_count": 1,
+            "volume": 4,
+            "security_definition": 2299
+        },
+        {
+            "id": 271,
+            "trade_date": "2020-08-07",
+            "avg_w_price": 4.7,
+            "min_price": 4.7,
+            "max_price": 4.7,
+            "trades_count": 1,
+            "volume": 10,
+            "security_definition": 2299
+        },
+        {
+            "id": 161,
+            "trade_date": "2020-08-06",
+            "avg_w_price": 4.7,
+            "min_price": 4.7,
+            "max_price": 4.7,
+            "trades_count": 1,
+            "volume": 1,
+            "security_definition": 2299
+        },
+        {
+            "id": 1372,
+            "trade_date": "2020-08-05",
+            "avg_w_price": 4.7,
+            "min_price": 4.7,
+            "max_price": 4.7,
+            "trades_count": 2,
+            "volume": 3,
+            "security_definition": 2299
+        },
+        {
+            "id": 1052,
+            "trade_date": "2020-07-24",
+            "avg_w_price": 5.7843137254902,
+            "min_price": 4.9,
+            "max_price": 6.0,
+            "trades_count": 3,
+            "volume": 102,
+            "security_definition": 2299
+        },
+        {
+            "id": 183,
+            "trade_date": "2020-07-22",
+            "avg_w_price": 5.0,
+            "min_price": 5.0,
+            "max_price": 5.0,
+            "trades_count": 2,
+            "volume": 540,
+            "security_definition": 2299
+        },
+        {
+            "id": 201,
+            "trade_date": "2020-07-17",
+            "avg_w_price": 5.0,
+            "min_price": 5.0,
+            "max_price": 5.0,
+            "trades_count": 1,
+            "volume": 3,
+            "security_definition": 2299
+        },
+        {
+            "id": 1255,
+            "trade_date": "2020-07-16",
+            "avg_w_price": 5.0,
+            "min_price": 5.0,
+            "max_price": 5.0,
+            "trades_count": 1,
+            "volume": 390,
+            "security_definition": 2299
+        },
+        {
+            "id": 1921,
+            "trade_date": "2020-07-10",
+            "avg_w_price": 5.0,
+            "min_price": 5.0,
+            "max_price": 5.0,
+            "trades_count": 1,
+            "volume": 10,
+            "security_definition": 2299
+        },
+        {
+            "id": 1364,
+            "trade_date": "2020-07-08",
+            "avg_w_price": 2.50747508305648,
+            "min_price": 2.5,
+            "max_price": 4.75,
+            "trades_count": 2,
+            "volume": 1505,
+            "security_definition": 2299
+        },
+        {
+            "id": 739,
+            "trade_date": "2020-04-06",
+            "avg_w_price": 6.5,
+            "min_price": 6.5,
+            "max_price": 6.5,
+            "trades_count": 1,
+            "volume": 6,
+            "security_definition": 2299
+        },
+        {
+            "id": 1687,
+            "trade_date": "2020-03-31",
+            "avg_w_price": 6.5,
+            "min_price": 6.5,
+            "max_price": 6.5,
+            "trades_count": 1,
+            "volume": 3,
+            "security_definition": 2299
+        },
+        {
+            "id": 1048,
+            "trade_date": "2020-03-24",
+            "avg_w_price": 6.5,
+            "min_price": 6.5,
+            "max_price": 6.5,
+            "trades_count": 1,
+            "volume": 5,
+            "security_definition": 2299
+        },
+        {
+            "id": 480,
+            "trade_date": "2020-02-26",
+            "avg_w_price": 6.3,
+            "min_price": 6.3,
+            "max_price": 6.3,
+            "trades_count": 1,
+            "volume": 1,
+            "security_definition": 2299
+        },
+        {
+            "id": 1769,
+            "trade_date": "2020-02-14",
+            "avg_w_price": 5.8,
+            "min_price": 5.8,
+            "max_price": 5.8,
+            "trades_count": 1,
+            "volume": 1,
+            "security_definition": 2299
+        },
+        {
+            "id": 143,
+            "trade_date": "2020-02-13",
+            "avg_w_price": 5.8,
+            "min_price": 5.8,
+            "max_price": 5.8,
+            "trades_count": 7,
+            "volume": 166,
+            "security_definition": 2299
+        },
+        {
+            "id": 686,
+            "trade_date": "2020-02-12",
+            "avg_w_price": 5.8,
+            "min_price": 5.8,
+            "max_price": 5.8,
+            "trades_count": 2,
+            "volume": 4,
+            "security_definition": 2299
+        },
+        {
+            "id": 142,
+            "trade_date": "2020-02-11",
+            "avg_w_price": 5.8,
+            "min_price": 5.8,
+            "max_price": 5.8,
+            "trades_count": 1,
+            "volume": 30,
+            "security_definition": 2299
+        },
+        {
+            "id": 61,
+            "trade_date": "2020-02-10",
+            "avg_w_price": 5.8,
+            "min_price": 5.8,
+            "max_price": 5.8,
+            "trades_count": 2,
+            "volume": 15,
+            "security_definition": 2299
+        },
+        {
+            "id": 1988,
+            "trade_date": "2020-02-06",
+            "avg_w_price": 5.8,
+            "min_price": 5.8,
+            "max_price": 5.8,
+            "trades_count": 2,
+            "volume": 11,
+            "security_definition": 2299
+        },
+        {
+            "id": 915,
+            "trade_date": "2020-02-05",
+            "avg_w_price": 5.8,
+            "min_price": 5.8,
+            "max_price": 5.8,
+            "trades_count": 3,
+            "volume": 70,
+            "security_definition": 2299
+        },
+        {
+            "id": 2053,
+            "trade_date": "2020-02-04",
+            "avg_w_price": 5.8,
+            "min_price": 5.8,
+            "max_price": 5.8,
+            "trades_count": 4,
+            "volume": 70,
+            "security_definition": 2299
+        },
+        {
+            "id": 729,
+            "trade_date": "2020-01-31",
+            "avg_w_price": 5.8,
+            "min_price": 5.8,
+            "max_price": 5.8,
+            "trades_count": 2,
+            "volume": 50,
+            "security_definition": 2299
+        },
+        {
+            "id": 1164,
+            "trade_date": "2020-01-30",
+            "avg_w_price": 5.8,
+            "min_price": 5.8,
+            "max_price": 5.8,
+            "trades_count": 3,
+            "volume": 198,
+            "security_definition": 2299
+        },
+        {
+            "id": 2026,
+            "trade_date": "2020-01-29",
+            "avg_w_price": 5.8,
+            "min_price": 5.8,
+            "max_price": 5.8,
+            "trades_count": 4,
+            "volume": 32,
+            "security_definition": 2299
+        },
+        {
+            "id": 877,
+            "trade_date": "2020-01-24",
+            "avg_w_price": 5.9,
+            "min_price": 5.9,
+            "max_price": 5.9,
+            "trades_count": 7,
+            "volume": 77,
+            "security_definition": 2299
+        },
+        {
+            "id": 1535,
+            "trade_date": "2020-01-23",
+            "avg_w_price": 5.9,
+            "min_price": 5.9,
+            "max_price": 5.9,
+            "trades_count": 10,
+            "volume": 774,
+            "security_definition": 2299
+        },
+        {
+            "id": 1900,
+            "trade_date": "2020-01-22",
+            "avg_w_price": 5.89075949367089,
+            "min_price": 5.89,
+            "max_price": 5.9,
+            "trades_count": 9,
+            "volume": 790,
+            "security_definition": 2299
+        },
+        {
+            "id": 444,
+            "trade_date": "2020-01-21",
+            "avg_w_price": 5.9,
+            "min_price": 5.9,
+            "max_price": 5.9,
+            "trades_count": 2,
+            "volume": 30,
+            "security_definition": 2299
+        },
+        {
+            "id": 1141,
+            "trade_date": "2020-01-17",
+            "avg_w_price": 5.9,
+            "min_price": 5.9,
+            "max_price": 5.9,
+            "trades_count": 1,
+            "volume": 30,
+            "security_definition": 2299
+        },
+        {
+            "id": 1881,
+            "trade_date": "2020-01-16",
+            "avg_w_price": 5.9,
+            "min_price": 5.9,
+            "max_price": 5.9,
+            "trades_count": 2,
+            "volume": 30,
+            "security_definition": 2299
+        },
+        {
+            "id": 1286,
+            "trade_date": "2020-01-14",
+            "avg_w_price": 5.9,
+            "min_price": 5.9,
+            "max_price": 5.9,
+            "trades_count": 2,
+            "volume": 15,
+            "security_definition": 2299
+        },
+        {
+            "id": 1342,
+            "trade_date": "2020-01-10",
+            "avg_w_price": 5.9,
+            "min_price": 5.9,
+            "max_price": 5.9,
+            "trades_count": 1,
+            "volume": 5,
+            "security_definition": 2299
+        },
+        {
+            "id": 593,
+            "trade_date": "2019-12-30",
+            "avg_w_price": 5.9,
+            "min_price": 5.9,
+            "max_price": 5.9,
+            "trades_count": 1,
+            "volume": 10,
+            "security_definition": 2299
+        },
+        {
+            "id": 427,
+            "trade_date": "2019-12-27",
+            "avg_w_price": 6.0,
+            "min_price": 6.0,
+            "max_price": 6.0,
+            "trades_count": 2,
+            "volume": 18,
+            "security_definition": 2299
+        }
+    ]
+}

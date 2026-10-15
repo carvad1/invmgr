@@ -6,7 +6,13 @@ export default defineConfig({
   build: {
     rollupOptions: {
       output: {
-        manualChunks: { charts: ["recharts"], react: ["react", "react-dom"] },
+        onlyExplicitManualChunks: true,
+        manualChunks(id) {
+          const path = id.replaceAll("\\", "/");
+          if (/\/node_modules\/(react|react-dom|scheduler)\//.test(path))
+            return "react";
+          if (path.includes("/node_modules/recharts/")) return "charts";
+        },
       },
     },
   },

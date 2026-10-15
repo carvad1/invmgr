@@ -1,11 +1,6 @@
+import { PAGE_SIZE, Pagination } from "./Pagination";
 import { useState } from "react";
-import {
-  ExternalLink,
-  Search,
-  LoaderCircle,
-  FileText,
-  ShieldCheck,
-} from "lucide-react";
+import { Search, LoaderCircle, FileText } from "lucide-react";
 import type { CatalogItem, Instrument } from "../domain/types";
 import { today } from "../domain/types";
 import { assessDebt } from "../domain/research";
@@ -21,17 +16,16 @@ export function ResearchImport({
   open: (item: CatalogItem) => Promise<void>;
   manual: () => void;
 }) {
+  const [resultPage, setResultPage] = useState(0);
   const [url, setUrl] = useState("");
   const [query, setQuery] = useState("");
   const [items, setItems] = useState<CatalogItem[] | null>(null);
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState("");
-  const candidates = (items ?? catalog).filter(
-    (i) =>
-      ["token", "bond"].includes(i.kind) &&
-      `${i.name} ${i.research?.issueId ?? ""} ${i.provider} ${i.currency}`
-        .toLowerCase()
-        .includes(query.toLowerCase()),
+  const candidates = (items ?? catalog).filter((i) =>
+    `${i.name} ${i.research?.issueId ?? ""} ${i.provider} ${i.currency}`
+      .toLowerCase()
+      .includes(query.toLowerCase()),
   );
   const choose = async (item: CatalogItem) => {
     setBusy(true);
@@ -66,6 +60,7 @@ export function ResearchImport({
             const result = await window.invest.inspectSource(url.trim());
             setItems(result.length === 1 ? null : result);
             setQuery("");
+            setResultPage(0);
             if (result.length === 1) await open(result[0]);
           } catch (e) {
             setError((e as Error).message);
@@ -96,43 +91,43 @@ export function ResearchImport({
       </form>
       <details className="research-picker" open={items !== null || undefined}>
         <summary>
-          Выбрать из каталога ·{" "}
-          {
-            (items ?? catalog).filter((i) => ["token", "bond"].includes(i.kind))
-              .length
-          }{" "}
-          выпусков
+          Выбрать из каталога · {(items ?? catalog).length} выпусков
         </summary>
         <input
           aria-label="Поиск выпуска"
           placeholder="Компания, номер выпуска или валюта"
           value={query}
-          onChange={(e) => setQuery(e.target.value)}
+          onChange={(e) => {
+            setQuery(e.target.value);
+            setResultPage(0);
+          }}
         />
         <div className="research-results">
-          {candidates.map((i) => (
-            <button
-              className="research-result"
-              disabled={busy}
-              key={i.id}
-              onClick={() => choose(i)}
-            >
-              <span>
-                <strong>{i.name}</strong>
-                <small>
-                  {i.provider} · {i.research?.issueId} · {i.currency}
-                </small>
-              </span>
-              <span>
-                {i.rate === null
-                  ? "Ставка не указана"
-                  : `${num(i.rate)}% годовых`}
-                {i.research?.rateModel === "indexed" && (
-                  <small>С индексацией</small>
-                )}
-              </span>
-            </button>
-          ))}
+          {candidates
+            .slice(resultPage * PAGE_SIZE, (resultPage + 1) * PAGE_SIZE)
+            .map((i) => (
+              <button
+                className="research-result"
+                disabled={busy}
+                key={i.id}
+                onClick={() => choose(i)}
+              >
+                <span>
+                  <strong>{i.name}</strong>
+                  <small>
+                    {i.provider} · {i.research?.issueId} · {i.currency}
+                  </small>
+                </span>
+                <span>
+                  {i.rate === null
+                    ? "Ставка не указана"
+                    : `${num(i.rate)}% годовых`}
+                  {i.research?.rateModel === "indexed" && (
+                    <small>С индексацией</small>
+                  )}
+                </span>
+              </button>
+            ))}
           {!candidates.length && (
             <p className="muted">
               Нет подходящих выпусков. Обновите источники или вставьте ссылку на
@@ -140,6 +135,11 @@ export function ResearchImport({
             </p>
           )}
         </div>
+        <Pagination
+          count={candidates.length}
+          page={resultPage}
+          change={setResultPage}
+        />
         {items && (
           <button className="text-button" onClick={() => setItems(null)}>
             Вернуться к сохранённому каталогу
@@ -174,160 +174,135 @@ export function ResearchSummary({
   return (
     <section className="panel research-summary" aria-label="Оценка выпуска">
       <div className="research-overview">
-        <div className="published-rating coupon-headline">
-          <small>СТАВКА В УСЛОВИЯХ</small>
+        <div>
+          <small>Купонная ставка</small>
           <strong>
-            {r?.rateKnown === false ? "Не указана" : `${num(i.annualRate)}%`}
+            {r?.rateKnown === false ? "Не указана" : num(i.annualRate) + "%"}
           </strong>
-          <p>Годовых · {i.currency}</p>
           <p>
+            {i.currency}
             {r?.rateModel === "indexed"
-              ? "С индексацией / переменная. Нужна формула выплат."
-              : "Купонная ставка. Итог по покупке зависит от цены, срока и комиссии."}
+              ? " · с индексацией"
+              : " · по условиям выпуска"}
           </p>
         </div>
-        <div className={`assessment ${assessment.tone}`}>
-          <small>ОБЩАЯ ОЦЕНКА ПРИЛОЖЕНИЯ</small>
+        <div className={"assessment " + assessment.tone}>
+          <small>Проверка данных</small>
           <h2>{assessment.label}</h2>
-          <p>
-            Проверка условий и финансовых показателей. Не кредитный рейтинг и не
-            вероятность возврата денег.
-          </p>
+          <p>Оценка приложения, не кредитный рейтинг</p>
         </div>
-        <div className="published-rating">
+        <div>
           <small>
             {r?.rating?.kind === "reputation"
-              ? "РЕЙТИНГ ДЕЛОВОЙ РЕПУТАЦИИ"
-              : "КРЕДИТНЫЙ РЕЙТИНГ"}
+              ? "Рейтинг деловой репутации"
+              : "Кредитный рейтинг"}
           </small>
           <strong>{r?.rating?.value ?? "Не найден"}</strong>
           <p>
             {r?.rating
-              ? `${r.rating.agency || `Опубликован на ${i.provider}`}. ${r.rating.date ? `Дата рейтинга: ${dateLabel(r.rating.date)}` : "Дата присвоения не указана"}.`
-              : "На проверенной странице рейтинг не указан. Это не означает низкий рейтинг."}
+              ? r.rating.agency || "Опубликован на " + i.provider
+              : "Нет опубликованных данных"}
           </p>
-          {r?.rating?.kind === "reputation" && (
-            <p className="amber">
-              Деловая репутация не оценивает вероятность исполнения долга.
-            </p>
-          )}
-          {r?.rating && (
+        </div>
+      </div>
+      {assessment.problems.length > 0 && (
+        <p className="notice warning">{assessment.problems.join(" · ")}</p>
+      )}
+      {r?.rating?.kind === "reputation" && (
+        <p className="footnote">
+          Рейтинг деловой репутации не оценивает вероятность исполнения долга.
+        </p>
+      )}
+      <details className="compact-details">
+        <summary>Риски, документы и источники</summary>
+        {assessment.missing.length > 0 && (
+          <p>Не хватает: {assessment.missing.join("; ")}.</p>
+        )}
+        <p>
+          Эмитент: {r?.issuer || i.name}. Погашение:{" "}
+          {i.maturity ? dateLabel(i.maturity) : r?.maturityText || "не указано"}
+          . Обеспечение: {r?.security || "не установлено"}.
+        </p>
+        <p>
+          Выплаты:{" "}
+          {r?.paymentStatus === "late"
+            ? "отмечена просрочка"
+            : r?.paymentStatus === "current"
+              ? "проверены пользователем"
+              : "история не проверена"}
+          {r?.statusDate ? " · " + dateLabel(r.statusDate) : ""}.
+        </p>
+        {r?.statusSource && (
+          <button
+            className="text-button"
+            onClick={() => openSource(r.statusSource)}
+          >
+            Источник проверки выплат ↗
+          </button>
+        )}
+        {r?.rating && (
+          <p>
+            Дата рейтинга:{" "}
+            {r.rating.date ? dateLabel(r.rating.date) : "не указана"}.{" "}
             <button
               className="text-button"
               onClick={() => openSource(r.rating!.sourceUrl)}
             >
-              Источник рейтинга <ExternalLink size={13} />
+              Источник рейтинга ↗
             </button>
-          )}
-        </div>
-      </div>
-      <div className="research-findings">
-        <div>
-          <h3>Что влияет на оценку</h3>
-          {assessment.problems.map((p) => (
-            <p className="risk-finding" key={p}>
-              {p}
-            </p>
-          ))}
-          {!!assessment.missing.length && (
-            <p>Для вывода не хватает: {assessment.missing.join("; ")}.</p>
-          )}
-          {!assessment.problems.length && !assessment.missing.length && (
-            <p>
-              Введённые данные прошли базовые проверки. Отрасль, денежные
-              потоки, условия обеспечения и связанные лица требуют отдельного
-              анализа.
-            </p>
-          )}
-          <p>
-            Обеспечение: {r?.security || "не установлено по доступной карточке"}
-            .
           </p>
-          <p>
-            Выплаты:{" "}
-            {r?.paymentStatus === "late"
-              ? "отмечена просрочка"
-              : r?.paymentStatus === "current"
-                ? "проверены пользователем"
-                : "история исполнения не проверена"}
-            {r?.statusDate ? ` · ${dateLabel(r.statusDate)}` : ""}.
-          </p>
-          {r?.statusSource && (
-            <button
-              className="text-button"
-              onClick={() => openSource(r.statusSource)}
-            >
-              Источник проверки выплат <ExternalLink size={13} />
-            </button>
-          )}
-          <button className="button secondary small" onClick={() => edit(i)}>
-            <ShieldCheck size={15} />
-            Дополнить данные для оценки
+        )}
+        <p className={stale ? "amber" : "muted"}>
+          {r
+            ? "Загружено " +
+              dateLabel(r.fetchedAt.slice(0, 10)) +
+              (stale ? " · данные старше недели" : "")
+            : "Условия введены вручную"}
+          . Дата загрузки не подтверждает актуальность рейтинга или цены.
+        </p>
+        {r?.documents.map((d) => (
+          <button
+            className="document-link"
+            key={d.url}
+            onClick={() => openSource(d.url)}
+          >
+            <FileText size={16} />
+            {d.title} ↗
           </button>
-        </div>
-        <div>
-          <h3>Условия и документы</h3>
+        ))}
+        {!!r?.paymentDates.length && (
           <p>
-            Эмитент: {r?.issuer || i.name}. Выпуск:{" "}
-            {r?.issueId || i.ticker || "не указан"}.
-          </p>
-          <p>
-            Погашение:{" "}
-            {i.maturity
-              ? dateLabel(i.maturity)
-              : r?.maturityText || "нет данных"}
+            Следующие даты выплат:{" "}
+            {r.paymentDates
+              .filter((d) => d > today())
+              .slice(0, 12)
+              .map(dateLabel)
+              .join(" · ") || "нет данных"}
             .
           </p>
-          <p className={stale ? "amber" : "muted"}>
-            {r
-              ? `Загружено ${dateLabel(r.fetchedAt.slice(0, 10))}${stale ? " · данные старше недели" : ""}. Дата загрузки не подтверждает актуальность рейтинга или цены.`
-              : "Условия введены вручную."}
+        )}
+        <details className="compact-details">
+          <summary>Как получена оценка</summary>
+          <p>
+            Просрочка или неположительный капитал — высокий риск. Убыток либо
+            долг / капитал выше 3 — факторы риска. Базовая проверка требует
+            отчётности до 550 дней, долга, капитала, прибыли, проверки выплат до
+            90 дней с источником, обеспечения и срока погашения. Пороги не
+            учитывают отраслевую специфику.
           </p>
-          {r?.documents.map((d) => (
-            <button
-              className="document-link"
-              key={d.url}
-              onClick={() => openSource(d.url)}
-            >
-              <FileText size={16} />
-              {d.title}
-              <ExternalLink size={13} />
-            </button>
+          <p>
+            Высокая ставка и рейтинг не повышают оценку автоматически.
+            Отсутствие сведений о просрочках не подтверждает своевременность
+            выплат.
+          </p>
+          {r?.caveats.map((c) => (
+            <p key={c}>{c}</p>
           ))}
-          {!!r?.paymentDates.length && (
-            <details>
-              <summary>Даты выплат с сайта · {r.paymentDates.length}</summary>
-              <p>
-                {r.paymentDates
-                  .filter((d) => d > today())
-                  .slice(0, 12)
-                  .map(dateLabel)
-                  .join(" · ") || "Будущих дат нет"}
-              </p>
-            </details>
-          )}
-        </div>
-      </div>
-      <details className="research-method">
-        <summary>Как получена оценка и что предполагает расчёт</summary>
-        <p>
-          Просрочка или неположительный капитал → высокий риск по данным. Убыток
-          либо долг / капитал выше 3 → есть факторы риска. При отсутствии этих
-          признаков и нехватке данных вывод откладывается. Базовая проверка
-          требует отчётности до 550 дней, данных о долге, капитале и прибыли,
-          проверки выплат до 90 дней с источником, обеспечения и срока
-          погашения. Пороги служат фильтром внимания и не учитывают отраслевую
-          специфику.
-        </p>
-        <p>
-          Высокая ставка и опубликованный рейтинг не повышают оценку
-          автоматически. Отсутствие сведений о просрочках не считается
-          подтверждением своевременных выплат.
-        </p>
-        {r?.caveats.map((c) => (
-          <p key={c}>{c}</p>
-        ))}
+        </details>
       </details>
+      <button className="text-button" onClick={() => edit(i)}>
+        Дополнить данные для оценки
+      </button>
     </section>
   );
 }

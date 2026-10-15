@@ -9,28 +9,47 @@ import {
   type ReactNode,
 } from "react";
 import { X, ArrowUpRight, FolderOpen } from "lucide-react";
+const formats = new Map<string, Intl.NumberFormat>();
+function format(currency: string, digits: number) {
+  const key = `${currency}:${digits}`;
+  let result = formats.get(key);
+  if (!result) {
+    result = new Intl.NumberFormat(
+      "ru-RU",
+      currency
+        ? {
+            style: "currency",
+            currency,
+            maximumFractionDigits: digits,
+            minimumFractionDigits: digits,
+          }
+        : { maximumFractionDigits: digits },
+    );
+    formats.set(key, result);
+  }
+  return result;
+}
 export const money = (value: number | null, currency = "BYN", digits = 2) =>
   value === null || !Number.isFinite(value)
     ? "Нет данных"
-    : new Intl.NumberFormat("ru-RU", {
-        style: "currency",
-        currency,
-        maximumFractionDigits: digits,
-        minimumFractionDigits: digits,
-      }).format(Math.abs(value) < 0.5 * 10 ** -digits ? 0 : value);
+    : format(currency, digits).format(
+        Math.abs(value) < 0.5 * 10 ** -digits ? 0 : value,
+      );
 export const num = (value: number | null, digits = 2) =>
   value === null || !Number.isFinite(value)
     ? "—"
-    : new Intl.NumberFormat("ru-RU", { maximumFractionDigits: digits }).format(
+    : format("", digits).format(
         Math.abs(value) < 0.5 * 10 ** -digits ? 0 : value,
       );
 export const dateLabel = (date: string) =>
   date
-    ? new Date(date.slice(0, 10) + "T00:00:00").toLocaleDateString("ru-RU", {
-        day: "numeric",
-        month: "short",
-        year: "numeric",
-      })
+    ? !/^\d{4}-\d{2}-\d{2}/.test(date)
+      ? date
+      : new Date(date.slice(0, 10) + "T00:00:00").toLocaleDateString("ru-RU", {
+          day: "numeric",
+          month: "short",
+          year: "numeric",
+        })
     : "Не указана";
 export function Modal({
   title,

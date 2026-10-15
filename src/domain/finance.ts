@@ -290,7 +290,8 @@ export function paymentSchedule(
 ) {
   if (!i.maturity || i.maturity <= asOf || i.kind === "stock") return [];
   // Index-linked principal/coupons cannot be modeled by the fixed-rate schedule.
-  if (i.research?.rateModel === "indexed" || i.research?.nominalKnown === false) return [];
+  if (i.research?.rateModel === "indexed" || i.research?.nominalKnown === false)
+    return [];
   const face = i.kind === "deposit" ? quantity : quantity * i.nominal;
   const out: { date: string; amount: number; type: string }[] = [];
   if (!i.frequency || !i.nextPayment || i.research?.rateKnown === false) {

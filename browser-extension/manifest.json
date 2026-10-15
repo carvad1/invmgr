@@ -1,0 +1,19 @@
+{
+  "manifest_version": 3,
+  "name": "Invest Manager — акции и облигации",
+  "version": "0.3.0",
+  "description": "Копирует данные открытой акции или облигации Aigenis без токенов и cookies для анализа в Invest Manager.",
+  "content_scripts": [
+    {
+      "matches": ["https://web.aigenis.by/*"],
+      "js": ["capture.js"],
+      "run_at": "document_start",
+      "world": "MAIN"
+    },
+    {
+      "matches": ["https://web.aigenis.by/*"],
+      "js": ["button.js"],
+      "run_at": "document_start"
+    }
+  ]
+}

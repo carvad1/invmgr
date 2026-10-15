@@ -1,0 +1,121 @@
+.modal {
+  border: 1px solid #dbe2de;
+  border-radius: 12px;
+  padding: 0;
+  width: min(760px, calc(100vw - 60px));
+  max-height: calc(100vh - 60px);
+  color: #24352d;
+  background: #fff;
+  box-shadow: 0 20px 90px #162f2833;
+}
+.modal::backdrop {
+  background: #182f294d;
+}
+.modal-inner {
+  padding: 26px;
+}
+.modal header {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  align-items: flex-start;
+  margin-bottom: 24px;
+}
+.modal header h2 {
+  font-size: 21px;
+}
+.modal header p {
+  color: var(--muted);
+  margin: 5px 0 0;
+  font-size: 13px;
+}
+.modal .button-row {
+  margin: 20px 0;
+}
+.modal p {
+  font-size: 13px;
+}
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  min-width: 0;
+}
+.field label {
+  font-size: 13px;
+  font-weight: 500;
+}
+.field > small {
+  font-size: 11px;
+}
+.wide {
+  grid-column: 1 / -1;
+}
+.check-field {
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 8px;
+  font-size: 13px;
+  line-height: 1.5;
+}
+.check-field input {
+  margin-top: 2px;
+}
+.check-field small {
+  flex-basis: 100%;
+  margin-left: 24px;
+  font-weight: 400;
+}
+.form-details {
+  border-top: 1px solid var(--line);
+  margin-top: 18px;
+  padding-top: 16px;
+}
+.form-details.wide {
+  margin-top: 0;
+}
+.form-details .form-grid {
+  margin-top: 18px;
+}
+.form-error {
+  display: flex;
+  gap: 7px;
+  align-items: flex-start;
+  font-size: 13px;
+  line-height: 1.5;
+  color: #af3c2e;
+  border-radius: 6px;
+  background: #fff3f0;
+  padding: 12px;
+  margin: 14px 0;
+}
+.form-footer {
+  display: flex;
+  gap: 9px;
+  justify-content: flex-end;
+  border-top: 1px solid var(--line);
+  padding-top: 18px;
+  margin-top: 24px;
+}
+.form-divider {
+  font-size: 14px;
+  font-weight: 600;
+  border-top: 1px solid var(--line);
+  padding-top: 20px;
+  margin-top: 2px;
+}
+.paste-label {
+  display: block;
+  margin-bottom: 10px;
+}
+.paste-area {
+  min-height: 250px;
+  font-family: Consolas, monospace;
+  font-size: 12px;
+}

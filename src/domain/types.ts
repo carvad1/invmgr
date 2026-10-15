@@ -1,3 +1,5 @@
+import type { StockAnalysis } from "./stock-schema";
+import type { StockWeb } from "./stock-web";
 export const currencies = ["BYN", "USD", "EUR", "RUB"] as const;
 export type Currency = (typeof currencies)[number];
 export const kinds = ["deposit", "token", "bond", "stock"] as const;
@@ -57,6 +59,7 @@ export interface Instrument {
   netIncome: number | null;
   reportDate: string;
   research?: Research;
+  stockAnalysis?: StockAnalysis;
 }
 export interface Research {
   issueId: string;
@@ -139,6 +142,7 @@ export interface SyncRun {
 export interface Settings {
   baseCurrency: Currency;
   benchmarkRate: number;
+  stockAutoRefresh?: boolean;
 }
 export interface State {
   instruments: Instrument[];
@@ -156,6 +160,12 @@ export interface SaveOperation {
 }
 export interface DesktopAPI {
   load: () => Promise<State>;
+  refreshRates: () => Promise<State>;
+  refreshStocks: (options?: { id?: string; force?: boolean }) => Promise<State>;
+  readStockDocument: (id: string, documentId: string) => Promise<State>;
+  onStockWeb: (
+    listener: (change: { id: string; identity: string; web: StockWeb }) => void,
+  ) => () => void;
   saveInstrument: (value: Instrument) => Promise<State>;
   removeInstrument: (id: string) => Promise<State>;
   saveOperation: (value: SaveOperation) => Promise<State>;

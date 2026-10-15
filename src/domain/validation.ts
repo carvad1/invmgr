@@ -1,5 +1,6 @@
 import { z } from "zod";
 import { currencies, kinds, today } from "./types";
+import { stockAnalysisSchema } from "./stock-schema";
 const text = z.string().trim().max(5000);
 const id = z.string().uuid();
 export const dateSchema = z
@@ -92,10 +93,17 @@ export const instrumentSchema = z
     netIncome: z.number().finite().nullable(),
     reportDate: optionalDate,
     research: researchSchema.optional(),
+    stockAnalysis: stockAnalysisSchema.optional(),
   })
   .refine(
     (v) => !v.nextPayment || !v.maturity || v.nextPayment <= v.maturity,
     "Дата выплаты позже погашения",
+  )
+  .refine(
+    (v) =>
+      !v.stockAnalysis?.market ||
+      v.stockAnalysis.market.currency === v.currency,
+    "Валюта акции должна совпадать с импортированными котировками",
   );
 export const operationSchema = z
   .object({
@@ -174,6 +182,7 @@ export const fxSchema = z
   })
   .refine((v) => v.currency !== "BYN" || v.rate === 1, "Курс BYN равен 1");
 export const settingsSchema = z.object({
+  stockAutoRefresh: z.boolean().optional(),
   baseCurrency: currency,
   benchmarkRate: nonnegative.max(100),
 });

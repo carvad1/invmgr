@@ -21,7 +21,7 @@ test("Windows desktop: вклад, выплата, анализ, журнал и
   page.on("pageerror", (e) => errors.push(e.message));
   try {
     await expect(
-      page.getByRole("heading", { name: "Инвестиции под контролем" }),
+      page.getByRole("heading", { name: "Обзор", exact: true }),
     ).toBeVisible();
     await page.screenshot({
       path: join(root, ".local", "overview-empty.png"),
@@ -49,6 +49,9 @@ test("Windows desktop: вклад, выплата, анализ, журнал и
     await page
       .getByLabel("Почему покупаю")
       .fill("Резерв на будущие расходы, фиксированная ставка.");
+    await page
+      .getByText("Цель, риски и условия выхода", { exact: true })
+      .click();
     await page.getByLabel("Цель", { exact: true }).fill("Накопить подушку");
     await page.getByRole("button", { name: "Сохранить операцию" }).click();
     await expect(page.getByRole("dialog")).toHaveCount(0);
@@ -57,10 +60,12 @@ test("Windows desktop: вклад, выплата, анализ, журнал и
     expect(state.instruments).toHaveLength(1);
     await expect(
       page.getByRole("region", { name: "Автоматический расчёт процентов" }),
-    ).toContainText("Расчётные проценты:");
-    const xirr = page.locator(".metric").filter({ hasText: "Доходность XIRR" });
+    ).toContainText("Расчётные проценты");
+    const xirr = page.locator(".metric").filter({ hasText: "XIRR" });
     await expect(xirr).not.toContainText("0%");
-    await page.getByRole("button", { name: "Операция", exact: true }).click();
+    await page
+      .getByRole("button", { name: "Записать операцию", exact: true })
+      .click();
     await page.getByLabel("Операция", { exact: true }).selectOption("income");
     await page.getByLabel("Дата операции").fill("2026-09-01");
     await page.getByLabel("Сумма, BYN", { exact: true }).fill("800");
@@ -71,7 +76,13 @@ test("Windows desktop: вклад, выплата, анализ, журнал и
       path: join(root, ".local", "overview-filled.png"),
       fullPage: true,
     });
+    await page.getByRole("button", { name: "Показать график" }).click();
+    await expect(page.locator(".recharts-surface").first()).toBeVisible();
+    await page.getByRole("button", { name: "Скрыть график" }).click();
     await page.getByRole("button", { name: "Мои активы" }).click();
+    await page
+      .getByRole("button", { name: "Мой вклад BYN", exact: true })
+      .click();
     await expect(
       page.getByRole("heading", { name: "Мой вклад BYN" }),
     ).toBeVisible();
@@ -109,7 +120,7 @@ test("Windows desktop: вклад, выплата, анализ, журнал и
     app = await electron.launch({ args: [root], env });
     page = await app.firstWindow();
     await expect(
-      page.getByRole("heading", { name: "Инвестиции под контролем" }),
+      page.getByRole("heading", { name: "Обзор", exact: true }),
     ).toBeVisible();
     const restored = await page.evaluate(() => window.invest.load());
     expect(restored.operations).toHaveLength(3);

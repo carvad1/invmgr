@@ -54,6 +54,9 @@ test("Быстрый анализ: ссылка, рейтинг, сценари�
   };
   try {
     await page.getByRole("button", { name: "Анализ", exact: true }).click();
+    await page
+      .getByRole("button", { name: "По ссылке / каталог", exact: true })
+      .click();
     await page.getByLabel("Ссылка на выпуск").fill("https://example.com/");
     await page.getByRole("button", { name: "Разобрать ссылку" }).click();
     await expect(page.getByRole("alert")).toContainText("Finstore");
@@ -96,7 +99,14 @@ test("Быстрый анализ: ссылка, рейтинг, сценари�
     await expect(
       page.getByRole("region", { name: "Оценка выпуска" }),
     ).toContainText("Высокий риск по данным");
+    await page
+      .getByRole("button", { name: "По ссылке / каталог", exact: true })
+      .click();
+    await page.getByLabel("Ссылка на выпуск").fill(item.sourceUrl);
     await page.getByRole("button", { name: "Разобрать ссылку" }).click();
+    await expect(
+      page.getByRole("heading", { name: "Доход и сценарии" }),
+    ).toBeVisible();
     state = await page.evaluate(() => window.invest.load());
     expect(state.instruments).toHaveLength(1);
     expect(state.operations).toHaveLength(0);
@@ -115,7 +125,7 @@ test("Быстрый анализ: ссылка, рейтинг, сценари�
     app = await electron.launch({ args: [root], env });
     page = await app.firstWindow();
     await expect(
-      page.getByRole("heading", { name: "Инвестиции под контролем" }),
+      page.getByRole("heading", { name: "Обзор", exact: true }),
     ).toBeVisible();
     state = await page.evaluate(() => window.invest.load());
     expect(state.instruments[0].research?.paymentStatus).toBe("late");

@@ -52,7 +52,12 @@ export function InstrumentForm({
       currency: locked
         ? value.currency
         : (s(f, "currency") as Instrument["currency"]),
-      nominal: kind === "deposit" ? 1 : n(f, "nominal"),
+      nominal:
+        kind === "deposit"
+          ? 1
+          : kind === "stock"
+            ? value.nominal
+            : n(f, "nominal"),
       annualRate: n(f, "annualRate"),
       maturity: s(f, "maturity"),
       frequency: n(f, "frequency"),
@@ -72,13 +77,13 @@ export function InstrumentForm({
           : undefined,
       notes: s(f, "notes"),
       sourceUrl: s(f, "sourceUrl"),
-      eps: optional(f, "eps"),
-      bookValue: optional(f, "bookValue"),
-      debt: optional(f, "debt"),
-      equity: optional(f, "equity"),
-      revenue: optional(f, "revenue"),
-      netIncome: optional(f, "netIncome"),
-      reportDate: s(f, "reportDate"),
+      eps: kind === "stock" ? value.eps : optional(f, "eps"),
+      bookValue: kind === "stock" ? value.bookValue : optional(f, "bookValue"),
+      debt: kind === "stock" ? value.debt : optional(f, "debt"),
+      equity: kind === "stock" ? value.equity : optional(f, "equity"),
+      revenue: kind === "stock" ? value.revenue : optional(f, "revenue"),
+      netIncome: kind === "stock" ? value.netIncome : optional(f, "netIncome"),
+      reportDate: kind === "stock" ? value.reportDate : s(f, "reportDate"),
       research: ["bond", "token"].includes(kind)
         ? {
             ...(value.research ?? blankResearch(s(f, "ticker"), s(f, "name"))),
@@ -188,16 +193,18 @@ export function InstrumentForm({
                   placeholder="Уникальный выпуск"
                 />
               </Field>
-              <Field label="Номинал единицы">
-                <input
-                  name="nominal"
-                  type="number"
-                  min="0.000001"
-                  step="any"
-                  required
-                  defaultValue={value.nominal}
-                />
-              </Field>
+              {kind !== "stock" && (
+                <Field label="Номинал единицы">
+                  <input
+                    name="nominal"
+                    type="number"
+                    min="0.000001"
+                    step="any"
+                    required
+                    defaultValue={value.nominal}
+                  />
+                </Field>
+              )}
             </>
           )}
           {kind !== "stock" && (
@@ -446,41 +453,48 @@ export function InstrumentForm({
             </div>
           </details>
         )}
-        <details className="form-details">
-          <summary>Отчётность эмитента для анализа</summary>
-          <p>
-            Все суммы — в валюте инструмента, за один отчётный период.
-            Неизвестные поля оставьте пустыми.
+        {kind === "stock" ? (
+          <p className="footnote">
+            Отчётность и сценарии оценки добавляются после сохранения в разделе
+            «Акции» → карточка компании.
           </p>
-          <div className="form-grid">
-            <Field label="Дата отчётности">
-              <input
-                type="date"
-                name="reportDate"
-                defaultValue={value.reportDate}
-              />
-            </Field>
-            {(
-              [
-                ["eps", "Прибыль на акцию"],
-                ["bookValue", "Балансовая стоимость на акцию"],
-                ["debt", "Долг"],
-                ["equity", "Собственный капитал"],
-                ["revenue", "Выручка за год"],
-                ["netIncome", "Чистая прибыль за год"],
-              ] as const
-            ).map(([key, label]) => (
-              <Field key={key} label={label}>
+        ) : (
+          <details className="form-details">
+            <summary>Отчётность эмитента для анализа</summary>
+            <p>
+              Все суммы — в валюте инструмента, за один отчётный период.
+              Неизвестные поля оставьте пустыми.
+            </p>
+            <div className="form-grid">
+              <Field label="Дата отчётности">
                 <input
-                  name={key}
-                  type="number"
-                  step="any"
-                  defaultValue={value[key] ?? ""}
+                  type="date"
+                  name="reportDate"
+                  defaultValue={value.reportDate}
                 />
               </Field>
-            ))}
-          </div>
-        </details>
+              {(
+                [
+                  ["eps", "Прибыль на акцию"],
+                  ["bookValue", "Балансовая стоимость на акцию"],
+                  ["debt", "Долг"],
+                  ["equity", "Собственный капитал"],
+                  ["revenue", "Выручка за год"],
+                  ["netIncome", "Чистая прибыль за год"],
+                ] as const
+              ).map(([key, label]) => (
+                <Field key={key} label={label}>
+                  <input
+                    name={key}
+                    type="number"
+                    step="any"
+                    defaultValue={value[key] ?? ""}
+                  />
+                </Field>
+              ))}
+            </div>
+          </details>
+        )}
         {error && (
           <p role="alert" className="form-error">
             <AlertCircle size={16} />
@@ -684,7 +698,11 @@ export function OperationForm({
               {!isDeposit && (
                 <Field
                   label={`Цена за единицу, ${selectedCurrency}`}
-                  hint="Для облигации укажите полную цену с НКД"
+                  hint={
+                    instrument?.kind === "stock"
+                      ? "Укажите фактическую цену совершённой сделки"
+                      : "Для облигации укажите полную цену с НКД"
+                  }
                 >
                   <input
                     key={instrumentId}
@@ -693,7 +711,13 @@ export function OperationForm({
                     step="any"
                     min="0.00000001"
                     required
-                    defaultValue={existing?.price ?? instrument?.nominal ?? ""}
+                    defaultValue={
+                      existing?.price ??
+                      (instrument?.kind === "stock"
+                        ? ""
+                        : instrument?.nominal) ??
+                      ""
+                    }
                   />
                 </Field>
               )}
@@ -768,19 +792,24 @@ export function OperationForm({
                   placeholder="На чём основано моё решение?"
                 />
               </Field>
-              {(
-                [
-                  ["goal", "Цель"],
-                  ["horizon", "Срок владения"],
-                  ["expectation", "Ожидаемый результат"],
-                  ["risks", "Какие риски принимаю"],
-                  ["exit", "Когда продам / пересмотрю решение"],
-                ] as const
-              ).map(([key, label]) => (
-                <Field key={key} label={label} wide={key === "exit"}>
-                  <input name={key} defaultValue={thesis[key]} />
-                </Field>
-              ))}
+              <details className="form-details wide">
+                <summary>Цель, риски и условия выхода</summary>
+                <div className="form-grid">
+                  {(
+                    [
+                      ["goal", "Цель"],
+                      ["horizon", "Срок владения"],
+                      ["expectation", "Ожидаемый результат"],
+                      ["risks", "Какие риски принимаю"],
+                      ["exit", "Когда продам / пересмотрю решение"],
+                    ] as const
+                  ).map(([key, label]) => (
+                    <Field key={key} label={label} wide={key === "exit"}>
+                      <input name={key} defaultValue={thesis[key]} />
+                    </Field>
+                  ))}
+                </div>
+              </details>
             </>
           )}
           <Field label="Комментарий" wide>

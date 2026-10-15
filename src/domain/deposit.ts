@@ -84,6 +84,9 @@ export function depositAccrual(
   let period = new Decimal(0);
   let capitalized = new Decimal(0);
   let recognized = new Decimal(0);
+  const rateHistory = [...(i.depositRate?.history ?? [])].sort((a, b) =>
+    b.date.localeCompare(a.date),
+  );
   for (let date = first; date <= end; date = shiftDate(date, 1)) {
     if (isPaymentDay(i, date, first) || date === i.maturity) {
       const paid = period.toDecimalPlaces(2);
@@ -105,7 +108,7 @@ export function depositAccrual(
     const daily = principal.gt(0)
       ? principal
           .plus(virtualPrincipal)
-          .mul(depositRateAt(i, date))
+          .mul(rateHistory.find((r) => r.date <= date)?.rate ?? i.annualRate)
           .div(100)
           .div(yearDays(date))
       : new Decimal(0);
