@@ -82,11 +82,11 @@ SQLite, резервные копии, CSV, `.env`, локальные тест�
 
 ## GitHub
 
-Приватный репозиторий проекта: [Yaroslavka123/invest-manager](https://github.com/Yaroslavka123/invest-manager). Основная ветка — `main`. Данные приложения исключены из Git.
+Репозиторий проекта: [carvad1/invmgr](https://github.com/carvad1/invmgr). Основная ветка — `main`. Данные приложения исключены из Git.
 
 ```powershell
-git clone https://github.com/Yaroslavka123/invest-manager.git
-cd invest-manager
+git clone https://github.com/carvad1/invmgr.git
+cd invmgr
 npm ci
 npm run setup
 npm run build
